@@ -16,13 +16,13 @@ Express是node的后台快速开发框架">
 <meta property="og:site_name" content="我的博客">
 <meta property="og:description" content=".jpg)
 Express是node的后台快速开发框架">
-<meta property="og:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(45">
-<meta property="og:updated_time" content="2017-03-28T07:58:13.302Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/yutaiwei/blog/master/photo/1%20(103">
+<meta property="og:updated_time" content="2017-03-28T10:04:03.389Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Express入门">
 <meta name="twitter:description" content=".jpg)
 Express是node的后台快速开发框架">
-<meta name="twitter:image" content="https://github.com/yutaiwei/blog/blob/master/photo/1%20(45">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/yutaiwei/blog/master/photo/1%20(103">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -188,7 +188,7 @@ Express是node的后台快速开发框架">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://github.com/yutaiwei/blog/blob/master/photo/1%20(45" alt="">.jpg)</p>
+        <p><img src="https://raw.githubusercontent.com/yutaiwei/blog/master/photo/1%20(103" alt="">.jpg)</p>
 <h3 id="Express是node的后台快速开发框架"><a href="#Express是node的后台快速开发框架" class="headerlink" title="Express是node的后台快速开发框架"></a>Express是node的后台快速开发框架</h3><a id="more"></a>
 <p>创建http服务</p>
 <figure class="highlight qml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="keyword">let</span> <span class="built_in">url</span> = <span class="built_in">require</span>(<span class="string">'url'</span>);</div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</div><div class="line">    <span class="built_in">var</span> urlObj =  <span class="built_in">url</span>.parse(req.url,<span class="literal">true</span>);</div><div class="line">    <span class="built_in">var</span> pathname = urlObj.pathname;</div><div class="line">    <span class="keyword">if</span> (pathname == <span class="string">'/'</span>)&#123;</div><div class="line">      res.end(<span class="string">'首页'</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(pathname == <span class="string">'/user'</span>)&#123;</div><div class="line">        res.end(<span class="string">'用户'</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="title">else</span> &#123;</div><div class="line">        res.statusCode = <span class="number">404</span>;</div><div class="line">        res.end(<span class="string">'Not Found'</span>)</div><div class="line">    &#125;</div><div class="line">&#125;).listen(<span class="number">3000</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'3000端口成功监听'</span>)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
