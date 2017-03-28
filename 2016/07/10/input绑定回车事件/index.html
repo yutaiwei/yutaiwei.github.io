@@ -8,21 +8,18 @@
   <link rel="dns-prefetch" href="http://yutaiwei.github.io">
   <title>input绑定回车事件 | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content=".jpg)
-html部分：1&amp;lt;input id=&quot;search-key&quot; type=&quot;text&quot; placeholder=&quot;请输入关键字&quot;&amp;gt;">
+  <meta name="description" content="html部分：1&amp;lt;input id=&quot;search-key&quot; type=&quot;text&quot; placeholder=&quot;请输入关键字&quot;&amp;gt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="input绑定回车事件">
 <meta property="og:url" content="http://yutaiwei.github.io/2016/07/10/input绑定回车事件/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content=".jpg)
-html部分：1&amp;lt;input id=&quot;search-key&quot; type=&quot;text&quot; placeholder=&quot;请输入关键字&quot;&amp;gt;">
-<meta property="og:image" content="https://raw.githubusercontent.com/yutaiwei/blog/master/photo/1%20(15">
-<meta property="og:updated_time" content="2017-03-28T09:55:40.194Z">
+<meta property="og:description" content="html部分：1&amp;lt;input id=&quot;search-key&quot; type=&quot;text&quot; placeholder=&quot;请输入关键字&quot;&amp;gt;">
+<meta property="og:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/2.jpg">
+<meta property="og:updated_time" content="2017-03-28T11:35:43.817Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="input绑定回车事件">
-<meta name="twitter:description" content=".jpg)
-html部分：1&amp;lt;input id=&quot;search-key&quot; type=&quot;text&quot; placeholder=&quot;请输入关键字&quot;&amp;gt;">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/yutaiwei/blog/master/photo/1%20(15">
+<meta name="twitter:description" content="html部分：1&amp;lt;input id=&quot;search-key&quot; type=&quot;text&quot; placeholder=&quot;请输入关键字&quot;&amp;gt;">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/2.jpg">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -188,7 +185,7 @@ html部分：1&amp;lt;input id=&quot;search-key&quot; type=&quot;text&quot; plac
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://raw.githubusercontent.com/yutaiwei/blog/master/photo/1%20(15" alt="">.jpg)</p>
+        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/2.jpg" alt=""></p>
 <p>html部分：<br><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input id=<span class="string">"search-key"</span> <span class="class"><span class="keyword">type</span></span>=<span class="string">"text"</span> placeholder=<span class="string">"请输入关键字"</span>&gt;</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>JavaScript部分：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#search-key'</span>).keypress(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> key = event.which;</div><div class="line">    <span class="built_in">console</span>.log(key);</div><div class="line">    <span class="keyword">if</span>(key == <span class="number">13</span>)&#123;</div><div class="line">        <span class="comment">//do something</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>

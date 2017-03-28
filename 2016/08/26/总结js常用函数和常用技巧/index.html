@@ -8,21 +8,18 @@
   <link rel="dns-prefetch" href="http://yutaiwei.github.io">
   <title>总结js常用函数和常用技巧（持续更新） | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content=".jpg)
-学习和工作的过程中总结的干货，包括常用函数、常用js技巧、常用正则表达式、git笔记等。为刚接触前端的童鞋们提供一个简单的查询的途径，也以此来缅怀我的前端学习之路。PS：此文档，我会持续更新。">
+  <meta name="description" content="学习和工作的过程中总结的干货，包括常用函数、常用js技巧、常用正则表达式、git笔记等。为刚接触前端的童鞋们提供一个简单的查询的途径，也以此来缅怀我的前端学习之路。PS：此文档，我会持续更新。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="总结js常用函数和常用技巧（持续更新）">
 <meta property="og:url" content="http://yutaiwei.github.io/2016/08/26/总结js常用函数和常用技巧/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content=".jpg)
-学习和工作的过程中总结的干货，包括常用函数、常用js技巧、常用正则表达式、git笔记等。为刚接触前端的童鞋们提供一个简单的查询的途径，也以此来缅怀我的前端学习之路。PS：此文档，我会持续更新。">
-<meta property="og:image" content="https://raw.githubusercontent.com/yutaiwei/blog/master/photo/1%20(27">
-<meta property="og:updated_time" content="2017-03-28T09:59:26.030Z">
+<meta property="og:description" content="学习和工作的过程中总结的干货，包括常用函数、常用js技巧、常用正则表达式、git笔记等。为刚接触前端的童鞋们提供一个简单的查询的途径，也以此来缅怀我的前端学习之路。PS：此文档，我会持续更新。">
+<meta property="og:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/18.jpg">
+<meta property="og:updated_time" content="2017-03-28T11:39:56.684Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="总结js常用函数和常用技巧（持续更新）">
-<meta name="twitter:description" content=".jpg)
-学习和工作的过程中总结的干货，包括常用函数、常用js技巧、常用正则表达式、git笔记等。为刚接触前端的童鞋们提供一个简单的查询的途径，也以此来缅怀我的前端学习之路。PS：此文档，我会持续更新。">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/yutaiwei/blog/master/photo/1%20(27">
+<meta name="twitter:description" content="学习和工作的过程中总结的干货，包括常用函数、常用js技巧、常用正则表达式、git笔记等。为刚接触前端的童鞋们提供一个简单的查询的途径，也以此来缅怀我的前端学习之路。PS：此文档，我会持续更新。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/18.jpg">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -188,7 +185,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://raw.githubusercontent.com/yutaiwei/blog/master/photo/1%20(27" alt="">.jpg)</p>
+        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/18.jpg" alt=""></p>
 <p>学习和工作的过程中总结的干货，包括常用函数、常用js技巧、常用正则表达式、git笔记等。为刚接触前端的童鞋们提供一个简单的查询的途径，也以此来缅怀我的前端学习之路。<br>PS：此文档，我会持续更新。<br><a id="more"></a></p>
 <h1 id="Ajax请求"><a href="#Ajax请求" class="headerlink" title="Ajax请求"></a>Ajax请求</h1><h2 id="jquery-ajax函数"><a href="#jquery-ajax函数" class="headerlink" title="jquery ajax函数"></a>jquery ajax函数</h2><p>我自己封装了一个ajax的函数，代码如下：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Ajax = <span class="function"><span class="keyword">function</span>(<span class="params">url, type success, error</span>) </span>&#123;</div><div class="line">    $.ajax(&#123;</div><div class="line">        <span class="attr">url</span>: url,</div><div class="line">        <span class="attr">type</span>: type,</div><div class="line">        <span class="attr">dataType</span>: <span class="string">'json'</span>,</div><div class="line">        <span class="attr">timeout</span>: <span class="number">10000</span>,</div><div class="line">        <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> data = d.data;</div><div class="line">            success &amp;&amp; success(data);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">error</span>: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">            error &amp;&amp; error(e);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;;</div><div class="line"><span class="comment">// 使用方法：</span></div><div class="line">Ajax(<span class="string">'/data.json'</span>, <span class="string">'get'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(data);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>

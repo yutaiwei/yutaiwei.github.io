@@ -8,21 +8,18 @@
   <link rel="dns-prefetch" href="http://yutaiwei.github.io">
   <title>JavaScript正则表达式 | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content=".jpg)
-前言正则表达式（Regular Expression）主要是用来描述一个句法规则的模式。其实说的通俗一点，就是利用字符和元字符的组合，对一些符合既定句法的模式进行模糊匹配。它的主要功能是文本查询和字符串操作。本文讨论一下JavaScript中的正则表达式用法。">
+  <meta name="description" content="前言正则表达式（Regular Expression）主要是用来描述一个句法规则的模式。其实说的通俗一点，就是利用字符和元字符的组合，对一些符合既定句法的模式进行模糊匹配。它的主要功能是文本查询和字符串操作。本文讨论一下JavaScript中的正则表达式用法。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript正则表达式">
 <meta property="og:url" content="http://yutaiwei.github.io/2016/07/15/JavaScript正则表达式/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content=".jpg)
-前言正则表达式（Regular Expression）主要是用来描述一个句法规则的模式。其实说的通俗一点，就是利用字符和元字符的组合，对一些符合既定句法的模式进行模糊匹配。它的主要功能是文本查询和字符串操作。本文讨论一下JavaScript中的正则表达式用法。">
-<meta property="og:image" content="https://raw.githubusercontent.com/yutaiwei/blog/master/photo/1%20(16">
-<meta property="og:updated_time" content="2017-03-28T09:55:52.661Z">
+<meta property="og:description" content="前言正则表达式（Regular Expression）主要是用来描述一个句法规则的模式。其实说的通俗一点，就是利用字符和元字符的组合，对一些符合既定句法的模式进行模糊匹配。它的主要功能是文本查询和字符串操作。本文讨论一下JavaScript中的正则表达式用法。">
+<meta property="og:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/3.jpg">
+<meta property="og:updated_time" content="2017-03-28T11:36:02.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript正则表达式">
-<meta name="twitter:description" content=".jpg)
-前言正则表达式（Regular Expression）主要是用来描述一个句法规则的模式。其实说的通俗一点，就是利用字符和元字符的组合，对一些符合既定句法的模式进行模糊匹配。它的主要功能是文本查询和字符串操作。本文讨论一下JavaScript中的正则表达式用法。">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/yutaiwei/blog/master/photo/1%20(16">
+<meta name="twitter:description" content="前言正则表达式（Regular Expression）主要是用来描述一个句法规则的模式。其实说的通俗一点，就是利用字符和元字符的组合，对一些符合既定句法的模式进行模糊匹配。它的主要功能是文本查询和字符串操作。本文讨论一下JavaScript中的正则表达式用法。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/3.jpg">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -188,7 +185,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://raw.githubusercontent.com/yutaiwei/blog/master/photo/1%20(16" alt="">.jpg)</p>
+        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/3.jpg" alt=""></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>正则表达式（Regular Expression）主要是用来描述一个句法规则的模式。其实说的通俗一点，就是利用字符和元字符的组合，对一些符合既定句法的模式进行模糊匹配。它的主要功能是文本查询和字符串操作。本文讨论一下JavaScript中的正则表达式用法。</p>
 <a id="more"></a>
 <h1 id="定义正则表达式"><a href="#定义正则表达式" class="headerlink" title="定义正则表达式"></a>定义正则表达式</h1><p>1、定义正则表达式有两种形式，一种是普通方式，一种是构造函数方式。<br>2、普通方式：var reg=/表达式/附加参数<br>表达式：一个字符串，代表了某种规则，其中可以使用某些特殊字符，来代表特殊的规则，后面会详细说明。<br>附加参数：用来扩展表达式的含义，目前主要有三个参数：<br>g：代表可以进行全局匹配。<br>i：代表不区分大小写匹配。<br>m：代表可以进行多行匹配。<br>上面三个参数，可以任意组合，代表复合含义，当然也可以不加参数。<br>例子：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">var reg</span>=/a*b/;</div><div class="line"><span class="attribute">var reg</span>=/abc+f/g;</div></pre></td></tr></table></figure></p>
