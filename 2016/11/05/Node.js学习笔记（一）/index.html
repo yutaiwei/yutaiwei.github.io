@@ -215,7 +215,7 @@ node.js + mongodb(工具mongoose) + express + jade + moment.js + npm + jquery + 
 <p>至于这段代码的意思，请自行观看视频哈！<br>在views文件夹下，新建文件<strong>index.jade</strong>（这个文件就相当于html文件），输入内容如下：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">doctype</div><div class="line"><span class="selector-tag">html</span></div><div class="line">	head</div><div class="line">		meta(charset=<span class="string">"utf-8"</span>)</div><div class="line">		title #&#123;title&#125;</div><div class="line">	<span class="selector-tag">body</span></div><div class="line">		<span class="selector-tag">h1</span> #&#123;title&#125;</div></pre></td></tr></table></figure></p>
 <p>至此，大功告成！</p>
 <h3 id="查看效果"><a href="#查看效果" class="headerlink" title="查看效果"></a>查看效果</h3><p>在helloworld文件夹下执行命令：<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">node</span> <span class="title">app</span>.js</div></pre></td></tr></table></figure></p>
-<p>在浏览器中打开：<a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a><br>有没有看到“helloworld”这个出现在了浏览器上？没看到？请留言！<br>PS：<br>你也可以新建admin.jade，也输入和index.jade相同的代码。然后在app.js添加如下代码：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.get(<span class="string">'/admin/'</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span></span>&#123;</div><div class="line">  res.render(<span class="string">'admin'</span>,&#123;title:<span class="string">'admin'</span>&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>在浏览器中打开：<a href="http://localhost:3000" target="_blank" rel="external">http://localhost:3000</a><br>有没有看到“helloworld”这个出现在了浏览器上？没看到？请留言！<br>PS：<br>你也可以新建admin.jade，也输入和index.jade相同的代码。然后在app.js添加如下代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.get(<span class="string">'/admin/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">  res.render(<span class="string">'admin'</span>,&#123;<span class="attr">title</span>:<span class="string">'admin'</span>&#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <p>访问地址：<a href="http://localhost:3000/admin/" target="_blank" rel="external">http://localhost:3000/admin/</a><br>这时你会看到“admin”出现在了浏览器上！</p>
 <h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2><p>好了，今天的笔记就写到这里！有任何问题欢迎留言。</p>
 
@@ -449,6 +449,14 @@ node.js + mongodb(工具mongoose) + express + jade + moment.js + npm + jquery + 
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">实例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
               </li>
              
@@ -461,15 +469,15 @@ node.js + mongodb(工具mongoose) + express + jade + moment.js + npm + jquery + 
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color1">Array</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">实例</a>
+                <a href="javascript:void(0)" class="js-tag color1">Array comprehensions</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -485,15 +493,7 @@ node.js + mongodb(工具mongoose) + express + jade + moment.js + npm + jquery + 
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Array</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Array comprehensions</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,11 +529,27 @@ node.js + mongodb(工具mongoose) + express + jade + moment.js + npm + jquery + 
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">node.js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color2">sprite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1"> transform</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">css3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -553,31 +569,15 @@ node.js + mongodb(工具mongoose) + express + jade + moment.js + npm + jquery + 
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1"> transform</a>
+                <a href="javascript:void(0)" class="js-tag color2">js数组排序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sprite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">win7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+                <a href="javascript:void(0)" class="js-tag color5">sort</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,10 +590,6 @@ node.js + mongodb(工具mongoose) + express + jade + moment.js + npm + jquery + 
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">bind</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">exports</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -613,19 +609,19 @@ node.js + mongodb(工具mongoose) + express + jade + moment.js + npm + jquery + 
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">js数组排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">exports</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">sort</a>
+                <a href="javascript:void(0)" class="js-tag color5">win7</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">励志</a>
+                <a href="javascript:void(0)" class="js-tag color4">白岩松</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -637,6 +633,14 @@ node.js + mongodb(工具mongoose) + express + jade + moment.js + npm + jquery + 
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">励志</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
@@ -645,11 +649,7 @@ node.js + mongodb(工具mongoose) + express + jade + moment.js + npm + jquery + 
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">干货总结</a>
+                <a href="javascript:void(0)" class="js-tag color4">周云龙</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -657,7 +657,19 @@ node.js + mongodb(工具mongoose) + express + jade + moment.js + npm + jquery + 
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">白岩松</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">子沫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">干货总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笑话</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -665,7 +677,7 @@ node.js + mongodb(工具mongoose) + express + jade + moment.js + npm + jquery + 
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笑话</a>
+                <a href="javascript:void(0)" class="js-tag color3">小说</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -681,19 +693,7 @@ node.js + mongodb(工具mongoose) + express + jade + moment.js + npm + jquery + 
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">子沫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">周云龙</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">微信Logo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">王纯</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -701,15 +701,15 @@ node.js + mongodb(工具mongoose) + express + jade + moment.js + npm + jquery + 
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">薛涌</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">裘霜</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小说</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">薛涌</a>
+                <a href="javascript:void(0)" class="js-tag color3">王纯</a>
               </li>
             
             <div class="clearfix"></div>
@@ -772,10 +772,6 @@ node.js + mongodb(工具mongoose) + express + jade + moment.js + npm + jquery + 
               <a href="https://segmentfault.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>segmentfault</a>
             </li>
           
-            <li class="search-li">
-              <a href="/程序猿问科比：“你为什么这么成功？”<br>  科比：“你知道洛杉矶凌晨四点是什么样子吗？ ”<br>  程序猿：“知道，一般那个时候我还在写代码，怎么了？”<br>  科比:“...”" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>aboutme</a>
-            </li>
-          
         </ul>
   		
     	</section>
@@ -783,6 +779,8 @@ node.js + mongodb(工具mongoose) + express + jade + moment.js + npm + jquery + 
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">程序猿问科比：“你为什么这么成功？”&lt;br&gt;  科比：“你知道洛杉矶凌晨四点是什么样子吗？ ”&lt;br&gt;  程序猿：“知道，一般那个时候我还在写代码，怎么了？”&lt;br&gt;  科比:“...”</div>
   	  	
     	</section>
     

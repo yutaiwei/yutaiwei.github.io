@@ -227,7 +227,7 @@
 <p>先来看一个例子：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">"xlj"</span>;</div><div class="line"><span class="keyword">var</span> zlw = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">"zlw"</span></div><div class="line">    hello: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">zlw.hello(); <span class="comment">// zlw</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> hello = zlw.hello;</div><div class="line">hello(); <span class="comment">// xlj</span></div></pre></td></tr></table></figure>
 <p>有些人可能会意外，<code>hello()</code>的结果应该是<code>zlw</code>才对啊。其实，将<code>zlw.hello</code>赋值给变量<code>hello</code>，再调用<code>hello()</code>，<code>hello</code>函数中的<code>this</code>已经指向了<code>window</code>，与<code>zlw.hello</code>不再是同一个上下文，而全局变量<code>name</code>是<code>window</code>的一个属性，所以结果就是<code>xlj</code>。再看下面的代码：</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var hello = zlw.hello.bind(zlw)<span class="comment">;</span></div><div class="line">hello()<span class="comment">; // zlw</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> hello = zlw.hello.bind(zlw);</div><div class="line">hello(); <span class="comment">// zlw</span></div></pre></td></tr></table></figure>
 <p>结果是<code>zlw</code>，这时<code>hello</code>函数与<code>zlw.hello</code>是同一个上下文。其实上面的疑惑已经解开了，直接这样写：</p>
 <figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var <span class="keyword">bind</span> = <span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>.<span class="keyword">bind</span>.<span class="keyword">call</span>;</div></pre></td></tr></table></figure>
 <p><code>bind</code>函数中的上下文已经与<code>Function.prototype.bind.call</code>中的不一样了，所以使用<code>bind</code>函数会出错。而这样写</p>
@@ -473,6 +473,14 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">实例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
               </li>
              
@@ -485,15 +493,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color1">Array</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">实例</a>
+                <a href="javascript:void(0)" class="js-tag color1">Array comprehensions</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,15 +517,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Array</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Array comprehensions</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -553,11 +553,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">node.js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color2">sprite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1"> transform</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">css3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,31 +593,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1"> transform</a>
+                <a href="javascript:void(0)" class="js-tag color2">js数组排序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sprite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">win7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+                <a href="javascript:void(0)" class="js-tag color5">sort</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -614,10 +614,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">bind</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">exports</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -637,19 +633,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">js数组排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">exports</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">sort</a>
+                <a href="javascript:void(0)" class="js-tag color5">win7</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">励志</a>
+                <a href="javascript:void(0)" class="js-tag color4">白岩松</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -661,6 +657,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">励志</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
@@ -669,11 +673,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">干货总结</a>
+                <a href="javascript:void(0)" class="js-tag color4">周云龙</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -681,7 +681,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">白岩松</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">子沫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">干货总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笑话</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -689,7 +701,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笑话</a>
+                <a href="javascript:void(0)" class="js-tag color3">小说</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -705,19 +717,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">子沫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">周云龙</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">微信Logo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">王纯</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -725,15 +725,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">薛涌</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">裘霜</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小说</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">薛涌</a>
+                <a href="javascript:void(0)" class="js-tag color3">王纯</a>
               </li>
             
             <div class="clearfix"></div>
@@ -796,10 +796,6 @@
               <a href="https://segmentfault.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>segmentfault</a>
             </li>
           
-            <li class="search-li">
-              <a href="/程序猿问科比：“你为什么这么成功？”<br>  科比：“你知道洛杉矶凌晨四点是什么样子吗？ ”<br>  程序猿：“知道，一般那个时候我还在写代码，怎么了？”<br>  科比:“...”" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>aboutme</a>
-            </li>
-          
         </ul>
   		
     	</section>
@@ -807,6 +803,8 @@
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">程序猿问科比：“你为什么这么成功？”&lt;br&gt;  科比：“你知道洛杉矶凌晨四点是什么样子吗？ ”&lt;br&gt;  程序猿：“知道，一般那个时候我还在写代码，怎么了？”&lt;br&gt;  科比:“...”</div>
   	  	
     	</section>
     

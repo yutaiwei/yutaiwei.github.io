@@ -216,7 +216,7 @@
 <figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">res</span><span class="selector-class">.redirect</span>(<span class="string">'back'</span>);</div></pre></td></tr></table></figure>
 </li>
 <li><p>跳到指定的页面</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app.post(<span class="string">'/signup'</span>,<span class="function"><span class="keyword">function</span><span class="params">(req,res)</span></span>&#123;</div><div class="line">   res.redirect(<span class="string">'/signin'</span>);</div><div class="line">   <span class="comment">//参数是一个URL地址，不是文件路径</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app.post(<span class="string">'/signup'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</div><div class="line">   res.redirect(<span class="string">'/signin'</span>);</div><div class="line">   <span class="comment">//参数是一个URL地址，不是文件路径</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="express-中经常用到的模块汇总"><a href="#express-中经常用到的模块汇总" class="headerlink" title="express 中经常用到的模块汇总"></a>express 中经常用到的模块汇总</h3><h4 id="请求体解析模块——body-parser"><a href="#请求体解析模块——body-parser" class="headerlink" title="请求体解析模块——body-parser"></a>请求体解析模块——body-parser</h4><blockquote>
@@ -230,7 +230,7 @@
 <h3 id="路径解析模块——path"><a href="#路径解析模块——path" class="headerlink" title="路径解析模块——path"></a>路径解析模块——path</h3><blockquote>
 <p>处理有关文件路径的内容</p>
 </blockquote>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">let path</span> = require(<span class="string">'path'</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div></pre></td></tr></table></figure>
 <ul>
 <li><p>绝对路径：==path.resolve==</p>
 <figure class="highlight tcl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">path.resolve(<span class="string">'foo/bar'</span>, <span class="string">'/tmp/file/'</span>, <span class="string">'..'</span>, <span class="string">'a/../subfile'</span>);</div><div class="line">// 返回 /tmp/subfile</div><div class="line">// 此方法的参数类似于命令行中的<span class="keyword">cd</span>命令</div><div class="line">eg:</div><div class="line"><span class="keyword">cd</span> foo/bar</div><div class="line"><span class="keyword">cd</span> /tmp/<span class="keyword">file</span>/</div><div class="line"><span class="keyword">cd</span> ..</div><div class="line"><span class="keyword">cd</span> a/../subfile</div><div class="line">// <span class="keyword">cd</span> ..返回上一层</div></pre></td></tr></table></figure>
@@ -256,7 +256,7 @@
 <p>可以通过router配置路由</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> router = express.Router();</div><div class="line">eg:</div><div class="line"><span class="keyword">let</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="comment">//router也是一个容器，此容器下面可以配置路由</span></div><div class="line"><span class="keyword">let</span> router = express.Router();</div><div class="line">router.get(<span class="string">'/signup'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</div><div class="line">    res.end(<span class="string">'注册'</span>);</div><div class="line">&#125;);</div><div class="line">router.get(<span class="string">'/signin'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</div><div class="line">    res.end(<span class="string">'登录'</span>);</div><div class="line">&#125;);</div><div class="line">router.get(<span class="string">'/signout'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">req,res</span>)</span>&#123;</div><div class="line">    res.end(<span class="string">'退出'</span>);</div><div class="line">&#125;);</div><div class="line"><span class="built_in">module</span>.exports = router;</div></pre></td></tr></table></figure>
-<h4 id="express控制cooike：cookie-parser"><a href="#express控制cooike：cookie-parser" class="headerlink" title="express控制cooike：cookie-parser"></a>express控制cooike：cookie-parser</h4><p>cookie可以应用在很多场景，例如保存未登录账户的用户的购物车信息<br>引入cookie-parser<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">let cookiePaser</span> = require(<span class="string">'cookie-parser'</span>);</div></pre></td></tr></table></figure></p>
+<h4 id="express控制cooike：cookie-parser"><a href="#express控制cooike：cookie-parser" class="headerlink" title="express控制cooike：cookie-parser"></a>express控制cooike：cookie-parser</h4><p>cookie可以应用在很多场景，例如保存未登录账户的用户的购物车信息<br>引入cookie-parser<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> cookiePaser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>);</div></pre></td></tr></table></figure></p>
 <p>使用cookie-parser需要传入一个秘钥<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">app.<span class="keyword">use</span>(cookieParser(<span class="symbol">'mima</span>'));</div></pre></td></tr></table></figure></p>
 <p>向客户端写cooike<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">res</span><span class="selector-class">.cookie</span>(<span class="string">'name'</span>,<span class="string">'zfpx'</span>)</div></pre></td></tr></table></figure></p>
 <p>读取客户端的cooike<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">req</span><span class="selector-class">.cookies</span></div></pre></td></tr></table></figure></p>
@@ -475,6 +475,14 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">实例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
               </li>
              
@@ -487,15 +495,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color1">Array</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">实例</a>
+                <a href="javascript:void(0)" class="js-tag color1">Array comprehensions</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,15 +519,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Array</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Array comprehensions</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,11 +555,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">node.js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color2">sprite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1"> transform</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">css3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,31 +595,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1"> transform</a>
+                <a href="javascript:void(0)" class="js-tag color2">js数组排序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sprite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">win7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+                <a href="javascript:void(0)" class="js-tag color5">sort</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -616,10 +616,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">bind</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">exports</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -639,19 +635,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">js数组排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">exports</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">sort</a>
+                <a href="javascript:void(0)" class="js-tag color5">win7</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">励志</a>
+                <a href="javascript:void(0)" class="js-tag color4">白岩松</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -663,6 +659,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">励志</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
@@ -671,11 +675,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">干货总结</a>
+                <a href="javascript:void(0)" class="js-tag color4">周云龙</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -683,7 +683,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">白岩松</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">子沫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">干货总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笑话</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -691,7 +703,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笑话</a>
+                <a href="javascript:void(0)" class="js-tag color3">小说</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -707,19 +719,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">子沫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">周云龙</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">微信Logo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">王纯</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -727,15 +727,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">薛涌</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">裘霜</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小说</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">薛涌</a>
+                <a href="javascript:void(0)" class="js-tag color3">王纯</a>
               </li>
             
             <div class="clearfix"></div>
@@ -798,10 +798,6 @@
               <a href="https://segmentfault.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>segmentfault</a>
             </li>
           
-            <li class="search-li">
-              <a href="/程序猿问科比：“你为什么这么成功？”<br>  科比：“你知道洛杉矶凌晨四点是什么样子吗？ ”<br>  程序猿：“知道，一般那个时候我还在写代码，怎么了？”<br>  科比:“...”" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>aboutme</a>
-            </li>
-          
         </ul>
   		
     	</section>
@@ -809,6 +805,8 @@
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">程序猿问科比：“你为什么这么成功？”&lt;br&gt;  科比：“你知道洛杉矶凌晨四点是什么样子吗？ ”&lt;br&gt;  程序猿：“知道，一般那个时候我还在写代码，怎么了？”&lt;br&gt;  科比:“...”</div>
   	  	
     	</section>
     

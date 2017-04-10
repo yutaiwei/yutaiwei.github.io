@@ -188,15 +188,15 @@
         <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/3.jpg" alt=""></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>正则表达式（Regular Expression）主要是用来描述一个句法规则的模式。其实说的通俗一点，就是利用字符和元字符的组合，对一些符合既定句法的模式进行模糊匹配。它的主要功能是文本查询和字符串操作。本文讨论一下JavaScript中的正则表达式用法。</p>
 <a id="more"></a>
-<h1 id="定义正则表达式"><a href="#定义正则表达式" class="headerlink" title="定义正则表达式"></a>定义正则表达式</h1><p>1、定义正则表达式有两种形式，一种是普通方式，一种是构造函数方式。<br>2、普通方式：var reg=/表达式/附加参数<br>表达式：一个字符串，代表了某种规则，其中可以使用某些特殊字符，来代表特殊的规则，后面会详细说明。<br>附加参数：用来扩展表达式的含义，目前主要有三个参数：<br>g：代表可以进行全局匹配。<br>i：代表不区分大小写匹配。<br>m：代表可以进行多行匹配。<br>上面三个参数，可以任意组合，代表复合含义，当然也可以不加参数。<br>例子：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">var reg</span>=/a*b/;</div><div class="line"><span class="attribute">var reg</span>=/abc+f/g;</div></pre></td></tr></table></figure></p>
-<p>3、构造函数方式：var reg=new RegExp(“表达式”,”附加参数”);<br>其中“表达式”与“附加参数”的含义与上面那种定义方式中的含义相同。<br>例子：<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"a*b"</span>);</div><div class="line"><span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"abc+f"</span>,<span class="string">"g"</span>);</div></pre></td></tr></table></figure></p>
-<p>4、普通方式与构造函数方式的区别<br>普通方式中的表达式必须是一个常量字符串，而构造函数中的表达式可以是常量字符串，也可以是一个js变量，例如根据用户的输入来作为表达式参数等等：<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="built_in">document</span>.forms[<span class="number">0</span>].exprfiled.value,<span class="string">"g"</span>);</div></pre></td></tr></table></figure></p>
-<h1 id="表达式模式"><a href="#表达式模式" class="headerlink" title="表达式模式"></a>表达式模式</h1><p>1、表达式模式，是指表达式的表达方式与样式， 即 var reg=/表达式/附加参数 中的“表达式”怎样去描述？<br>2、从规范上讲，表达式模式分为简单模式和复合模式。<br>3、简单模式：是指通过普通字符的组合来表达的模式，例如<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">var reg</span>=/abc0d/;</div></pre></td></tr></table></figure></p>
-<p>可见简单模式只能表示具体的匹配。<br>4、复合模式：是指含有通配符来表达的模式，例如：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">var reg</span>=/a+b?\w/;</div></pre></td></tr></table></figure></p>
+<h1 id="定义正则表达式"><a href="#定义正则表达式" class="headerlink" title="定义正则表达式"></a>定义正则表达式</h1><p>1、定义正则表达式有两种形式，一种是普通方式，一种是构造函数方式。<br>2、普通方式：var reg=/表达式/附加参数<br>表达式：一个字符串，代表了某种规则，其中可以使用某些特殊字符，来代表特殊的规则，后面会详细说明。<br>附加参数：用来扩展表达式的含义，目前主要有三个参数：<br>g：代表可以进行全局匹配。<br>i：代表不区分大小写匹配。<br>m：代表可以进行多行匹配。<br>上面三个参数，可以任意组合，代表复合含义，当然也可以不加参数。<br>例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg=<span class="regexp">/a*b/</span>;</div><div class="line"><span class="keyword">var</span> reg=<span class="regexp">/abc+f/g</span>;</div></pre></td></tr></table></figure></p>
+<p>3、构造函数方式：var reg=new RegExp(“表达式”,”附加参数”);<br>其中“表达式”与“附加参数”的含义与上面那种定义方式中的含义相同。<br>例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"a*b"</span>);</div><div class="line"><span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"abc+f"</span>,<span class="string">"g"</span>);</div></pre></td></tr></table></figure></p>
+<p>4、普通方式与构造函数方式的区别<br>普通方式中的表达式必须是一个常量字符串，而构造函数中的表达式可以是常量字符串，也可以是一个js变量，例如根据用户的输入来作为表达式参数等等：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="built_in">document</span>.forms[<span class="number">0</span>].exprfiled.value,<span class="string">"g"</span>);</div></pre></td></tr></table></figure></p>
+<h1 id="表达式模式"><a href="#表达式模式" class="headerlink" title="表达式模式"></a>表达式模式</h1><p>1、表达式模式，是指表达式的表达方式与样式， 即 var reg=/表达式/附加参数 中的“表达式”怎样去描述？<br>2、从规范上讲，表达式模式分为简单模式和复合模式。<br>3、简单模式：是指通过普通字符的组合来表达的模式，例如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg=<span class="regexp">/abc0d/</span>;</div></pre></td></tr></table></figure></p>
+<p>可见简单模式只能表示具体的匹配。<br>4、复合模式：是指含有通配符来表达的模式，例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> reg=<span class="regexp">/a+b?\w/</span>;</div></pre></td></tr></table></figure></p>
 <p>其中的+、?和\w都属于通配符，代表着特殊的含义。因此复合模式可以表达更为抽象化的逻辑。<br>复合模式中各个通配符的含义及其使用请阅读下文给出的参考文档。</p>
 <h1 id="表达式操作"><a href="#表达式操作" class="headerlink" title="表达式操作"></a>表达式操作</h1><p>1、表达式操作，在这里是指和表达式相关的方法，我们将介绍六个方法。<br>2、表达式对象（RegExp）方法：</p>
 <p>（1）exec(str)，返回str中与表达式相匹配的第一个字符串，而且以数组的形式表现，当然如果表达式中含有捕捉用的小括号，则返回的数组中也可能含有()中的匹配字符串，例如：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">var regx</span>=/\d+/;</div><div class="line"><span class="attribute">var rs</span>=regx.exec(<span class="string">"3432ddf53"</span>);</div></pre></td></tr></table></figure></p>
-<p>返回的rs值为：{3432}<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> regx2=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"ab(\d+)c"</span>);</div><div class="line"><span class="keyword">var</span> rs2=regx2.exec(<span class="string">"ab234c44"</span>);</div></pre></td></tr></table></figure></p>
+<p>返回的rs值为：{3432}<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> regx2=<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">"ab(\d+)c"</span>);</div><div class="line"><span class="keyword">var</span> rs2=regx2.exec(<span class="string">"ab234c44"</span>);</div></pre></td></tr></table></figure></p>
 <p>返回的rs2值为：{ab234c,234}<br>另外，如果有多个合适的匹配，则第一次执行exec返回一个第一个匹配，此时继续执行exec，则依次返回第二个第三个匹配。例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> regx=<span class="regexp">/user\d/g</span>;</div><div class="line"><span class="keyword">var</span> rs=regx.exec(<span class="string">"ddduser1dsfuser2dd"</span>);</div><div class="line"><span class="keyword">var</span> rs1=regx.exec(<span class="string">"ddduser1dsfuser2dd"</span>);</div></pre></td></tr></table></figure></p>
 <p>则rs的值为{user1}，rs1的值为{user2}，当然注意regx中的g参数是必须的，否则无论exec执行多少次，都返回第一个匹配。后面还有相关内容涉及到对此想象的解释。</p>
 <p>（2）test(str)，判断字符串str是否匹配表达式，返回一个布尔值。例如：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">var regx</span>=/user\d+/g;</div><div class="line"><span class="attribute">var flag</span>=regx.test(<span class="string">"user12dd"</span>);</div></pre></td></tr></table></figure></p>
@@ -472,6 +472,14 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">实例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
               </li>
              
@@ -484,15 +492,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
+                <a href="javascript:void(0)" class="js-tag color1">Array</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">实例</a>
+                <a href="javascript:void(0)" class="js-tag color1">Array comprehensions</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -508,15 +516,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Array</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Array comprehensions</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -552,11 +552,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">node.js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color2">sprite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1"> transform</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">css3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,31 +592,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1"> transform</a>
+                <a href="javascript:void(0)" class="js-tag color2">js数组排序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sprite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">win7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+                <a href="javascript:void(0)" class="js-tag color5">sort</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -613,10 +613,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">bind</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">exports</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -636,19 +632,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">js数组排序</a>
+                <a href="javascript:void(0)" class="js-tag color3">exports</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">sort</a>
+                <a href="javascript:void(0)" class="js-tag color5">win7</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">励志</a>
+                <a href="javascript:void(0)" class="js-tag color4">白岩松</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -660,6 +656,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">励志</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
@@ -668,11 +672,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">干货总结</a>
+                <a href="javascript:void(0)" class="js-tag color4">周云龙</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -680,7 +680,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">白岩松</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">子沫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">干货总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笑话</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -688,7 +700,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笑话</a>
+                <a href="javascript:void(0)" class="js-tag color3">小说</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -704,19 +716,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">子沫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">周云龙</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">微信Logo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">王纯</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -724,15 +724,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">薛涌</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">裘霜</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小说</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">薛涌</a>
+                <a href="javascript:void(0)" class="js-tag color3">王纯</a>
               </li>
             
             <div class="clearfix"></div>
@@ -795,10 +795,6 @@
               <a href="https://segmentfault.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>segmentfault</a>
             </li>
           
-            <li class="search-li">
-              <a href="/程序猿问科比：“你为什么这么成功？”<br>  科比：“你知道洛杉矶凌晨四点是什么样子吗？ ”<br>  程序猿：“知道，一般那个时候我还在写代码，怎么了？”<br>  科比:“...”" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>aboutme</a>
-            </li>
-          
         </ul>
   		
     	</section>
@@ -806,6 +802,8 @@
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">程序猿问科比：“你为什么这么成功？”&lt;br&gt;  科比：“你知道洛杉矶凌晨四点是什么样子吗？ ”&lt;br&gt;  程序猿：“知道，一般那个时候我还在写代码，怎么了？”&lt;br&gt;  科比:“...”</div>
   	  	
     	</section>
     
