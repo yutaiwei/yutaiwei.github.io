@@ -6,20 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yutaiwei.github.io">
-  <title>Node基础开发框架 | 我的博客</title>
+  <title>关于 AngularJS 的数据绑定用域 | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言测试新功能，开发新项目，按照本人的懒惰程度推算，八成会在原有项目的基础上开发。既然如此，抽出来一个node基础框架，似乎是一个很好的想法。本框架保留了毕设的主体代码，删除了一些无关代码，并且会继续增减代码，逐渐完善。">
+  <meta name="description" content="单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别ng-bind 单向数据绑定（$scope -&amp;gt; view），用于数据显示，简写形式是 &amp;amp;#123;&amp;amp;#123; &amp;amp;#125; &amp;amp;#125;。
+1&amp;lt;span ng-bind=&quot;val&quot;&amp;gt;&amp;lt;/span&amp;gt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Node基础开发框架">
-<meta property="og:url" content="http://yutaiwei.github.io/2016/09/04/Node基础开发框架/index.html">
+<meta property="og:title" content="关于 AngularJS 的数据绑定用域">
+<meta property="og:url" content="http://yutaiwei.github.io/2016/03/22/关于 AngularJS 的数据绑定/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="前言测试新功能，开发新项目，按照本人的懒惰程度推算，八成会在原有项目的基础上开发。既然如此，抽出来一个node基础框架，似乎是一个很好的想法。本框架保留了毕设的主体代码，删除了一些无关代码，并且会继续增减代码，逐渐完善。">
-<meta property="og:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/31.jpg">
-<meta property="og:updated_time" content="2017-05-01T13:59:01.592Z">
+<meta property="og:description" content="单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别ng-bind 单向数据绑定（$scope -&amp;gt; view），用于数据显示，简写形式是 &amp;amp;#123;&amp;amp;#123; &amp;amp;#125; &amp;amp;#125;。
+1&amp;lt;span ng-bind=&quot;val&quot;&amp;gt;&amp;lt;/span&amp;gt;">
+<meta property="og:updated_time" content="2017-05-02T09:19:05.645Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Node基础开发框架">
-<meta name="twitter:description" content="前言测试新功能，开发新项目，按照本人的懒惰程度推算，八成会在原有项目的基础上开发。既然如此，抽出来一个node基础框架，似乎是一个很好的想法。本框架保留了毕设的主体代码，删除了一些无关代码，并且会继续增减代码，逐渐完善。">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/31.jpg">
+<meta name="twitter:title" content="关于 AngularJS 的数据绑定用域">
+<meta name="twitter:description" content="单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别ng-bind 单向数据绑定（$scope -&amp;gt; view），用于数据显示，简写形式是 &amp;amp;#123;&amp;amp;#123; &amp;amp;#125; &amp;amp;#125;。
+1&amp;lt;span ng-bind=&quot;val&quot;&amp;gt;&amp;lt;/span&amp;gt;">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -165,34 +166,100 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Node基础开发框架" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-关于 AngularJS 的数据绑定" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Node基础开发框架
+      关于 AngularJS 的数据绑定用域
     </h1>
   
 
         
-        <a href="/2016/09/04/Node基础开发框架/" class="archive-article-date">
-  	<time datetime="2016-09-04T06:15:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-04</time>
+        <a href="/2016/03/22/关于 AngularJS 的数据绑定/" class="archive-article-date">
+  	<time datetime="2016-03-22T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/31.jpg" alt=""></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>测试新功能，开发新项目，按照本人的懒惰程度推算，八成会在原有项目的基础上开发。既然如此，抽出来一个node基础框架，似乎是一个很好的想法。<br>本框架保留了毕设的主体代码，删除了一些无关代码，并且会继续增减代码，逐渐完善。</p>
+        <h4 id="单向绑定（ng-bind）-和-双向绑定（ng-model）-的区别"><a href="#单向绑定（ng-bind）-和-双向绑定（ng-model）-的区别" class="headerlink" title="单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别"></a>单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别</h4><p><code>ng-bind</code> 单向数据绑定（<code>$scope -&gt; view</code>），用于数据显示，简写形式是 <code>&amp;#123;&amp;#123; &amp;#125; &amp;#125;</code>。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">ng-bind</span>=<span class="string">"val"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h1 id="nodebase"><a href="#nodebase" class="headerlink" title="nodebase"></a>nodebase</h1><p>a node framework designed for myself<br>version: v1.0.0<br>url: <a href="https://github.com/voidking/nodebase.git" target="_blank" rel="external">https://github.com/voidking/nodebase.git</a>  </p>
-<h1 id="作者相关"><a href="#作者相关" class="headerlink" title="作者相关"></a>作者相关</h1><p>author: haojin(voidking)<br>e-mail: voidking@qq.com<br>site: <a href="http://www.voidking.com" target="_blank" rel="external">http://www.voidking.com</a>   </p>
-<h1 id="开发环境说明"><a href="#开发环境说明" class="headerlink" title="开发环境说明"></a>开发环境说明</h1><p>1、安装5.6.0以上Node<br>2、安装mongodb，不要配置密码<br>3、安装sass<br>4、全局安装bower<br>5、全局安装supervisor<br>6、全局安装node-inspector<br>7、全局安装puer<br>8、运行前执行命令<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm <span class="keyword">install</span></div><div class="line">bower <span class="keyword">install</span></div></pre></td></tr></table></figure></p>
-<h1 id="node实时调试命令"><a href="#node实时调试命令" class="headerlink" title="node实时调试命令"></a>node实时调试命令</h1><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">node</span><span class="title">-inspector</span> --<span class="attr">web-port=</span><span class="number">8888</span></div><div class="line"><span class="keyword">node</span> <span class="title">--debug</span> app.js</div></pre></td></tr></table></figure>
-<h1 id="运行命令"><a href="#运行命令" class="headerlink" title="运行命令"></a>运行命令</h1><p><code>node app.js</code>，访问<code>http://localhost</code></p>
+<p>两者的区别在于页面没有加载完毕<code>&amp;#123;&amp;#123;val&amp;#125; &amp;#125;</code>会直接显示到页面，直到 Angular 渲染该绑定数据（这种行为有可能将 <code>&amp;#123;&amp;#123;val&amp;#125; &amp;#125;</code>让用户看到）；而 <code>ng-bind</code>则是在 Angular 渲染完毕后将数据显示。</p>
+<p><code>ng-model</code>是双向数据绑定（<code>$scope -&gt; view and view -&gt; $scope</code>），用于绑定值会变化的表单元素等。</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;input <span class="class"><span class="keyword">type</span></span>=<span class="string">"text"</span> ng-model=<span class="string">"val"</span> /&gt;</div></pre></td></tr></table></figure>
+<h4 id="双向数据绑定的原理"><a href="#双向数据绑定的原理" class="headerlink" title="双向数据绑定的原理"></a>双向数据绑定的原理</h4><p>双向数据绑定意味着当<code>view</code>中有任何数据发生变化会自动地反馈到<code>scope</code>的数据上，当 <code>scope</code>模型发生变化时，<code>view</code>中的数据也会更新到最新的值。很显然，这需要一个监控。</p>
+<p>事实上，AngularJS 确实在幕后为 <code>scope</code>模型上设置了一个 监听队列，用来监听数据变化并更新<code>view</code> 。</p>
+<p>每次绑定一个东西到<code>view</code> 上时 AngularJS 就会往<code>$watch</code>队列里插入一条 <code>$watch</code>，用来检测它监视的 <code>model</code>里是否有变化的东西。</p>
+<p>当浏览器接收到可以被 <code>angular context</code>处理的事件时，<code>$digest</code>循环就会触发。<code>$digest</code> 会遍历所有的 <code>$watch</code>。</p>
+<h4 id="一次更新的操作（至少触发两次-digest-循环）"><a href="#一次更新的操作（至少触发两次-digest-循环）" class="headerlink" title="一次更新的操作（至少触发两次 \$digest() 循环）"></a>一次更新的操作（至少触发两次 <code>\$digest()</code> 循环）</h4><p>比如进行一次<code>click</code> 操作：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">ng-click</span>=<span class="string">"val=val+1"</span>&gt;</span>increase 1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>按下按钮</li>
+<li>浏览器接收到一个事件，进入<code>angular context</code></li>
+<li><code>$digest</code> 循环开始执行，查询每个<code>$watch</code>是否变化</li>
+<li>由于监视<code>$scope.val</code>的 <code>$watch</code> 报告了变化，它会强制再执行一次 <code>$digest</code>循环。</li>
+<li>新的<code>$digest</code>循环没有检测到变化。</li>
+<li>浏览器拿回控制权，更新与<code>$scope.val</code> 新值相应部分的<code>DOM</code>。</li>
+</ul>
+<h4 id="digest-循环会运行多少次？"><a href="#digest-循环会运行多少次？" class="headerlink" title="\$digest 循环会运行多少次？"></a><code>\$digest</code> 循环会运行多少次？</h4><p><code>$digest</code>循环不会只运行一次。在当前的一次循环结束后，它会再执行一次循环用来检查是否有<code>models</code> 发生了变化。</p>
+<p>这就是脏检查（<code>Dirty Checking</code>），它用来处理在 <code>listener</code> 函数被执行时可能引起的 <code>model</code>变化。因此 <code>$digest</code> 循环会持续运行直到 <code>model</code>不再发生变化，或者 <code>$digest</code>循环的次数达到了 10 次（超过 10 次后抛出一个异常，防止无限循环）。</p>
+<p>当<code>$digest</code> 循环结束时，<code>DOM</code>相应地变化。</p>
+<h4 id="apply-和-digest-的区别"><a href="#apply-和-digest-的区别" class="headerlink" title="\$apply() 和 \$digest() 的区别"></a><code>\$apply()</code> 和 <code>\$digest()</code> 的区别</h4><p><code>$apply</code>是<code>$scope</code>（或者是 <code>direcvie</code>里的 <code>link</code>函数中的<code>scope</code>）的一个函数，调用它会强制一次 <code>$digest</code>循环（除非当前正在执行循环，这种情况下会抛出一个异常，这是我们不需要在那里执行<code>$apply</code>的标志）。</p>
+<p><code>$apply()</code>和 <code>$digest()</code>有两个区别。</p>
+<ol>
+<li><p>最直接的差异是，<code>$apply</code>可以带参数，它可以接受一个函数，然后在应用数据之后，调用这个函数。所以，一般在集成非 Angular 框架（比如jQuery）的代码时，可以把代码写在这个里面调用。</p>
+</li>
+<li><p>当调用<code>$digest</code>的时候，只触发当前作用域和它的子作用域上的监控，但是当调用 <code>$apply</code>的时候，会触发作用域树上的所有监控。</p>
+</li>
+</ol>
+<h4 id="什么时候手动调用-apply-方法？"><a href="#什么时候手动调用-apply-方法？" class="headerlink" title="什么时候手动调用 \$apply() 方法？"></a>什么时候手动调用 <code>\$apply()</code> 方法？</h4><p>取决于是否在 Angular 上下文环境（<code>angular context</code>）。</p>
+<p>典型的需要调用<code>$apply()</code> 方法的场景是：</p>
+<ol>
+<li><p>使用了 JavaScript 中的<code>setTimeout()</code>来更新一个 <code>scope model</code></p>
+</li>
+<li><p>用指令设置一个<code>DOM</code> 事件<code>listener</code> 并且在该<code>listener</code> 中修改了一些<code>models</code></p>
+</li>
+</ol>
+<p><strong>场景一</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$scope.setMsg = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;  </div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;  </div><div class="line">        $scope.message = <span class="string">'hello world'</span>;  </div><div class="line">        console.log(<span class="string">'message:'</span> + $scope.message);  </div><div class="line">    &#125;, <span class="number">2000</span>);  </div><div class="line">&#125;  </div><div class="line">$scope.setMsg();</div></pre></td></tr></table></figure>
+<p>运行这个例子，会看到过了两秒钟之后，控制台确实会显示出已经更新的<code>model</code>，然而，<code>view</code>并没有更新。</p>
+<p>在 <code>$scope.getMessage</code>加入 <code>$apply()</code>方法。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$scope.getMessage = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;  </div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;  </div><div class="line">        $scope.$apply(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;  </div><div class="line">            $scope.message = <span class="string">'hello world'</span>;   </div><div class="line">            console.log(<span class="string">'message:'</span> + $scope.message);  </div><div class="line">        &#125;);  </div><div class="line">    &#125;, <span class="number">2000</span>);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>再运行就 OK 了。</p>
+<p>不过，在 AngularJS 中应该尽量使用 <code>$timeout Service</code>来代替<code>setTimeout()</code>，因为前者会帮你调用<code>$apply()</code>，让你不需要手动地调用它。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$timeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">    $scope.message = <span class="string">'hello world'</span>;   </div><div class="line">    console.log(<span class="string">'message:'</span> + $scope.message);  </div><div class="line">&#125;, <span class="number">2000</span>)</div></pre></td></tr></table></figure>
+<p><strong>场景二</strong></p>
+<p>实现一个<code>click</code>的指令，类似以下功能：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">ng-click</span>=<span class="string">"val=val+1"</span>&gt;</span>increase 1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><code>directive</code>的编写如下：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">app.directive(<span class="string">"inc"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">(scope, element, attr)</span> </span>&#123;</div><div class="line">        element.on(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">            scope.val++;</div><div class="line">        &#125;);</div><div class="line">    &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>跟场景一的结果一样，这个时候，点击按钮，界面上的数字并不会增加。但查看调试器，发现数据确实已经增加了。</p>
+<p>在<code>scope.val++;</code>一行后面添加 <code>scope.$apply();</code>或者<code>scope.$digest();</code>就 OK 了。</p>
+<h4 id="apply-方法的两种形式"><a href="#apply-方法的两种形式" class="headerlink" title="\$apply() 方法的两种形式"></a><code>\$apply()</code> 方法的两种形式</h4><p>无参</p>
+<blockquote>
+<p>$scope.$apply()</p>
+</blockquote>
+<p>有参</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$scope.$apply(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">    ...</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>应该总使用接受一个<code>function</code> 作为参数的 <code>$apply()</code>方法。这是因为当传入一个<code>function</code>到<code>$apply()</code>中的时候，这个<code>function</code>会被包装到一个<code>try…catch</code> 块中，所以一旦有异常发生，该异常会被 <code>$exceptionHandler service</code> 处理。</p>
+<p>想象一下如果有个<code>alert</code> 框显示错误给用户，然后有个第三方的库进行一个网络调用然后失败了，如果不把它封装进 <code>$apply</code> 里面，Angular 永远不会知道失败了，<code>alert</code> 框就永远不会弹出来了。</p>
+<h4 id="在-AngularJS-中使用-watch"><a href="#在-AngularJS-中使用-watch" class="headerlink" title="在 AngularJS 中使用 \$watch"></a>在 AngularJS 中使用 <code>\$watch</code></h4><p>常用的使用方式：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$scope.name = <span class="string">'htf'</span>;</div><div class="line">$scope.$watch(<span class="string">'name'</span>, <span class="function"><span class="keyword">function</span><span class="params">(newValue, oldValue)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (newValue === oldValue) &#123; <span class="keyword">return</span>; &#125; </div><div class="line">    $scope.updated++;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>传入到 <code>$watch()</code>中的第二个参数是一个回调函数，该函数在<code>name</code> 的值发生变化的时候会被调用。</p>
+<p>如果要监听的是一个对象，那还需要第三个参数：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$scope.data.name = <span class="string">'htf'</span>;</div><div class="line">$scope.$watch(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span><span class="params">(newValue, oldValue)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (newValue === oldValue) &#123; <span class="keyword">return</span>; &#125; </div><div class="line">    $scope.updated++;</div><div class="line">&#125;, <span class="keyword">true</span>);</div></pre></td></tr></table></figure>
+<p>表示比较的是对象的值而不是引用，如果不加第三个参数 <code>true</code>，在<code>data.name</code>变化时，不会触发相应操作，因为引用的是同一引用。</p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
+<li><a href="http://www.angularjs.cn/A0a6" target="_blank" rel="external">理解\$watch ，\$apply 和 \$digest — 理解数据绑定过程</a></li>
+<li><a href="http://blog.csdn.net/dm_vincent/article/details/38705099" target="_blank" rel="external">理解Angular中的\$apply()以及\$digest()</a></li>
+<li><a href="https://github.com/xufei/blog/issues/10" target="_blank" rel="external">Angular沉思录（一）数据绑定</a></li>
+<li><a href="http://www.ituring.com.cn/article/39865" target="_blank" rel="external"></a></li>
+</ul>
 
       
 
@@ -227,7 +294,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
@@ -294,7 +365,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yutaiwei.github.io/2016/09/04/Node基础开发框架/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yutaiwei.github.io/2016/03/22/关于 AngularJS 的数据绑定/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -308,18 +379,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/09/05/赚钱以外的功夫/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/03/22/AngularJS 中 Controller 之间的通信/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          赚钱以外的功夫
+          AngularJS 中 Controller 之间的通信
         
       </div>
     </a>
   
   
-    <a href="/2016/08/26/总结js常用函数和常用技巧/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">总结js常用函数和常用技巧</div>
+    <a href="/2016/02/19/沿着最初的理想走下去/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">沿着最初的理想走下去</div>
       <i class="icon-circle-right"></i>
     </a>
   
