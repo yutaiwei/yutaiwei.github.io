@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yutaiwei.github.io">
-  <title>flex布局详解 | 我的博客</title>
+  <title>理解 JavaScript 面向对象编程 | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="flex布局flex可以指定对齐方式，可以解决所有盒子的对齐方式。并利用上页面中的剩余空间。">
+  <meta name="description" content="创建对象创建对象有两种方法。一种是原始模式，最简单的就是直接用 { }：另一种是用构造函数的方法来创建对象：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="flex布局详解">
-<meta property="og:url" content="http://yutaiwei.github.io/2015/07/26/flex布局详解/index.html">
+<meta property="og:title" content="理解 JavaScript 面向对象编程">
+<meta property="og:url" content="http://yutaiwei.github.io/2015/07/26/理解 JavaScript 面向对象编程/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="flex布局flex可以指定对齐方式，可以解决所有盒子的对齐方式。并利用上页面中的剩余空间。">
-<meta property="og:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/16.jpg">
-<meta property="og:updated_time" content="2017-05-01T11:37:36.475Z">
+<meta property="og:description" content="创建对象创建对象有两种方法。一种是原始模式，最简单的就是直接用 { }：另一种是用构造函数的方法来创建对象：">
+<meta property="og:updated_time" content="2017-05-01T13:23:49.063Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="flex布局详解">
-<meta name="twitter:description" content="flex布局flex可以指定对齐方式，可以解决所有盒子的对齐方式。并利用上页面中的剩余空间。">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/16.jpg">
+<meta name="twitter:title" content="理解 JavaScript 面向对象编程">
+<meta name="twitter:description" content="创建对象创建对象有两种方法。一种是原始模式，最简单的就是直接用 { }：另一种是用构造函数的方法来创建对象：">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -165,87 +163,78 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-flex布局详解" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-理解 JavaScript 面向对象编程" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      flex布局详解
+      理解 JavaScript 面向对象编程
     </h1>
   
 
         
-        <a href="/2015/07/26/flex布局详解/" class="archive-article-date">
-  	<time datetime="2015-07-26T14:01:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-26</time>
+        <a href="/2015/07/26/理解 JavaScript 面向对象编程/" class="archive-article-date">
+  	<time datetime="2015-07-26T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/16.jpg" alt=""></p>
-<h3 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h3><p>flex可以指定对齐方式，可以解决所有盒子的对齐方式。并利用上页面中的剩余空间。<br><a id="more"></a></p>
-<ul>
-<li><p>首先要给最外层的元素设置</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">display</span>:flex</div><div class="line"><span class="comment">//或者display:inlineflex</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>设定主轴的方向</p>
-<ul>
-<li>主轴默认是从左往右的方向</li>
-<li>交叉轴默认是从上往下的，与主轴垂直。<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flex-direction:<span class="built_in">row</span>|<span class="built_in">row</span>-<span class="built_in">reverse</span>//</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>超出容器是否换行</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">flex-wrap</span>: wrap;</div><div class="line"><span class="comment">//超出后换行</span></div><div class="line"><span class="attribute">flex-wrap</span>: wrap-reverse;</div><div class="line"><span class="comment">//超出后换行 从下往上</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>复合属性</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">flex-flow</span>: column wrap;</div><div class="line"><span class="comment">//超出后换行并且竖直方向排列</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>确定主轴的对齐方式</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">justify-content: flex-<span class="keyword">end</span>;</div><div class="line">//flex-<span class="keyword">start</span> flex-<span class="keyword">space</span>-ground  flex-<span class="keyword">space</span>-<span class="keyword">between</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>交叉轴对齐方式</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">align-items</span>: flex-end;</div><div class="line"><span class="comment">//在交叉轴方向从底部对齐</span></div><div class="line"><span class="attribute">align-items</span>: baseline;</div><div class="line"><span class="comment">//在交叉轴方向从文字基线对齐</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>设置子容器在父容器中的对齐方式</p>
-</li>
-</ul>
-<p>会覆盖 align-items的值<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">align-self</span>: center;</div></pre></td></tr></table></figure></p>
-<ul>
-<li><p>处理交叉轴的空白空间</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">align-content</span>: flex-start;</div><div class="line"><span class="comment">//对多行起作用，超出的部分会自动留白，并且向头部靠拢，单行使用 align-items</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>安排容器的排列顺序  -  order</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">order</span>: -<span class="number">1</span>;</div><div class="line"><span class="comment">//默认值是0，值越小越在前面，可以为负值</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>基本步骤为：</p>
-<ul>
-<li>设置布局方式</li>
-<li>设定主轴方向</li>
-<li>子元素超过父容器是否换行</li>
-<li>确定子元素在主轴或者交叉轴的对齐方式</li>
-<li>order安排子元素的排列顺序</li>
-</ul>
-<h3 id="核心属性"><a href="#核心属性" class="headerlink" title="核心属性"></a>核心属性</h3><ul>
-<li>flex-grow</li>
-</ul>
-<p>扩展比例：当盒子中有剩余空间时起作用  默认值0</p>
-<ul>
-<li>flex-shrink</li>
-</ul>
-<p>收缩比例：当有溢出内容时起作用  默认值是1</p>
-<ul>
-<li>flex-basis</li>
-</ul>
-<p>基准值：当扩展容器或者收缩容器 时以此值为基准  默认值为auto<br>//基准值为auto时计算中会默认取宽度</p>
+        <h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><p>创建对象有两种方法。<br>一种是原始模式，最简单的就是直接用 { }：<br>另一种是用构造函数的方法来创建对象：</p>
+<a id="more"></a>
+<h4 id="原始模式"><a href="#原始模式" class="headerlink" title="原始模式"></a>原始模式</h4><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 方式一</span></div><div class="line"><span class="keyword">var</span> Person = &#123;</div><div class="line">    name : <span class="string">'htf'</span>,</div><div class="line">　　age : <span class="string">'24'</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// 方式二</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(name, age)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">　　    name: name,</div><div class="line">　　    age: age</div><div class="line">　　&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person1 = Person(<span class="string">'zs'</span>, <span class="number">25</span>);</div><div class="line"><span class="keyword">var</span> person2 = Person(<span class="string">'ls'</span>, <span class="number">18</span>);</div></pre></td></tr></table></figure>
+<p>方式一创建一个对象，但这样只完成了对象的封装，没办法复用原型对象生成实例。方式二能解决代码重复的问题，但是不能反映出它们是同一个原型对象的实例。</p>
+<h4 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h4><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span><span class="params">(name)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="comment">// 这种方式定义的函数不能被多个对象共享</span></div><div class="line">    <span class="keyword">this</span>.hello = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</div><div class="line">        alert(<span class="string">'Hello, '</span> + <span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>对构造函数使用 <code>new</code> 运算符，就能生成实例，并且 <code>this</code> 变量会绑定在实例对象上。</p>
+<p>可以编写一个 createObj 函数，封装 <code>new</code> 操作，通用的模式如下：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span><span class="params">(obj)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = obj.name || <span class="string">'匿名'</span>; <span class="comment">// 默认值为'匿名'</span></div><div class="line">    <span class="keyword">this</span>.grade = obj.grade || <span class="number">1</span>; <span class="comment">// 默认值为1</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 可以被多个对象共享</span></div><div class="line">Student.prototype.hello = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</div><div class="line">    alert(<span class="string">'Hello, '</span> + <span class="keyword">this</span>.name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createStudent</span><span class="params">(obj)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Student(obj || &#123;&#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="使用-Prototype-改进对象的创建"><a href="#使用-Prototype-改进对象的创建" class="headerlink" title="使用 Prototype 改进对象的创建"></a>使用 Prototype 改进对象的创建</h3><p>使用构造函数模式创建对象很方便，但也会遇到前面例子的注释中提到的问题，即：</p>
+<p>某些相同的属性和方法不能被多个对象共享，每一次生成一个实例，都必须为重复的内容，多占用一些内存。</p>
+<h4 id="prototype-模式"><a href="#prototype-模式" class="headerlink" title="prototype 模式"></a>prototype 模式</h4><p>改进办法就是，把那些不变的属性和方法，直接定义在 prototype 对象上。</p>
+<p>原因在于，Javascript规定，每一个构造函数都有一个prototype属性，指向另一个对象。这个对象的所有属性和方法，都会被构造函数的实例继承。</p>
+<p>看栗子：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span><span class="params">(name)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Student.prototype.desc = <span class="string">'学生'</span>;</div><div class="line">Student.prototype.hello = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">    alert(<span class="string">'Hello, '</span> + <span class="keyword">this</span>.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> stu1 = <span class="keyword">new</span> Student(<span class="string">'htf'</span>);</div></pre></td></tr></table></figure>
+<h4 id="与-prototype-有关的方法"><a href="#与-prototype-有关的方法" class="headerlink" title="与 prototype 有关的方法"></a>与 prototype 有关的方法</h4><p><code>isPrototypeOf()</code>：判断某个 <code>proptotype</code> 对象和某个实例之间的关系，比如：</p>
 <blockquote>
-<p>溢出比例计算方式为父元素的总宽度  x    基准值的和   y   扩展比例的总和  k  ，如果3个盒子每个扩展比例为a、b、c则每个盒子的宽度为(x-y)*a/k+每个盒子自己的基准值</p>
-<p>收缩比例的计算方式为：每个子元素算上收缩比例的基准值/所有子元素算上收缩比例的基准值 = 收缩的内容/溢出的内容      ==注意如果有内容，不能收缩到小于自身内容的宽度==</p>
+<p>console.log(Student.prototype.isPrototypeOf(stu1));     // true</p>
 </blockquote>
+<p><code>hasOwnProperty()</code>：用来判断某一个属性是本地属性，还是继承自 <code>prototype</code>对象的属性，比如：</p>
+<blockquote>
+<p>console.log(stu1.hasOwnProperty(“name”));   // true<br>console.log(stu1.hasOwnProperty(“desc”));   // false</p>
+</blockquote>
+<p><code>in</code> 运算符：判断某个实例是否含有某个属性，不管是不是本地属性。</p>
+<blockquote>
+<p>console.log(“name” in stu1);   // true<br>console.log(“desc” in stu1);   // true</p>
+</blockquote>
+<p>另外 <code>for...in...</code> 语句可以用来遍历一个对象的所有属性。</p>
+<blockquote>
+<p>for(var prop in stu1) {<br>    alert(“stu1[“ + prop + “]=” + stu1[prop]);<br>}</p>
+</blockquote>
+<h4 id="两种定义-prototype-的方式"><a href="#两种定义-prototype-的方式" class="headerlink" title="两种定义 prototype 的方式"></a>两种定义 prototype 的方式</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 方式一</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;;</div><div class="line">Person.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 方式二</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;;</div><div class="line">Person.prototype = &#123;</div><div class="line">    <span class="attr">getName</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 测试</span></div><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person(<span class="string">"ZhangSan"</span>);</div><div class="line"><span class="built_in">console</span>.log(p.constructor === Person); </div><div class="line"><span class="built_in">console</span>.log(Person.prototype.constructor === Person);</div></pre></td></tr></table></figure>
+<p>使用方式一，后两行输出true，使用方式二，后两行输出false。</p>
+<p>原因在于，<code>constructor</code> 始终指向创建自身的构造函数，使用方式二时，<code>Person.prototype.constructor = Object</code>。</p>
+<p>修正方法：在方式二的末尾，加上一句 <code>Person.prototype.constructor = Person</code>;</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>这里介绍三种方式。</p>
+<h4 id="将父类的新实例赋值给构造函数的原型（类式继承）"><a href="#将父类的新实例赋值给构造函数的原型（类式继承）" class="headerlink" title="将父类的新实例赋值给构造函数的原型（类式继承）"></a>将父类的新实例赋值给构造函数的原型（类式继承）</h4><p>这种使用 <code>原型链+构造函数</code> 的继承是比较常用的一种继承方法，看个栗子：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span><span class="params">(age)</span></span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = [<span class="string">'mike'</span>,<span class="string">'jack'</span>,<span class="string">'smith'</span>];</div><div class="line">    <span class="keyword">this</span>.age = age;</div><div class="line">&#125;</div><div class="line">Parent.prototype.run = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name  + <span class="string">' are both'</span> + <span class="keyword">this</span>.age;</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span><span class="params">(age)</span></span>&#123;</div><div class="line">    Parent.call(<span class="keyword">this</span>,age);  <span class="comment">// 对象冒充，给超类型传参</span></div><div class="line">&#125;</div><div class="line">Child.prototype = <span class="keyword">new</span> Parent(); <span class="comment">// 原型链继承</span></div><div class="line"><span class="keyword">var</span> test = <span class="keyword">new</span> Child(<span class="number">21</span>);   <span class="comment">// 写new Parent(21)也行</span></div><div class="line">alert(test.run());  <span class="comment">// mike,jack,smith are both21</span></div></pre></td></tr></table></figure>
+<p>使用原型链实现对原型属性和方法的继承，通过借用构造函数来实现对实例属性的继承。这样，既通过在原型上定义方法实现了函数复用，又保证每个实例都有它自己的属性。</p>
+<p><code>call()</code>的用法：调用一个对象的一个方法，以另一个对象替换当前对象。</p>
+<h4 id="直接继承-prototype（原型式继承）"><a href="#直接继承-prototype（原型式继承）" class="headerlink" title="直接继承 prototype（原型式继承）"></a>直接继承 prototype（原型式继承）</h4><p>与上一种方法相比，这种方式的优点是效率比较高（不用执行和建立 父类 的实例），比较省内存。</p>
+<p>但是如果直接让 <code>子类.prototype = 父类.prototype</code> ，修改子类的 prototype 会对 父类的 prototype 造成影响，因此使用一个空函数作为中介。</p>
+<p>看个栗子：</p>
+<p><strong>可复用的 extend 函数</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">extends</span><span class="params">(Child, Parent)</span></span>&#123;</div><div class="line">    <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;;</div><div class="line">    F.prototype = <span class="keyword">Parent</span>.prototype;</div><div class="line">    Child.prototype = <span class="keyword">new</span> F();</div><div class="line">    Child.prototype.constructor = Child;</div><div class="line">    Child.uber = <span class="keyword">Parent</span>.prototype;  <span class="comment">// 实现直接调用父对象的方法</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>继承的实现</strong></p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span><span class="params">(obj)</span></span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = obj.name || <span class="string">'aaa'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Student.prototype.hello = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">    alert(<span class="string">'hello'</span> + <span class="keyword">this</span>.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrimaryStudent</span><span class="params">(obj)</span></span>&#123;</div><div class="line">    Student.call(<span class="keyword">this</span>, obj);</div><div class="line">    <span class="keyword">this</span>.grade = obj.grade || <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 实现原型继承链:</span></div><div class="line">extend(PrimaryStudent, Student);</div><div class="line"><span class="comment">// 绑定其他方法到PrimaryStudent原型:</span></div><div class="line">PrimaryStudent.prototype.getGrade = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">    alert(<span class="keyword">this</span>.grade);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="拷贝继承"><a href="#拷贝继承" class="headerlink" title="拷贝继承"></a>拷贝继承</h3><p>顾名思义，也就是把父对象的所有属性和方法，拷贝进子对象，从而实现继承。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend2</span><span class="params">(Child, Parent)</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> p = Parent.prototype;</div><div class="line">    <span class="keyword">var</span> c = Child.prototype;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> p) &#123;</div><div class="line">　　    c[i] = p[i];</div><div class="line">    &#125;</div><div class="line">    c.uber = p;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ol>
+<li><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html" target="_blank" rel="external">Javascript 面向对象编程</a> </li>
+<li><a href="https://segmentfault.com/a/1190000002440502#articleHeader5" target="_blank" rel="external">JavaScript继承方式详解</a></li>
+</ol>
 
       
 
@@ -284,7 +273,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
@@ -351,7 +340,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yutaiwei.github.io/2015/07/26/flex布局详解/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yutaiwei.github.io/2015/07/26/理解 JavaScript 面向对象编程/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -365,18 +354,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2015/07/26/JavaScript 中 this 的用法/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/08/03/Cookie、localStorage和sessionStorage/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JavaScript 中 this 的用法
+          Cookie、localStorage和sessionStorage
         
       </div>
     </a>
   
   
-    <a href="/2015/07/26/css雪碧图/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">css雪碧图</div>
+    <a href="/2015/07/26/理解 JavaScript 闭包/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">理解 JavaScript 闭包</div>
       <i class="icon-circle-right"></i>
     </a>
   
