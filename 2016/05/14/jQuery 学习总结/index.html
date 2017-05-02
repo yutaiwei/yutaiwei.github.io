@@ -6,17 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yutaiwei.github.io">
-  <title>我的博客</title>
+  <title>jQuery 学习总结 | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录生活点点滴滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的博客">
-<meta property="og:url" content="http://yutaiwei.github.io/page/2/index.html">
+  <meta name="description" content="选择器基本选择器当前 HTML 元素：$(this)按ID查找： $(&amp;#39;#abc&amp;#39;)按tag查找：$(&amp;#39;p&amp;#39;)按class查找： $(&amp;#39;.red&amp;#39;)按属性查找： $(&amp;#39;[name=email]&amp;#39;)组合查找：$(&amp;#39;tr.red&amp;#39;)多项选择器：$(&amp;#39;p.red,p.green&amp;#39;)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery 学习总结">
+<meta property="og:url" content="http://yutaiwei.github.io/2016/05/14/jQuery 学习总结/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="记录生活点点滴滴">
+<meta property="og:description" content="选择器基本选择器当前 HTML 元素：$(this)按ID查找： $(&amp;#39;#abc&amp;#39;)按tag查找：$(&amp;#39;p&amp;#39;)按class查找： $(&amp;#39;.red&amp;#39;)按属性查找： $(&amp;#39;[name=email]&amp;#39;)组合查找：$(&amp;#39;tr.red&amp;#39;)多项选择器：$(&amp;#39;p.red,p.green&amp;#39;)">
+<meta property="og:updated_time" content="2017-05-02T09:02:52.558Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的博客">
-<meta name="twitter:description" content="记录生活点点滴滴">
+<meta name="twitter:title" content="jQuery 学习总结">
+<meta name="twitter:description" content="选择器基本选择器当前 HTML 元素：$(this)按ID查找： $(&amp;#39;#abc&amp;#39;)按tag查找：$(&amp;#39;p&amp;#39;)按class查找： $(&amp;#39;.red&amp;#39;)按属性查找： $(&amp;#39;[name=email]&amp;#39;)组合查找：$(&amp;#39;tr.red&amp;#39;)多项选择器：$(&amp;#39;p.red,p.green&amp;#39;)">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -162,585 +163,142 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Node基础开发框架" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-jQuery 学习总结" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/04/Node基础开发框架/">Node基础开发框架</a>
+    <h1 class="article-title" itemprop="name">
+      jQuery 学习总结
     </h1>
   
 
         
-        <a href="/2016/09/04/Node基础开发框架/" class="archive-article-date">
-  	<time datetime="2016-09-04T06:15:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-04</time>
+        <a href="/2016/05/14/jQuery 学习总结/" class="archive-article-date">
+  	<time datetime="2016-05-14T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/31.jpg" alt=""></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>测试新功能，开发新项目，按照本人的懒惰程度推算，八成会在原有项目的基础上开发。既然如此，抽出来一个node基础框架，似乎是一个很好的想法。<br>本框架保留了毕设的主体代码，删除了一些无关代码，并且会继续增减代码，逐渐完善。</p>
-        
-          <a class="article-more-a" href="/2016/09/04/Node基础开发框架/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/09/04/Node基础开发框架/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-总结js常用函数和常用技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/26/总结js常用函数和常用技巧/">总结js常用函数和常用技巧</a>
-    </h1>
-  
-
-        
-        <a href="/2016/08/26/总结js常用函数和常用技巧/" class="archive-article-date">
-  	<time datetime="2016-08-26T15:16:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/18.jpg" alt=""></p>
-<p>学习和工作的过程中总结的干货，包括常用函数、常用js技巧、常用正则表达式、git笔记等。为刚接触前端的童鞋们提供一个简单的查询的途径，也以此来缅怀我的前端学习之路。<br>PS：此文档，我会持续更新。<br>
-        
-          <a class="article-more-a" href="/2016/08/26/总结js常用函数和常用技巧/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">干货总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/工作/" class="article-tag-list-link color3">工作</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/26/总结js常用函数和常用技巧/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-你总会信仰些什么" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/19/你总会信仰些什么/">你总会信仰些什么</a>
-    </h1>
-  
-
-        
-        <a href="/2016/08/19/你总会信仰些什么/" class="archive-article-date">
-  	<time datetime="2016-08-19T02:24:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/27.jpg" alt=""></p>
-<p>作者：白岩松</p>
-<p>读书读久了，你总会信仰些什么。</p>
-<p>当我们翻开一本书，要在翻开的这本书里头寻找到什么呢？这个话题似乎要从我们刚刚出生来到这个世界上开始说起。当人生的这本书刚刚翻开，在未来漫长的岁月里，在这本书里，我们又要寻找到什么呢？也许两者的答案有很多是相似的。首先翻开一本书，我们希望知道自己是谁，我的家乡在哪里，而世界又在哪里。<br>
-        
-          <a class="article-more-a" href="/2016/08/19/你总会信仰些什么/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">读者</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">白岩松</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/19/你总会信仰些什么/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-地铁站里的实验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/17/地铁站里的实验/">地铁站里的实验</a>
-    </h1>
-  
-
-        
-        <a href="/2016/08/17/地铁站里的实验/" class="archive-article-date">
-  	<time datetime="2016-08-17T02:17:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/9.jpg" alt=""></p>
-<p>作者：周云龙<br>美国媒体二00七年的一个社会实验：一位男子在地铁站用小提琴演奏了巴赫的六首作品。他前面的地上，放一顶口子朝上的帽子。没有人知道，这位卖艺者是世界上最伟大的音乐家之一约夏．贝尔。他演奏的是一首世上最复杂的作品，用的是一把价值三百五十万美元的小提琴……<br>
-        
-          <a class="article-more-a" href="/2016/08/17/地铁站里的实验/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">读者</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">周云龙</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/17/地铁站里的实验/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-node中exports和module.exports的区别和联系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/09/node中exports和module.exports的区别和联系/">node中exports和module.exports的区别和联系</a>
-    </h1>
-  
-
-        
-        <a href="/2016/08/09/node中exports和module.exports的区别和联系/" class="archive-article-date">
-  	<time datetime="2016-08-09T08:43:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>exports只是module.exports的辅助方法。你的模块最终返回module.exports给调用者，而不是exports。exports所做的事情是收集属性，如果module.exports当前没有任何属性的话，exports会把这些属性赋予module.exports。如果module.exports已经存在一些属性的话，那么exports中所用的东西都会被忽略。<br>
-        
-          <a class="article-more-a" href="/2016/08/09/node中exports和module.exports的区别和联系/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">exports</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/09/node中exports和module.exports的区别和联系/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-AngularJS按需加载js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/02/AngularJS按需加载js/">AngularJS按需加载js</a>
-    </h1>
-  
-
-        
-        <a href="/2016/08/02/AngularJS按需加载js/" class="archive-article-date">
-  	<time datetime="2016-08-02T15:57:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/11.jpg" alt=""></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Angular是一个单页面应用，随着系统的迭代，首屏代码会越来越大，所以对《AngularJS入门》中的代码进行改造，实现AngularJS可以按需加载js和css。</p>
-        
-          <a class="article-more-a" href="/2016/08/02/AngularJS按需加载js/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">angularjs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/02/AngularJS按需加载js/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-ngRoute 和 ui.router 的使用方法和区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/25/ngRoute 和 ui.router 的使用方法和区别/">AngularJS 中的服务Provider</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/25/ngRoute 和 ui.router 的使用方法和区别/" class="archive-article-date">
-  	<time datetime="2016-07-25T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="ngRoute-和-ui-router-的使用方法和区别"><a href="#ngRoute-和-ui-router-的使用方法和区别" class="headerlink" title="ngRoute 和 ui.router 的使用方法和区别"></a>ngRoute 和 ui.router 的使用方法和区别</h3><p>在单页面应用中要把各个分散的视图给组织起来是通过路由机制来实现的。本文主要对 AngularJS 原生的 <code>ngRoute</code>路由模块和第三方路由模块 <code>ui.router</code> 的用法进行简单介绍，并做一个对比。</p>
-<h3 id="ngRoute"><a href="#ngRoute" class="headerlink" title="ngRoute"></a>ngRoute</h3><h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><p>1) 引入<code>angular-route lib</code></p>
-<p>无论是<code>ngRoute</code>还是<code>ui.router</code>，作为框架额外的附加功能，都必须以 <code>模块依赖</code> 的形式被引入。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"lib/angular-route.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>2) 配置路由</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = angular.module(<span class="string">'ngRouteApp'</span>, [<span class="string">'ngRoute'</span>]);</div><div class="line"></div><div class="line">app.config(<span class="function"><span class="keyword">function</span><span class="params">($routeProvider)</span></span>&#123;</div><div class="line">    $routeProvider</div><div class="line">        .when(<span class="string">'/Main'</span>, &#123;</div><div class="line">            templateUrl: <span class="string">"main.html"</span>,</div><div class="line">            controller: <span class="string">'MainCtrl'</span></div><div class="line">        &#125;)</div><div class="line">        .otherwise(&#123; redirectTo: <span class="string">'/tabs'</span> &#125;);</div></pre></td></tr></table></figure>
-<h4 id="服务与指令"><a href="#服务与指令" class="headerlink" title="服务与指令"></a>服务与指令</h4><p><code>ngRoute</code>路由模块名</p>
-<p><code>$routeProvider</code>服务提供者，用来定义一个路由表，即地址栏与视图模板的映射，对应于<code>ui.router</code> 中的 <code>urlRouterProvider</code>和 <code>stateProvider</code></p>
-<p><code>$route</code>服务，完成路由匹配，并且提供路由相关的属性访问及事件，如访问当前路由对应的 Controller，对应于下面的<code>$urlRouter</code>和<code>$state</code><br><code>$routeParams</code> 服务，保存了地址栏中的参数，对应于下面的<code>$stateParams</code></p>
-<p><code>ng-view</code>指令，用来在主视图中指定加载子视图的区域，对应于下面的 <code>ui-view</code></p>
-<h3 id="ui-router"><a href="#ui-router" class="headerlink" title="ui.router"></a>ui.router</h3><h4 id="使用方法-1"><a href="#使用方法-1" class="headerlink" title="使用方法"></a>使用方法</h4><p>1) 引入 <code>angular-ui-router lib</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"lib/angular-ui-router.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>2) 配置路由</p>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(<span class="string">"uiRouteApp"</span>, [<span class="string">"ui.router"</span>]);</div><div class="line"></div><div class="line">app.config(function(<span class="variable">$urlRouterProvider</span>, <span class="variable">$stateProvider</span>) &#123;</div><div class="line">	<span class="variable">$urlRouterProvider</span>.otherwise(<span class="string">"/index"</span>);</div><div class="line">	<span class="variable">$stateProvider</span></div><div class="line">		.<span class="keyword">state</span>(<span class="string">"Main"</span>, &#123;</div><div class="line">			url: <span class="string">"/main"</span>,</div><div class="line">			templateUrl: <span class="string">"main.html"</span>,</div><div class="line">            controller: 'MainCtrl'</div><div class="line">		&#125;)</div></pre></td></tr></table></figure>
-<h4 id="服务与指令-1"><a href="#服务与指令-1" class="headerlink" title="服务与指令"></a>服务与指令</h4><p><code>ui.router</code>路由模块名</p>
-<p><code>$urlRouterProvider</code> 服务提供者，用来配置路由重定向<br><code>$stateProvider</code>服务提供者，用来配置路由<br><code>$urlRouter</code> 服务<br><code>$state</code> 服务，用来显示当前路由状态信息，以及一些路由方法（如：跳转）<br><code>$stateParams</code>服务，用来存储路由匹配时的参数</p>
-<p><code>ui-view</code> 指令，路由模板渲染，对应的 dom 相关联<br><code>ui-sref</code>指令，链接到特定状态</p>
-<h3 id="路由的创建"><a href="#路由的创建" class="headerlink" title="路由的创建"></a>路由的创建</h3><h4 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h4><p>调用<code>$stateProvider.state(...)</code>方法，并可配置以下参数</p>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$stateProvider</span></div><div class="line">    .<span class="keyword">state</span>(<span class="string">"Main"</span>, &#123;</div><div class="line">        url: <span class="string">"/main"</span>,</div><div class="line">        templateUrl: 'main.html',</div><div class="line">        controller: 'MainCtrl',</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
-<p><strong>parent</strong></p>
-<p>有两种方式可以指定父子状态关系。</p>
-<p>一种是，使用点标记法，像本文最后嵌套视图部分举得栗子那样：</p>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.<span class="keyword">state</span>(<span class="string">"tabs.tab1"</span>, &#123;&#125;)</div></pre></td></tr></table></figure>
-<p>另一种是，使用 <code>parent</code>属性</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.state</span>("<span class="selector-tag">tab1</span>", &#123;</div><div class="line">    <span class="attribute">parent</span>: <span class="string">'tabs'</span>  // 也可是一个状态对象， parent: tabs</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<p><strong>abstract</strong></p>
-<p>使用 <code>abstract</code>可以为所有的子状态提供一个基<code>URL</code>，这样做的好处就是可以在抽象出来的这个状态所对应的<code>html</code> 页面中来定义静态资源。抽象模板不能被激活。</p>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$stateProvider</span></div><div class="line">    .<span class="keyword">state</span>('contacts', &#123;</div><div class="line">        abstract: true,</div><div class="line">        url: '/contacts',</div><div class="line">        templateUrl: 'contacts.html',</div><div class="line">    &#125;)</div><div class="line">    .<span class="keyword">state</span>('contacts.list', &#123;</div><div class="line">        url: '/list',</div><div class="line">        templateUrl: 'contacts.list.html'</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
-<p><strong>resolve</strong></p>
-<p><code>resolve</code>在<code>state</code>配置参数中，是一个对象(<code>key-value</code>)，每一个 <code>value</code>都是一个可以依赖注入的函数，并且返回的是一个<code>promise</code>(当然也可以是值)。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">resolve: &#123;</div><div class="line">    <span class="string">'myResolve'</span>: [<span class="string">'contacts'</span>,</div><div class="line">        <span class="function"><span class="keyword">function</span><span class="params">(contacts)</span></span>&#123;</div><div class="line">            <span class="keyword">return</span> contacts.all();</div><div class="line">     &#125;]</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p>这样做的目的：</p>
-<ul>
-<li>简化了 <code>controller</code>的操作，将数据的获取放在 <code>resolve</code>中进行，这在多个视图多个<code>controller</code>需要相同数据时，有一定的作用。</li>
-<li>只有当<code>reslove</code>中的<code>promise</code> 全部<code>resolved</code>(即数据获取成功)后，才会触发<code>$stateChangeSuccess</code>切换路由，进而实例化<code>controller</code>，然后更新模板。</li>
-</ul>
-<h4 id="路由控制"><a href="#路由控制" class="headerlink" title="路由控制"></a>路由控制</h4><p><code>url</code>动态部分被称为参数，有以下几种方式设置</p>
-<p>1） 使用花括号的方式可以设置一个正则表达式规则的参数：</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//只会匹配 pageId 为1到8位的数字</span></div><div class="line"><span class="symbol">url:</span> <span class="string">"/pages/&#123;pageId:[0-9]&#123;1,8&#125;&#125;"</span></div></pre></td></tr></table></figure>
-<p>可以通过<code>?</code>来指定参数作为查询参数</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//比如匹配 href=<span class="string">"/page?type='new'"</span></div><div class="line"><span class="symbol">url:</span> <span class="string">"/page?type"</span></div></pre></td></tr></table></figure>
-<p>如果需要不止一个查询参数，用<code>&amp;</code>分隔：</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//比如匹配 ui-sref=<span class="string">"page(&#123;type:'all', title:'test ui-router'&#125;)"</span></div><div class="line"><span class="symbol">url:</span> <span class="string">"/page?type&amp;title"</span></div></pre></td></tr></table></figure>
-<h4 id="路由的查找匹配"><a href="#路由的查找匹配" class="headerlink" title="路由的查找匹配"></a>路由的查找匹配</h4><ul>
-<li><code>angular</code> 在刚开始的 <code>$digest</code>时，<code>$rootScope</code> 会触发<code>$locationChangeSuccess</code>事件（<code>angular</code>在每次浏览器<code>hash</code>change 的时候也会触发 <code>$locationChangeSuccess</code>事件）</li>
-<li><code>ui.router</code>监听了<code>$locationChangeSuccess</code>事件，于是开始通过遍历一系列 <code>rules</code>，进行路由查找匹配列表项</li>
-<li>当匹配到路由后，就通过<code>$state.transitionTo(state,...)</code>，跳转激活对应的 <code>state</code></li>
-<li>最后，完成数据请求和模板的渲染</li>
-</ul>
-<p>在视图中，建议使用 <code>ui-sref=&quot;xxxState&quot;</code>而不是 <code>href=&quot;#/abc&quot;</code>，这样做能减少一遍 <code>rules</code>循环的遍历，提升性能。</p>
-<h4 id="两者区别"><a href="#两者区别" class="headerlink" title="两者区别"></a>两者区别</h4><p><code>ngRoute模块</code>是 Angular 自带的路由模块，而<code>ui.router</code>模块 是基于<code>ngRoute</code>模块 开发的第三方模块。</p>
-<p><code>ui.router</code>是基于<code>state(状态)</code>的， <code>ngRoute</code> 是基于 <code>url</code>的，<code>ui.router</code>模块 具有更强大的功能，主要体现在视图的嵌套方面。</p>
-<h4 id="嵌套视图"><a href="#嵌套视图" class="headerlink" title="嵌套视图"></a>嵌套视图</h4><p>页面某个动态变化区块中，嵌套着另一个可以动态变化的区块。</p>
-<p>前面的栗子就是一个很好的业务场景。</p>
-<p>在首页中包含一个动态区块：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"ngRouteApp"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>AngularJS UI-Router Tabs<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-view</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>在标签页中又包含动态区块：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/tab1"</span>&gt;</span>Page-1<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/tab2"</span>&gt;</span>Page-2<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/tab3"</span>&gt;</span>Page-3<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-view</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>一运行，报了一个这样的错误：</p>
+        <h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><h4 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h4><p>当前 HTML 元素：<code>$(this)</code><br>按ID查找： <code>$(&#39;#abc&#39;)</code><br>按tag查找：<code>$(&#39;p&#39;)</code><br>按class查找： <code>$(&#39;.red&#39;)</code><br>按属性查找： <code>$(&#39;[name=email]&#39;)</code><br>组合查找：<code>$(&#39;tr.red&#39;)</code><br>多项选择器：<code>$(&#39;p.red,p.green&#39;)</code></p>
+<a id="more"></a>
+<h4 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h4><p>层级选择器：<code>$(&#39;ancestor descendant&#39;)</code><br>子选择器：<code>$(&#39;parent&gt;child&#39;)</code><br>过滤器：一般不单独使用，附加在选择器上，<code>:first-child</code>，<code>:last-child</code><br>，<code>nth-child(2)</code>，<code>nth-child(even)</code>，<code>nth-child(odd)</code></p>
+<h4 id="表单相关"><a href="#表单相关" class="headerlink" title="表单相关"></a>表单相关</h4><p><code>:input</code>， <code>:file</code>，<code>:checkbox</code>，<code>:radio</code>，<code>:focus</code>，<code>:checked</code>，<code>:enabled</code>，<code>:disabled</code></p>
+<h3 id="查找和过滤"><a href="#查找和过滤" class="headerlink" title="查找和过滤"></a>查找和过滤</h3><h4 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h4><p>在某个节点的所有子节点中查找，使用<code>find()</code>方法，它本身又接收一个任意的选择器：</p>
 <blockquote>
-<p>RangeError: Maximum call stack size exceeded</p>
+<p>var ul = $(‘ul.lang’); // 获得<ul><br>var dy = ul.find(‘.dy’); // 获得JavaScript, Python, Scheme</ul></p>
 </blockquote>
-<p>发现浏览器崩溃了，因为 <code>ng-view</code>会陷入死循环，无限递归下去。</p>
-<p>使用 <code>ui.router</code> 能很容易解决这个问题，因为它定义的路由有明确的父子关系，并通过<code>ui-view</code> 指令将子路由模版插入到父路由模板的 <code>&lt;div ui-view&gt;&lt;/div&gt;</code>中去，从而实现视图嵌套。看代码：</p>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$stateProvider</span></div><div class="line">	.<span class="keyword">state</span>(<span class="string">"tabs"</span>, &#123;</div><div class="line">		url: <span class="string">"/tabs"</span>,</div><div class="line">		templateUrl: <span class="string">"pageTab.html"</span></div><div class="line">	&#125;)</div><div class="line">	.<span class="keyword">state</span>(<span class="string">"tabs.tab1"</span>, &#123;</div><div class="line">		url: <span class="string">"/tab1"</span>,</div><div class="line">		templateUrl: <span class="string">"tab1.html"</span></div><div class="line">	&#125;)</div></pre></td></tr></table></figure>
-<h4 id="其他区别"><a href="#其他区别" class="headerlink" title="其他区别"></a>其他区别</h4><p>ui-router（左） ： ngRoute（右）</p>
-<ul>
-<li>应用程序内的一个区域 ： 应用程序中的 url</li>
-<li>可以嵌套的层次结构 ： 只是平面层次结构</li>
-<li>名称可以自定义 ： 名称只能是 url</li>
-<li>通过名称或 url 导航 ： 只能通过 url 导航</li>
-<li>可以存在多个视图（ui-view） ： 只能单一视图（ng-view）</li>
-<li>可以填充任何视图 ： 只能填充一个视图</li>
-<li>通过状态填充某一部件 ： 通过指令将填充某一部件<h4 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h4></li>
-<li><a href="http://www.open-open.com/lib/view/open1416878937309.html" target="_blank" rel="external">AngularJS ui-router (嵌套路由)</a></li>
-<li><a href="http://www.cnblogs.com/liulangmao/p/4155015.html" target="_blank" rel="external">angular的uiRouter服务学习</a></li>
-</ul>
+<p>从当前节点开始向上查找，使用<code>parent()</code><br>对于位于同一层级的节点，可以通过<code>next()</code>和<code>prev()</code>方法。</p>
+<h4 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h4><p><code>filter()</code>方法可以过滤掉不符合选择器条件的节点：</p>
+<blockquote>
+<p>var langs = $(‘ul.lang li’); // 拿到JavaScript, Python, Swift, Scheme和Haskell<br>var a = langs.filter(‘.dy’); // 拿到JavaScript, Python, Scheme</p>
+</blockquote>
+<p><code>map()</code>方法把一个jQuery对象包含的若干DOM节点转化为其他对象:</p>
+<blockquote>
+<p>var langs = $(‘ul.lang li’); // 拿到JavaScript, Python, Swift<br>var arr = langs.map(function () {<br>    return this.innerHTML;<br>}).get(); 用get()拿到包含string的Array：[‘JavaScript’, ‘Python’, ‘Swift’]</p>
+</blockquote>
+<h4 id="一个栗子"><a href="#一个栗子" class="headerlink" title="一个栗子"></a>一个栗子</h4><p>将一个待提交的表单转换为JSON字符串 <code>{&quot;name&quot;:&quot;Michael&quot;,&quot;email&quot;:...}</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> items = $(<span class="string">'#test-form input'</span>);</div><div class="line"><span class="keyword">var</span> formData = &#123;&#125;;</div><div class="line"><span class="keyword">var</span> arr = items.map(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </div><div class="line">  formData[<span class="keyword">this</span>.name] = <span class="keyword">this</span>.value</div><div class="line">&#125;).get();</div><div class="line"></div><div class="line">json = <span class="built_in">JSON</span>.stringify(formData);</div></pre></td></tr></table></figure>
+<h3 id="操作-dom"><a href="#操作-dom" class="headerlink" title="操作 dom"></a>操作 dom</h3><h4 id="修改Text和HTML"><a href="#修改Text和HTML" class="headerlink" title="修改Text和HTML"></a>修改Text和HTML</h4><p><code>text()</code>和<code>html()</code>方法分别获取节点的文本和原始HTML文本。无参数调用时是获取文本，传入参数就变成设置文本。</p>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">j1.html(<span class="comment">'<span class="doctag">&lt;span style="color: red"&gt;</span>JavaScript<span class="doctag">&lt;/span&gt;</span>');</span></div><div class="line">j2.<span class="keyword">text</span>(<span class="comment">'JavaScript &amp; ECMAScript');</span></div></pre></td></tr></table></figure>
+<h4 id="修改css"><a href="#修改css" class="headerlink" title="修改css"></a>修改css</h4><p><code>css()</code>方法和<code>addClass()</code>方法可以修改DOM节点的style属性，并具有最高优先级。jQuery对象的所有方法都返回一个jQuery对象（可能是新的也可能是自身），因此可以进行链式调用。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#test-css li.dy&gt;span'</span>).css(<span class="string">'background-color'</span>, <span class="string">'#ffd351'</span>).css(<span class="string">'color'</span>, <span class="string">'red'</span>);</div><div class="line"></div><div class="line">div.addClass(<span class="string">'highlight'</span>); <span class="regexp">//</span> 添加highlight这个<span class="class"><span class="keyword">class</span></span></div></pre></td></tr></table></figure>
+<h4 id="获取DOM信息"><a href="#获取DOM信息" class="headerlink" title="获取DOM信息"></a>获取DOM信息</h4><figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 某个div的大小:</span></div><div class="line"><span class="keyword">var</span> <span class="keyword">div</span> = $(<span class="string">'#test-div'</span>);</div><div class="line"><span class="keyword">div</span>.width(); <span class="comment">// 600</span></div><div class="line"><span class="keyword">div</span>.height(); <span class="comment">// 300</span></div></pre></td></tr></table></figure>
+<p><code>attr()</code>和<code>removeAttr()</code>方法用于操作DOM节点的属性：</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">div</span>.attr(<span class="string">'name'</span>); <span class="comment">// 'Test'</span></div><div class="line"><span class="keyword">div</span>.attr(<span class="string">'name'</span>, <span class="string">'Hello'</span>); <span class="comment">// div的name属性变为'Hello'</span></div><div class="line"><span class="keyword">div</span>.removeAttr(<span class="string">'name'</span>); <span class="comment">// 删除name属性</span></div></pre></td></tr></table></figure>
+<p>还有<code>prop()</code>和<code>is()</code>方法：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var radio = <span class="variable">$(</span><span class="string">'#test-radio'</span>);</div><div class="line">radio.attr(<span class="string">'checked'</span>); <span class="regexp">//</span> <span class="string">'checked'</span></div><div class="line">radio.prop(<span class="string">'checked'</span>); <span class="regexp">//</span> <span class="keyword">true</span></div><div class="line">radio.is(<span class="string">':checked'</span>); <span class="regexp">//</span> <span class="keyword">true</span></div></pre></td></tr></table></figure>
+<h4 id="操作表单"><a href="#操作表单" class="headerlink" title="操作表单"></a>操作表单</h4><p><code>val()</code>可以统一处理各种输入框的取值和赋值的问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> input = $(<span class="string">'#test-input'</span>),</div><div class="line">    select = $(<span class="string">'#test-select'</span>);</div></pre></td></tr></table></figure>
+<h4 id="修改dom结构"><a href="#修改dom结构" class="headerlink" title="修改dom结构"></a>修改dom结构</h4><p><code>append()</code>把DOM添加到最后，<code>prepend()</code>则把DOM添加到最前。</p>
+<p>同级节点可以用<code>after()</code>或者<code>before()</code>方法。</p>
+<p>要删除DOM节点，拿到jQuery对象后直接调用<code>remove()</code>方法就可以了。</p>
+<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><h4 id="事件分类"><a href="#事件分类" class="headerlink" title="事件分类"></a>事件分类</h4><p>鼠标事件：<code>click</code>， <code>dblclick</code>， <code>mouseenter</code>， <code>mouseleave</code>， <code>mousemove</code> （鼠标在DOM内部移动时触发）， <code>hover</code></p>
+<p>键盘事件：<code>keydown</code>（键盘按下时触发） ， <code>keyup</code>（键盘松开时触发） ，<code>keypress</code>（按一次键后触发）</p>
+<p>其他事件：<code>focus</code>，<code>blur</code>，<code>change</code>，<code>submit</code>，<code>ready</code>（当页面被载入并且DOM树完成初始化后触发）</p>
+<p><code>ready</code>事件的使用：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(document).ready(<span class="function"><span class="keyword">function</span> <span class="params">()</span> &#123;</span></div><div class="line">    $('#testForm).submit(<span class="function"><span class="keyword">function</span> <span class="params">()</span> &#123;</span></div><div class="line">        alert('submit!');</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>也可简化为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// init...</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="事件参数"><a href="#事件参数" class="headerlink" title="事件参数"></a>事件参数</h4><p>所有事件都会传入Event对象作为参数，可以从Event对象上获取到更多的信息（比如获取鼠标位置和按键的值）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="string">'#testMouseMoveDiv'</span>).mousemove(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">        $(<span class="string">'#testMouseMoveSpan'</span>).text(<span class="string">'pageX = '</span> + e.pageX + <span class="string">', pageY = '</span>             + e.pageY);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="取消绑定"><a href="#取消绑定" class="headerlink" title="取消绑定"></a>取消绑定</h4><p>可以通过 <code>off(eventName, function)</code>实现， 比如移除<code>click</code>绑定的 function 操作：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">hello</span><span class="params">()</span> </span>&#123;</div><div class="line">    alert(<span class="string">'hello!'</span>);</div><div class="line">&#125;</div><div class="line">a.click(hello); <span class="comment">// 绑定事件</span></div><div class="line"><span class="comment">// 10秒钟后解除绑定:</span></div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</div><div class="line">    a.off(<span class="string">'click'</span>, hello);</div><div class="line">&#125;, <span class="number">10000</span>);</div></pre></td></tr></table></figure>
+<p>如果只用一个参数，使用<code>off(eventName)</code>可以移除<code>click</code>事件的所有处理函数。</p>
+<p>如果无参数，使用<code>off()</code> 一次性移除已绑定的所有类型的事件处理函数。</p>
+<h4 id="事件触发"><a href="#事件触发" class="headerlink" title="事件触发"></a>事件触发</h4><p>事件的触发总是由用户操作引发的，如果希望用代码触发change事件，可以直接调用无参数的<code>change()</code>方法来触发该事件：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="keyword">input</span> = $('#<span class="keyword">test</span>-<span class="keyword">input</span>');</div><div class="line"><span class="keyword">input</span>.val('change it!');</div><div class="line"><span class="keyword">input</span>.change(); <span class="comment">// 触发change事件</span></div></pre></td></tr></table></figure>
+<h3 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h3><h4 id="动画分类"><a href="#动画分类" class="headerlink" title="动画分类"></a>动画分类</h4><p>以下动画可以传入毫秒数或者<code>&#39;slow&#39;</code>，<code>&#39;fast&#39;</code>字符串作为参数。</p>
+<p>显示隐藏：show() / hide() / toggle()</p>
+<p>收缩展开：slideUp() / slideDown() / slideToggle()</p>
+<p>淡入淡出：fadeIn() / fadeOut() / fadeToggle()</p>
+<p>自定义动画：animate()，需要传入的参数是DOM元素最终的CSS状态和时间。还可以再传入一个函数，当动画结束时，该函数将被调用。</p>
+<p>示例一<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="keyword">div</span> = $(<span class="string">'#test-show-hide'</span>);</div><div class="line"><span class="keyword">div</span>.hide(<span class="number">3000</span>); <span class="comment">// 在3秒钟内逐渐消失</span></div><div class="line"><span class="keyword">div</span>.show(<span class="string">'slow'</span>); <span class="comment">// 在0.6秒钟内逐渐显示</span></div></pre></td></tr></table></figure></p>
+<p>示例二</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> div = $(<span class="string">'#test-animate'</span>);</div><div class="line">div.animate(&#123;</div><div class="line">    <span class="attr">opacity</span>: <span class="number">0.25</span>,</div><div class="line">    <span class="attr">width</span>: <span class="string">'256px'</span>,</div><div class="line">    <span class="attr">height</span>: <span class="string">'256px'</span></div><div class="line">&#125;, <span class="number">3000</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'动画已结束'</span>);</div><div class="line">    <span class="comment">// 恢复至初始状态:</span></div><div class="line">    $(<span class="keyword">this</span>).css(<span class="string">'opacity'</span>, <span class="string">'1.0'</span>).css(<span class="string">'width'</span>, <span class="string">'128px'</span>).css(<span class="string">'height'</span>, <span class="string">'128px'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="串行动画"><a href="#串行动画" class="headerlink" title="串行动画"></a>串行动画</h4><p>通过<code>delay()</code>方法还可以实现暂停，这样，可以实现更复杂的动画效果：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var div = $(<span class="string">'#test-animates'</span>);</div><div class="line"><span class="comment">// 动画效果：slideDown - 暂停 - 放大 - 暂停 - 缩小</span></div><div class="line">div.slideDown(<span class="number">2000</span>)</div><div class="line">   .<span class="built_in">delay</span>(<span class="number">1000</span>)</div><div class="line">   .animate(&#123;</div><div class="line">       <span class="built_in">width</span>: <span class="string">'256px'</span>,</div><div class="line">       <span class="built_in">height</span>: <span class="string">'256px'</span></div><div class="line">   &#125;, <span class="number">2000</span>)</div><div class="line">   .<span class="built_in">delay</span>(<span class="number">1000</span>)</div><div class="line">   .animate(&#123;</div><div class="line">       <span class="built_in">width</span>: <span class="string">'128px'</span>,</div><div class="line">       <span class="built_in">height</span>: <span class="string">'128px'</span></div><div class="line">   &#125;, <span class="number">2000</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="为什么有的动画没有效果"><a href="#为什么有的动画没有效果" class="headerlink" title="为什么有的动画没有效果"></a>为什么有的动画没有效果</h4><p>因为jQuery动画的原理是逐渐改变CSS的值，如 <code>height</code> 从100px逐渐变为0。但是很多不是block性质的DOM元素，对它们设置<code>height</code>根本就不起作用，所以动画也就没有效果。</p>
+<p>jQuery也没有实现对<code>background-color</code>的动画效果。</p>
+<h4 id="一个栗子-1"><a href="#一个栗子-1" class="headerlink" title="一个栗子"></a>一个栗子</h4><p>在执行删除操作时，给用户显示一个动画比直接调用<code>remove()</code>要更好。在表格删除一行的时候添加一个淡出的动画效果：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">deleteFirstTR</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> tr = $(<span class="string">'#test-table&gt;tbody&gt;tr:visible'</span>).first();</div><div class="line">    tr.fadeOut(<span class="string">'slow'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        $(<span class="keyword">this</span>).remove();</div><div class="line">    &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line">deleteFirstTR();</div></pre></td></tr></table></figure>
+<h3 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h3><h4 id="ajax"><a href="#ajax" class="headerlink" title="ajax()"></a>ajax()</h4><p>ajax(url, settings)函数需要接收一个URL和一个可选的settings对象，常用的选项有：</p>
+<p><code>async</code>：是否异步执行AJAX请求，默认为 true<br><code>method</code>：发送请求的方法，默认为 GET<br><code>contentType</code> ：发送POST请求的格式<br><code>data</code>：发送的数据，可以是字符串、数组或object<br><code>headers</code>： 发送的额外的HTTP头<br><code>dataType</code>：接收的数据格式</p>
+<p>更多参数详情可参考 <a href="http://www.w3school.com.cn/jquery/ajax_ajax.asp" target="_blank" rel="external">jQuery ajax()</a></p>
+<p>jQuery的jqXHR对象类似一个Promise对象，可以用链式写法来处理各种回调：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> jqxhr = $.ajax(<span class="string">'/api/categories'</span>, &#123;</div><div class="line">    <span class="attr">dataType</span>: <span class="string">'json'</span></div><div class="line">&#125;).done(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">    ajaxLog(<span class="string">'成功, 收到的数据: '</span> + <span class="built_in">JSON</span>.stringify(data));</div><div class="line">&#125;).fail(<span class="function"><span class="keyword">function</span> (<span class="params">xhr, reason</span>) </span>&#123;</div><div class="line">    ajaxLog(<span class="string">'失败: '</span> + xhr.status + <span class="string">', 原因: '</span> + reason);</div><div class="line">&#125;).always(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    ajaxLog(<span class="string">'请求完成: 无论成功或失败都会调用'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h4 id="get"><a href="#get" class="headerlink" title="get()"></a>get()</h4><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> jqxhr = $.<span class="keyword">get</span>(<span class="string">'/path/to/resource'</span>, &#123;</div><div class="line">    name: <span class="string">'Bob Lee'</span>,</div><div class="line">    check: <span class="number">1</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>第二个参数如果是object，jQuery自动把它变成query string然后加到URL后面，实际的URL是：</p>
+<blockquote>
+<p>/path/to/resource?name=Bob%20Lee&amp;check=1</p>
+</blockquote>
+<h4 id="post"><a href="#post" class="headerlink" title="post()"></a>post()</h4><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">var jqxhr</span> = $.post(<span class="string">'/path/to/resource'</span>, &#123;</div><div class="line">    name: <span class="string">'Bob Lee'</span>,</div><div class="line">    check: 1</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>实际构造的数据 <code>name=Bob%20Lee&amp;check=1</code>作为POST的body被发送。</p>
+<h4 id="getJSON"><a href="#getJSON" class="headerlink" title="getJSON()"></a>getJSON()</h4><p>jQuery也提供了getJSON()方法来快速通过GET获取一个JSON对象：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> jqxhr = $.getJSON(<span class="string">'/path/to/resource'</span>, &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'Bob Lee'</span>,</div><div class="line">    <span class="attr">check</span>: <span class="number">1</span></div><div class="line">&#125;).done(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">    <span class="comment">// data已经被解析为JSON对象了</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="jQuery-插件"><a href="#jQuery-插件" class="headerlink" title="jQuery 插件"></a>jQuery 插件</h3><h4 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h4><p>给jQuery对象绑定一个新方法是通过扩展$.fn对象实现的。</p>
+<p>默认值的处理，有两种方法，一是利用<code>&amp;&amp;</code>和 <code>||</code>短路操作符，：</p>
+<blockquote>
+<p>var a = options &amp;&amp; options.a || ‘hello’;</p>
+</blockquote>
+<p>二是使用jQuery提供的辅助方法<code>$.extend(target, obj1, obj2, ...)</code>，它把多个object对象的属性合并到第一个target对象中，遇到同名属性，总是使用靠后的对象的值，也就是越往后优先级越高：</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 把默认值和用户传入的options合并到对象&#123;&#125;中并返回:</span></div><div class="line">var opts = <span class="symbol">$</span>.extend(&#123;&#125;, &#123;</div><div class="line">    backgroundColor: <span class="string">'#00a8e6'</span>,</div><div class="line">    color: <span class="string">'#ffffff'</span></div><div class="line">&#125;, <span class="keyword">options</span>);</div></pre></td></tr></table></figure>
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><p>编写一个jQuery插件的原则：</p>
+<ol>
+<li>给$.fn绑定函数，实现插件的代码逻辑；</li>
+<li>插件函数最后要return this;以支持链式调用；</li>
+<li>插件函数要有默认值，绑定在$.fn.<pluginname>.defaults上；</pluginname></li>
+<li>用户在调用时可传入设定值以便覆盖默认值。</li>
+</ol>
+<p>示例一：一个highlight方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">$.fn.highlight = <span class="function"><span class="keyword">function</span>(<span class="params">options</span>)</span>&#123;</div><div class="line">    <span class="comment">// 合并默认值和用户设定值:</span></div><div class="line">    <span class="keyword">var</span> opts = $.extend(&#123;&#125;, fn.highlight.defaults, options);</div><div class="line">    <span class="keyword">this</span>.css(<span class="string">'backgroundColor'</span>, opts.backgroundColor)</div><div class="line">        .css(<span class="string">'color'</span>, opts.color);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;    </div><div class="line">&#125;</div><div class="line"><span class="comment">// 设定默认值:</span></div><div class="line">$fn.highlight.defaults = &#123;</div><div class="line">    <span class="attr">color</span>: <span class="string">'#d85030'</span>,</div><div class="line">    <span class="attr">backgroundColor</span>: <span class="string">'#fff8de'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 调用</span></div><div class="line">$.fn.highlight.defaults.color = <span class="string">'#659f13'</span>;</div><div class="line">$.fn.highlight.defaults.backgroundColor = <span class="string">'#f2fae3'</span>;</div><div class="line"></div><div class="line">$(<span class="string">'#test-highlight p:first-child span'</span>).highlight();</div><div class="line"></div><div class="line">$(<span class="string">'#test-highlight p:last-child span'</span>).highlight(&#123;</div><div class="line">    <span class="attr">color</span>: <span class="string">'#dd1144'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>示例二：使用filter()方法实现针对特定元素的扩展</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">$.fn.external = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// return返回的each()返回结果，支持链式调用:</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.filter(<span class="string">'a'</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="comment">// 注意: each()内部的回调函数的this绑定为DOM本身</span></div><div class="line">        <span class="built_in">var</span> a = $(<span class="keyword">this</span>);</div><div class="line">        <span class="built_in">var</span> <span class="built_in">url</span> = a.attr(<span class="string">'href'</span>);</div><div class="line">        <span class="keyword">if</span> (<span class="built_in">url</span> &amp;&amp; (<span class="built_in">url</span>.indexOf(<span class="string">'http://'</span>)===<span class="number">0</span> ||              </div><div class="line">            <span class="built_in">url</span>.indexOf(<span class="string">'https://'</span>) === <span class="number">0</span>          </div><div class="line">                a.attr(<span class="string">'href'</span>, <span class="string">'#0'</span>)</div><div class="line">                 .removeAttr(<span class="string">'target'</span>)</div><div class="line">                 .append(<span class="string">' &lt;i class="uk-icon-external-link"&gt;&lt;/i&gt;'</span>)</div><div class="line">                 .click(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                    <span class="keyword">if</span>(confirm(<span class="string">'你确定要前往'</span> + <span class="built_in">url</span> + <span class="string">'？'</span>)) &#123;</div><div class="line">                        <span class="built_in">window</span>.open(<span class="built_in">url</span>);</div><div class="line">                 &#125;</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 调用</span></div><div class="line">$(<span class="string">'#main a'</span>).external();</div></pre></td></tr></table></figure>
 
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -750,93 +308,12 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/25/ngRoute 和 ui.router 的使用方法和区别/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript书签" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/15/JavaScript书签/">JavaScript书签</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/15/JavaScript书签/" class="archive-article-date">
-  	<time datetime="2016-07-15T13:16:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/19.jpg" alt=""></p>
-<p>回调函数（callback）是什么？<br><a href="http://www.zhihu.com/question/19801131">http://www.zhihu.com/question/19801131</a></p>
-<p>读取JAVASCRIPT第一公民-函数<br><a href="http://www.cnblogs.com/YOUCAN/archive/2012/11/05/2754968.html">http://www.cnblogs.com/YOUCAN/archive/2012/11/05/2754968.html</a></p>
-        
-          <a class="article-more-a" href="/2016/07/15/JavaScript书签/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
-        		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">书签</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
@@ -856,18 +333,83 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/15/JavaScript书签/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yutaiwei.github.io/2016/05/14/jQuery 学习总结/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
+  
+<nav id="article-nav">
+  
+    <a href="/2016/05/25/AngularJS 中的服务Provider/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          AngularJS 中的服务Provider
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/09/讲故事写小说/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">讲故事写小说</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
@@ -875,11 +417,10 @@
 
 
   
+    <div class="duoshuo"></div>
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
-    </nav>
-  
+
+
 
 
           </div>
@@ -902,8 +443,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
