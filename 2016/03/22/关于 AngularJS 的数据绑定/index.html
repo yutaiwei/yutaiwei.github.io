@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="我的博客">
 <meta property="og:description" content="单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别ng-bind 单向数据绑定（$scope -&amp;gt; view），用于数据显示，简写形式是 {&amp;#123;  &amp;#125;}。
 1&amp;lt;span ng-bind=&quot;val&quot;&amp;gt;&amp;lt;/span&amp;gt;">
-<meta property="og:updated_time" content="2017-05-02T09:32:40.010Z">
+<meta property="og:updated_time" content="2017-05-02T09:33:48.073Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于 AngularJS 的数据绑定用域">
 <meta name="twitter:description" content="单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别ng-bind 单向数据绑定（$scope -&amp;gt; view），用于数据显示，简写形式是 {&amp;#123;  &amp;#125;}。
@@ -240,7 +240,7 @@
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">app.directive(<span class="string">"inc"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">(scope, element, attr)</span> </span>&#123;</div><div class="line">        element.on(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</div><div class="line">            scope.val++;</div><div class="line">        &#125;);</div><div class="line">    &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>跟场景一的结果一样，这个时候，点击按钮，界面上的数字并不会增加。但查看调试器，发现数据确实已经增加了。</p>
 <p>在<code>scope.val++;</code>一行后面添加 <code>scope.$apply();</code>或者<code>scope.$digest();</code>就 OK 了。</p>
-<h4 id="apply-方法的两种形式"><a href="#apply-方法的两种形式" class="headerlink" title="$apply() 方法的两种形式"></a>$apply() 方法的两种形式</h4><p>无参</p>
+<h4 id="apply-方法的两种形式"><a href="#apply-方法的两种形式" class="headerlink" title="$apply() 方法的两种形式"></a><code>$apply()</code> 方法的两种形式</h4><p>无参</p>
 <blockquote>
 <p>$scope.$apply()</p>
 </blockquote>
@@ -248,7 +248,7 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$scope.$apply(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">    ...</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>应该总使用接受一个<code>function</code> 作为参数的 <code>$apply()</code>方法。这是因为当传入一个<code>function</code>到<code>$apply()</code>中的时候，这个<code>function</code>会被包装到一个<code>try…catch</code> 块中，所以一旦有异常发生，该异常会被 <code>$exceptionHandler service</code> 处理。</p>
 <p>想象一下如果有个<code>alert</code> 框显示错误给用户，然后有个第三方的库进行一个网络调用然后失败了，如果不把它封装进 <code>$apply</code> 里面，Angular 永远不会知道失败了，<code>alert</code> 框就永远不会弹出来了。</p>
-<h4 id="在-AngularJS-中使用-watch"><a href="#在-AngularJS-中使用-watch" class="headerlink" title="在 AngularJS 中使用 $watch"></a>在 AngularJS 中使用 $watch</h4><p>常用的使用方式：</p>
+<h4 id="在-AngularJS-中使用-watch"><a href="#在-AngularJS-中使用-watch" class="headerlink" title="在 AngularJS 中使用 $watch"></a>在 AngularJS 中使用 <code>$watch</code></h4><p>常用的使用方式：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$scope.name = <span class="string">'htf'</span>;</div><div class="line">$scope.$watch(<span class="string">'name'</span>, <span class="function"><span class="keyword">function</span><span class="params">(newValue, oldValue)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (newValue === oldValue) &#123; <span class="keyword">return</span>; &#125; </div><div class="line">    $scope.updated++;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>传入到 <code>$watch()</code>中的第二个参数是一个回调函数，该函数在<code>name</code> 的值发生变化的时候会被调用。</p>
 <p>如果要监听的是一个对象，那还需要第三个参数：</p>
@@ -379,18 +379,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/03/22/AngularJS 中 Controller 之间的通信/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/04/04/仿淘宝图片放大器/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          AngularJS 中 Controller 之间的通信
+          仿淘宝图片放大器
         
       </div>
     </a>
   
   
-    <a href="/2016/02/19/沿着最初的理想走下去/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">沿着最初的理想走下去</div>
+    <a href="/2016/03/22/AngularJS 中 Controller 之间的通信/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">AngularJS 中 Controller 之间的通信</div>
       <i class="icon-circle-right"></i>
     </a>
   
