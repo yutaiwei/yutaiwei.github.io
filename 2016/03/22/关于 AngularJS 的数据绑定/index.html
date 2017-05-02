@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yutaiwei.github.io">
   <title>关于 AngularJS 的数据绑定用域 | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别ng-bind 单向数据绑定（$scope -&amp;gt; view），用于数据显示，简写形式是 {&amp;amp;#123; &amp;amp;#125;}。
+  <meta name="description" content="单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别ng-bind 单向数据绑定（$scope -&amp;gt; view），用于数据显示，简写形式是 {&amp;#123;  &amp;#125;}。
 1&amp;lt;span ng-bind=&quot;val&quot;&amp;gt;&amp;lt;/span&amp;gt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于 AngularJS 的数据绑定用域">
 <meta property="og:url" content="http://yutaiwei.github.io/2016/03/22/关于 AngularJS 的数据绑定/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别ng-bind 单向数据绑定（$scope -&amp;gt; view），用于数据显示，简写形式是 {&amp;amp;#123; &amp;amp;#125;}。
+<meta property="og:description" content="单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别ng-bind 单向数据绑定（$scope -&amp;gt; view），用于数据显示，简写形式是 {&amp;#123;  &amp;#125;}。
 1&amp;lt;span ng-bind=&quot;val&quot;&amp;gt;&amp;lt;/span&amp;gt;">
-<meta property="og:updated_time" content="2017-05-02T09:23:52.778Z">
+<meta property="og:updated_time" content="2017-05-02T09:30:04.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于 AngularJS 的数据绑定用域">
-<meta name="twitter:description" content="单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别ng-bind 单向数据绑定（$scope -&amp;gt; view），用于数据显示，简写形式是 {&amp;amp;#123; &amp;amp;#125;}。
+<meta name="twitter:description" content="单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别ng-bind 单向数据绑定（$scope -&amp;gt; view），用于数据显示，简写形式是 {&amp;#123;  &amp;#125;}。
 1&amp;lt;span ng-bind=&quot;val&quot;&amp;gt;&amp;lt;/span&amp;gt;">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
@@ -186,7 +186,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="单向绑定（ng-bind）-和-双向绑定（ng-model）-的区别"><a href="#单向绑定（ng-bind）-和-双向绑定（ng-model）-的区别" class="headerlink" title="单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别"></a>单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别</h4><p><code>ng-bind</code> 单向数据绑定（<code>$scope -&gt; view</code>），用于数据显示，简写形式是 <code>{&amp;#123; &amp;#125;}</code>。</p>
+        <h4 id="单向绑定（ng-bind）-和-双向绑定（ng-model）-的区别"><a href="#单向绑定（ng-bind）-和-双向绑定（ng-model）-的区别" class="headerlink" title="单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别"></a>单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别</h4><p><code>ng-bind</code> 单向数据绑定（<code>$scope -&gt; view</code>），用于数据显示，简写形式是 <code>{</code>&#123;  &#125;<code>}</code>。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">ng-bind</span>=<span class="string">"val"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>两者的区别在于页面没有加载完毕<code></code>会直接显示到页面，直到 Angular 渲染该绑定数据（这种行为有可能将 <code></code>让用户看到）；而 <code>ng-bind</code>则是在 Angular 渲染完毕后将数据显示。</p>

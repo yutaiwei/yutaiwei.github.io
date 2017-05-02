@@ -164,87 +164,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-让伤疤微疼" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/05/让伤疤微疼/">让伤疤微疼</a>
-    </h1>
-  
-
-        
-        <a href="/2016/09/05/让伤疤微疼/" class="archive-article-date">
-  	<time datetime="2016-09-05T13:24:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/46.jpg" alt=""></p>
-<p>作者：王纯</p>
-<p>去朋友家做客，发现他的书桌上有一个小记事本，封面上写着“让伤疤微疼”。不觉好奇，朋友让我打开看。<br>
-        
-          <a class="article-more-a" href="/2016/09/05/让伤疤微疼/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">读者</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">王纯</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/09/05/让伤疤微疼/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-赚钱以外的功夫" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -863,6 +782,60 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/07/25/ngRoute 和 ui.router 的使用方法和区别/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Express入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/13/Express入门/">Express入门</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/13/Express入门/" class="archive-article-date">
+  	<time datetime="2016-07-13T14:09:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Express是node的后台快速开发框架"><a href="#Express是node的后台快速开发框架" class="headerlink" title="Express是node的后台快速开发框架"></a>Express是node的后台快速开发框架</h3><p>创建http服务</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="keyword">let</span> <span class="built_in">url</span> = <span class="built_in">require</span>(<span class="string">'url'</span>);</div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</div><div class="line">    <span class="built_in">var</span> urlObj =  <span class="built_in">url</span>.parse(req.url,<span class="literal">true</span>);</div><div class="line">    <span class="built_in">var</span> pathname = urlObj.pathname;</div><div class="line">    <span class="keyword">if</span> (pathname == <span class="string">'/'</span>)&#123;</div><div class="line">      res.end(<span class="string">'首页'</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(pathname == <span class="string">'/user'</span>)&#123;</div><div class="line">        res.end(<span class="string">'用户'</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="title">else</span> &#123;</div><div class="line">        res.statusCode = <span class="number">404</span>;</div><div class="line">        res.end(<span class="string">'Not Found'</span>)</div><div class="line">    &#125;</div><div class="line">&#125;).listen(<span class="number">3000</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'3000端口成功监听'</span>)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2016/07/13/Express入门/#more">更多 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/13/Express入门/">展开全文 >></a>
         </p>
       
 
