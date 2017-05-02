@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yutaiwei.github.io">
-  <title>Tag: JavaScript | 我的博客</title>
+  <title>理解 JavaScript 中的原型 | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录生活点点滴滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的博客">
-<meta property="og:url" content="http://yutaiwei.github.io/tags/JavaScript/index.html">
+  <meta name="description" content="prototype 与 proto 的联系与区别重要的话放前面讲。首先，理解一个函数的原型属性 prototype 其实和实际的原型__proto__没有关系至关重要。
+prototype 只有在 Function 中有，而__proto__ 在 Function 和 Object 中都有。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理解 JavaScript 中的原型">
+<meta property="og:url" content="http://yutaiwei.github.io/2015/08/04/理解 JavaScript 中的原型/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="记录生活点点滴滴">
+<meta property="og:description" content="prototype 与 proto 的联系与区别重要的话放前面讲。首先，理解一个函数的原型属性 prototype 其实和实际的原型__proto__没有关系至关重要。
+prototype 只有在 Function 中有，而__proto__ 在 Function 和 Object 中都有。">
+<meta property="og:updated_time" content="2017-05-01T13:29:24.792Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的博客">
-<meta name="twitter:description" content="记录生活点点滴滴">
+<meta name="twitter:title" content="理解 JavaScript 中的原型">
+<meta name="twitter:description" content="prototype 与 proto 的联系与区别重要的话放前面讲。首先，理解一个函数的原型属性 prototype 其实和实际的原型__proto__没有关系至关重要。
+prototype 只有在 Function 中有，而__proto__ 在 Function 和 Object 中都有。">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -162,36 +166,104 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-理解 JavaScript 中的原型" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/14/jQuery 学习总结/" class="archive-article-date">
-  	<time datetime="2017-05-14T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-14</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/14/jQuery 学习总结/">jQuery 学习总结</a>
+    <h1 class="article-title" itemprop="name">
+      理解 JavaScript 中的原型
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2015/08/04/理解 JavaScript 中的原型/" class="archive-article-date">
+  	<time datetime="2015-08-04T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="prototype-与-proto-的联系与区别"><a href="#prototype-与-proto-的联系与区别" class="headerlink" title="prototype 与 proto 的联系与区别"></a>prototype 与 <strong>proto</strong> 的联系与区别</h3><p>重要的话放前面讲。首先，理解一个函数的原型属性 prototype 其实和实际的原型<code>__proto__</code>没有关系至关重要。</p>
+<p><code>prototype</code> 只有在 Function 中有，而<code>__proto__</code> 在 Function 和 Object 中都有。</p>
+<a id="more"></a>
+<h3 id="关于Function"><a href="#关于Function" class="headerlink" title="关于Function"></a>关于Function</h3><p>在 JavaScript 中，除了五种原始类型（<code>Boolean</code>、<code>Number</code>、<code>String</code>、<code>Null</code>、<code>Underfined</code>），引用类型包括 <code>Array</code>、<code>Object</code>、<code>RegExp</code>、<code>Function</code>、<code>Date</code>、<code>Error</code>等，但从根本上只有两种，即 Function 和 Object，其他的引用类型都是从 Object 衍生出来。</p>
+<p>对于这两种类型的判断，前者（原始类型）判断用 <code>typeof</code>，后者（引用类型）用 <code>instanceof</code>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="literal">true</span>;</div><div class="line"><span class="keyword">typeof</span> a;   <span class="comment">// boolean</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> b = &#123;&#125;;</div><div class="line"><span class="keyword">typeof</span> b;   <span class="comment">// object</span></div><div class="line">b <span class="keyword">instanceof</span> <span class="built_in">Object</span>;    <span class="comment">// true</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> c = [];</div><div class="line"><span class="keyword">typeof</span> c;   <span class="comment">// object</span></div><div class="line">b <span class="keyword">instanceof</span> <span class="built_in">Array</span>;    <span class="comment">// false</span></div><div class="line">c <span class="keyword">instanceof</span> <span class="built_in">Array</span>;     <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p>在 js 中，Function 和 Object 是平级的，而且 Function 能做但 Object 做不了的事情：</p>
+<p>第一，Fuction 可以被执行。</p>
+<p>第二，Fuction 可以被当做 Object 的构造函数。当使用 new 操作符后面跟着一个 Function 类型的变量时，这个 Function 变量会被当成构造函数返回一个 Object 对象。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span><span class="params">()</span></span>&#123;</div><div class="line">    ...</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> Foo();</div></pre></td></tr></table></figure></p>
+<p>第三，Function 有内置的 <code>prototype</code> 属性，而 Object 没有。正是因为有了把 Function 当做构造函数的功能，才需要 prototype 属性。</p>
+<h3 id="关于继承（proto）"><a href="#关于继承（proto）" class="headerlink" title="关于继承（proto）"></a>关于继承（<strong>proto</strong>）</h3><p>继承仅限于引用类型，即 Function 和 Object。JavaScript中的继承是基于原型链来实现的，用来明确继承关系的就是<code>__proto__</code>，毕竟只有它同时存在于两者。</p>
+<p>用最简单的话来描述javascript中继承的本质：一个对象A的 <code>__proto__</code>属性所指向的那个对象B就是它的原型对象（或者叫上级对象、父对象），对象A可以使用对象B中定义的属性和方法，同时也可以使用对象B的原型对象C的属性与方法，以此递归，这也就是所谓的原型链。</p>
+<p>下面是一个对象继承的栗子。</p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">var A = &#123;</div><div class="line">    <span class="built_in">name</span>: <span class="string">'huangtengfei'</span></div><div class="line">&#125;</div><div class="line">var B = &#123;</div><div class="line">    github: <span class="string">'github.com/huangtengfei'</span></div><div class="line">&#125;</div><div class="line">var C = &#123;</div><div class="line">    blog: <span class="string">'huangtengfei.com'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">B.<span class="variable">__proto__</span> = C;</div><div class="line">A.<span class="variable">__proto__</span> = B;</div><div class="line"></div><div class="line">console.<span class="built_in">log</span>(A.<span class="built_in">name</span>);    <span class="comment">// huangtengfei</span></div><div class="line">console.<span class="built_in">log</span>(A.github);  <span class="comment">// github.com/huangtengfei</span></div><div class="line">console.<span class="built_in">log</span>(A.blog);    <span class="comment">// huangtengfei.com</span></div></pre></td></tr></table></figure>
+<h3 id="prototype的作用"><a href="#prototype的作用" class="headerlink" title="prototype的作用"></a>prototype的作用</h3><p>既然<code>__proto__</code> 一个东西把继承问题就都解决了，那要 prototype 做甚？</p>
+<p>并不，因为 <code>__proto__</code>并非官方标准中定义的属性，当把一个Function当做构造函数使用时，继承关系需要借助 prototype 实现。</p>
+<p>举个栗子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name, github, blog</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.github = github;</div><div class="line">    <span class="keyword">this</span>.blog = blog;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Foo.prototype.aboutMe = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> info = <span class="string">'my name is '</span> + <span class="keyword">this</span>.name +</div><div class="line">        <span class="string">'. my github is '</span> + <span class="keyword">this</span>.github + </div><div class="line">        <span class="string">'. my blog is '</span> + <span class="keyword">this</span>.blog;</div><div class="line">    <span class="built_in">console</span>.log(info);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> Foo(<span class="string">'htf'</span>, <span class="string">'github.com/huangtengfei'</span>, <span class="string">'huangtengfei.com'</span>);</div><div class="line">foo.aboutMe();  </div><div class="line"><span class="comment">// my name is htf. my github is github.com/huangtengfei. </span></div><div class="line"><span class="comment">// my blog is huangtengfei.com</span></div></pre></td></tr></table></figure>
+<p>这是个典型的构建构造函数，然后创建对象的过程。那么，在 <code>var foo = new Foo()</code>这一步发生了什么呢？</p>
+<p>第一步，Foo 函数被执行。Foo 函数在 foo 的作用域下被执行，所以这里 this 指代的就是 foo，这样 name、github、blog 三个属性才会被当做 foo 的属性被创建。</p>
+<p>第二步，将 <code>foo.__proto__</code>指向 <code>Foo.prototype</code>。这才是 javascript 构造函数的精髓所在，之后的原理和 关于继承 部分的代码一样，foo 就继承了 Foo.prototype 中（以及其原型链上）的属性与方法。</p>
+<blockquote>
+<p>console.log(foo.<strong>proto</strong> === Foo.prototype)    // true</p>
+</blockquote>
+<p>对象的 <code>__proto__</code>指向的是创建它的函数的 prototype，因此：</p>
+<blockquote>
+<p>Object.<strong>proto</strong> === Function.prototype</p>
+</blockquote>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><blockquote>
+<p><strong>proto is the actual object that is used in the lookup chain to resolve methods, etc. prototype is the object that is used to build \proto</strong> when you create an object with new.</p>
+</blockquote>
+<p>意思就是：</p>
+<p><code>__proto__</code> 是真正用来查找原型链去获取方法的对象。</p>
+<p>prototype 是在用 new 创建对象时用来构建 <code>__proto__</code>的对象。</p>
+<p>更详细的区别可参考：<a href="http://www.th7.cn/web/js/201503/88712.shtml" target="_blank" rel="external">prototype与<code>__proto__</code>的联系与区别</a></p>
+<p>获取对象原型的方法</p>
+<p>ECMA引入了标准对象原型访问器 <code>Object.getPrototype(object)</code>，到目前为止只有 Firefox 和 Chrome 实现了此访问器。除了 IE，其他的浏览器支持非标准的访问器<code>__proto__</code>，如果这两者都不起作用的，我们需要从对象的构造函数中找到的它原型属性。</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="comment">&#123;&#125;</span>; </div><div class="line"></div><div class="line"><span class="comment">//Firefox 3.6 and Chrome 5 </span></div><div class="line"> <span class="keyword">Object</span>.getPrototypeOf(a);  <span class="comment">// [object Object]   </span></div><div class="line"> </div><div class="line"><span class="comment">//Firefox 3.6, Chrome 5 and Safari 4 </span></div><div class="line">a.__proto__;    <span class="comment">// [object Object]   </span></div><div class="line"> </div><div class="line"><span class="comment">//all browsers </span></div><div class="line"> a.<span class="keyword">constructor</span>.prototype;   <span class="comment">// [object Object]</span></div></pre></td></tr></table></figure>
+<p>任何时候，<code>a.__proto__</code>和 <code>a.constructor.prototype</code>是等价的。</p>
+<h3 id="constructor-与-prototype"><a href="#constructor-与-prototype" class="headerlink" title="constructor 与 prototype"></a>constructor 与 prototype</h3><figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> A = <span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="comment">&#123;&#125;</span>;</span></div><div class="line">A.prototype.<span class="keyword">constructor</span> == A;   <span class="comment">// true</span></div><div class="line"><span class="keyword">var</span> a = new A();</div><div class="line">a.<span class="keyword">constructor</span> == A;     <span class="comment">// true</span></div><div class="line"><span class="comment">// (a's constructor property inherited from it's prototype)</span></div></pre></td></tr></table></figure>
+<p>图解可参考：<a href="http://www.jb51.net/article/30750.htm" target="_blank" rel="external">js原型链原理看图说明</a> 和 <a href="http://www.cnblogs.com/wangfupeng1988/p/3978131.html" target="_blank" rel="external">prototype原型
+</a> </p>
+<h3 id="instance-of-和原型的关系"><a href="#instance-of-和原型的关系" class="headerlink" title="instance of 和原型的关系"></a>instance of 和原型的关系</h3><p>如果 a 的原型属于 A 的原型链（即 <code>a.__proto__ === A.prototype</code>），表达式 <code>a instance of A</code> 值为 true。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> A = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;&#125;   </div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> A(); </div><div class="line"> </div><div class="line">a.__proto__ == A.prototype;     <span class="comment">// true</span></div><div class="line">a <span class="keyword">instanceof</span> A;     <span class="comment">// true</span></div><div class="line"></div><div class="line"><span class="comment">// 改变a的原型指向 </span></div><div class="line">a.__proto__ = <span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>;</div><div class="line">a <span class="keyword">instanceof</span> A;     <span class="comment">// false</span></div></pre></td></tr></table></figure>
+<h3 id="原型的作用"><a href="#原型的作用" class="headerlink" title="原型的作用"></a>原型的作用</h3><p>原型的作用当然是继承了。体现在以下两种情况：</p>
+<p>一、当多个实例共用一个通用原型的时候，原型对象的属性一旦定义，就可以被多个引用它的实例所继承。栗子可以看 JavaScript 面向对象编程 一文</p>
+<p>二、扩展原生构造函数 Function、String 等的功能，使其所有实例都拥有此扩展功能。</p>
+<p>比如下面一个栗子，对字符串本身进行指定数目的复制：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">String.prototype.<span class="keyword">times</span> = function(<span class="keyword">count</span>) &#123;</div><div class="line">    <span class="comment">// 构造空元素中间用当前字符串连接</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">count</span> &lt; <span class="number">1</span> ? <span class="string">''</span> : <span class="keyword">new</span> Array(<span class="keyword">count</span> + <span class="number">1</span>).<span class="keyword">join</span>(<span class="keyword">this</span>);</div><div class="line">&#125; </div><div class="line"> </div><div class="line"><span class="string">"hello!"</span>.<span class="keyword">times</span>(<span class="number">3</span>);     <span class="comment">// "hello!hello!hello!";</span></div></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -207,400 +279,108 @@
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/10/23/ES6对数组的扩展/" class="archive-article-date">
-  	<time datetime="2015-10-23T11:57:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-10-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/23/ES6对数组的扩展/">ES6对数组的扩展</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yutaiwei.github.io/2015/08/04/理解 JavaScript 中的原型/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/ES6/" class="article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/15/jQuery学习笔记——Ajax篇/" class="archive-article-date">
-  	<time datetime="2015-09-15T12:10:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-15</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/15/jQuery学习笔记——Ajax篇/">jQuery学习笔记——Ajax篇</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/15/JavaScript正则表达式/" class="archive-article-date">
-  	<time datetime="2015-09-15T04:37:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/15/JavaScript正则表达式/">JavaScript正则用法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/08/解决iscroll-js上拉下拉刷新手指划出屏幕无法弹回问题/" class="archive-article-date">
-  	<time datetime="2015-09-08T12:41:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/08/解决iscroll-js上拉下拉刷新手指划出屏幕无法弹回问题/">解决iscroll.js上拉下拉刷新手指划出屏幕页面无法回弹问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript/" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/29/ES6的新写法/" class="archive-article-date">
-  	<time datetime="2015-08-29T14:08:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/29/ES6的新写法/">ES6的新写法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/17/Javascript学习笔记——实践篇/" class="archive-article-date">
-  	<time datetime="2015-08-17T11:27:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/17/Javascript学习笔记——实践篇/">Javascript学习笔记—3</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/17/jQuery学习笔记——事件篇/" class="archive-article-date">
-  	<time datetime="2015-08-17T08:09:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/17/jQuery学习笔记——事件篇/">jQuery学习笔记——事件篇</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+    <a href="/2015/08/05/jQuery学习笔记——选择器篇/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          jQuery学习笔记——选择器篇
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2015/08/03/Cookie、localStorage和sessionStorage/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Cookie、localStorage和sessionStorage</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/tags/JavaScript/page/2/">2</a><a class="page-number" href="/tags/JavaScript/page/3/">3</a><a class="extend next" rel="next" href="/tags/JavaScript/page/2/">Next &raquo;</a>
-    </nav>
-  
+
 
 
           </div>
@@ -624,9 +404,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

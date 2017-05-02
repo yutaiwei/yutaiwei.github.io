@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yutaiwei.github.io">
-  <title>Tag: JavaScript | 我的博客</title>
+  <title>jQuery学习笔记——事件篇 | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录生活点点滴滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的博客">
-<meta property="og:url" content="http://yutaiwei.github.io/tags/JavaScript/index.html">
+  <meta name="description" content="前言任何基于GUI的现代应用程序都是基于事件驱动的，Web应用程序也不例外。
+所有事件驱动的应用程序都采用相同的工作模式：建立事件机制、等待相关事件发生（比如鼠标单击）、对该事件做出相应。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery学习笔记——事件篇">
+<meta property="og:url" content="http://yutaiwei.github.io/2015/08/17/jQuery学习笔记——事件篇/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="记录生活点点滴滴">
+<meta property="og:description" content="前言任何基于GUI的现代应用程序都是基于事件驱动的，Web应用程序也不例外。
+所有事件驱动的应用程序都采用相同的工作模式：建立事件机制、等待相关事件发生（比如鼠标单击）、对该事件做出相应。">
+<meta property="og:updated_time" content="2017-05-01T13:32:25.287Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的博客">
-<meta name="twitter:description" content="记录生活点点滴滴">
+<meta name="twitter:title" content="jQuery学习笔记——事件篇">
+<meta name="twitter:description" content="前言任何基于GUI的现代应用程序都是基于事件驱动的，Web应用程序也不例外。
+所有事件驱动的应用程序都采用相同的工作模式：建立事件机制、等待相关事件发生（比如鼠标单击）、对该事件做出相应。">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -162,402 +166,83 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-jQuery学习笔记——事件篇" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/14/jQuery 学习总结/" class="archive-article-date">
-  	<time datetime="2017-05-14T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-14</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/14/jQuery 学习总结/">jQuery 学习总结</a>
+    <h1 class="article-title" itemprop="name">
+      jQuery学习笔记——事件篇
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/10/23/ES6对数组的扩展/" class="archive-article-date">
-  	<time datetime="2015-10-23T11:57:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-10-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/23/ES6对数组的扩展/">ES6对数组的扩展</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/ES6/" class="article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/15/jQuery学习笔记——Ajax篇/" class="archive-article-date">
-  	<time datetime="2015-09-15T12:10:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/15/jQuery学习笔记——Ajax篇/">jQuery学习笔记——Ajax篇</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/15/JavaScript正则表达式/" class="archive-article-date">
-  	<time datetime="2015-09-15T04:37:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/15/JavaScript正则表达式/">JavaScript正则用法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/09/08/解决iscroll-js上拉下拉刷新手指划出屏幕无法弹回问题/" class="archive-article-date">
-  	<time datetime="2015-09-08T12:41:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/08/解决iscroll-js上拉下拉刷新手指划出屏幕无法弹回问题/">解决iscroll.js上拉下拉刷新手指划出屏幕页面无法回弹问题</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript/" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/29/ES6的新写法/" class="archive-article-date">
-  	<time datetime="2015-08-29T14:08:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/29/ES6的新写法/">ES6的新写法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/17/Javascript学习笔记——实践篇/" class="archive-article-date">
-  	<time datetime="2015-08-17T11:27:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/17/Javascript学习笔记——实践篇/">Javascript学习笔记—3</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/17/jQuery学习笔记——事件篇/" class="archive-article-date">
+        
+        <a href="/2015/08/17/jQuery学习笔记——事件篇/" class="archive-article-date">
   	<time datetime="2015-08-17T08:09:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-17</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/17/jQuery学习笔记——事件篇/">jQuery学习笔记——事件篇</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>任何基于GUI的现代应用程序都是基于事件驱动的，Web应用程序也不例外。</p>
+<p>所有事件驱动的应用程序都采用相同的工作模式：建立事件机制、等待相关事件发生（比如鼠标单击）、对该事件做出相应。<br><a id="more"></a></p>
+<h3 id="浏览器事件模型"><a href="#浏览器事件模型" class="headerlink" title="浏览器事件模型"></a>浏览器事件模型</h3><p>忆苦思甜，先了解一下传统的事件模型的缺点，我们才能明白改革开放是多么好的政策！</p>
+<h4 id="DOM第0级事件模型"><a href="#DOM第0级事件模型" class="headerlink" title="DOM第0级事件模型"></a>DOM第0级事件模型</h4><p>也许你听说过网景事件模型、基本事件模型、浏览器事件模型，但是大多数人称其为DOM第0级事件模型。</p>
+<p>为什么称其为第0级事件模型呢？因为，虽然该模型并不是一个正式的标准，但是所有主流的浏览器都与之兼容。而且，所有的现代浏览器依然支持这种模型。</p>
+<h4 id="插播广告"><a href="#插播广告" class="headerlink" title="插播广告"></a>插播广告</h4><p>几乎所有的标准、协议、规范，都是在一门技术出现甚至成熟之后，才会形成。所以，我们也不能责怪W3C组织，没有及时给网景推出的事件模型一个名分，毕竟技术要领先于标准。</p>
+<h4 id="DOM第2级事件模型"><a href="#DOM第2级事件模型" class="headerlink" title="DOM第2级事件模型"></a>DOM第2级事件模型</h4><p>等一下？void，你是不是把DOM第1级事件模型漏掉了？<br>没有漏掉，因为没有DOM第1级事件模型。DOM级别1于1998年10月成为W3C推荐标准，但是，该标准中并没有定义事件相关的内容。直到2000年11月，DOM级别2被引入时，W3C才真正为事件处理建立了标准模型。</p>
+<p>这个模型得到了所有标准兼容的现代浏览器的支持，比如Firefox、Safari、Opera等。IE浏览器特立独行，它支持DOM第2级事件模型的一个功能子集。</p>
+<h4 id="IE事件模型"><a href="#IE事件模型" class="headerlink" title="IE事件模型"></a>IE事件模型</h4><p>刚才说到，IE不支持DOM第2级事件模型。IE为每个DOM元素定义了一个名为attachEvent()的方法，而不是addEventListener()。</p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>以上你可以认为是废话……总而言之，想要使用事件模型，不得不考虑到兼容问题，非常麻烦！这时，我们的jQuery事件模型华丽登场！</p>
+<h3 id="jQuery事件模型，"><a href="#jQuery事件模型，" class="headerlink" title="jQuery事件模型，"></a>jQuery事件模型，</h3><p>jQuery把不一致的代码从页面代码中提取出来，将其隐藏在API中，因此，我们终于不用再去考虑兼容性问题！</p>
+<h4 id="使用jQuery绑定事件处理器"><a href="#使用jQuery绑定事件处理器" class="headerlink" title="使用jQuery绑定事件处理器"></a>使用jQuery绑定事件处理器</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span>	</div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"jquery-1.10.2.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">			$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				$(<span class="string">"img"</span>).bind(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;alert(<span class="string">"hello voidking"</span>);&#125;);</div><div class="line">			&#125;);</div><div class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./head.jpg"</span> <span class="attr">alt</span>=<span class="string">"头像"</span>/&gt;</span>		</div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span>	</div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"jquery-1.10.2.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">			$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				$(<span class="string">"#voidking"</span>)</div><div class="line">				.bind(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">					alert(<span class="string">"hello voidking once!"</span>);</div><div class="line">				&#125;)</div><div class="line">				.bind(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">					alert(<span class="string">"hello voidking twice!"</span>);</div><div class="line">				&#125;)</div><div class="line">				.bind(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">					alert(<span class="string">"hello voidking three times!"</span>);</div><div class="line">				&#125;);</div><div class="line">			&#125;);</div><div class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"voidking"</span> <span class="attr">src</span>=<span class="string">"./head.jpg"</span> <span class="attr">alt</span>=<span class="string">"头像"</span>/&gt;</span>		</div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>由上面两段代码我们发现，绑定事件很简单，只需要一个bind()函数。而且，一个事件可以对应多个处理器。<br>除了bind()函数，jQuery还为创建特定的事件处理器提供了一些便捷方法。比如one、focusin、focusout等。</p>
+<h4 id="删除事件处理器"><a href="#删除事件处理器" class="headerlink" title="删除事件处理器"></a>删除事件处理器</h4><p>创建了一个事件处理器，那么它在页面剩余的生命周期里就是有效的。但是一些特殊的交互，要求根据一定标准删除处理器。这时我们就要用到unbind()函数，jQuery考虑的很周到啊！<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span>	</div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"jquery-1.10.2.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">			$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				$(<span class="string">"#voidking1"</span>).bind(<span class="string">"click.voidking"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">					alert(<span class="string">"hello voidking1"</span>);</div><div class="line">					$(<span class="string">"*"</span>).unbind(<span class="string">'click.voidking'</span>);</div><div class="line">				&#125;);</div><div class="line">				</div><div class="line">				$(<span class="string">"#voidking2"</span>).bind(<span class="string">"click.voidking"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">					alert(<span class="string">"hello voidking2"</span>);</div><div class="line">					$(<span class="string">"*"</span>).unbind(<span class="string">'click.voidking'</span>);</div><div class="line">				&#125;);</div><div class="line">				</div><div class="line">			&#125;);</div><div class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"voidking1"</span> <span class="attr">src</span>=<span class="string">"./head.jpg"</span> <span class="attr">alt</span>=<span class="string">"头像"</span>/&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"voidking2"</span> <span class="attr">src</span>=<span class="string">"./head.jpg"</span> <span class="attr">alt</span>=<span class="string">"头像"</span>/&gt;</span>		</div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>上面这个例子中，我们实现了一个效果：有任何一张图片被点击了一次，那么两张图都不可以再被点击。</p>
+<h4 id="Event实例"><a href="#Event实例" class="headerlink" title="Event实例"></a>Event实例</h4><p>使用bind()方法，无论是什么浏览器，Event实例都会作为第一个参数传入函数。</p>
+<p>那么，怎么处理不同浏览器中Event实例中属性的差异呢？原来，jQuery定义了一个jQuery.Event对象，真正传入的函数的，是这个对象。这个对象复制了大部分原始Event的属性，忽略了Event实例的差异性。就像是一个接口，我们不需要管它怎么实现，只要调用就好了！</p>
+<h4 id="预先管理事件处理器"><a href="#预先管理事件处理器" class="headerlink" title="预先管理事件处理器"></a>预先管理事件处理器</h4><p>当混合使用Ajax时，我们可能在页面的生命周期内频繁引入DOM元素或删除它们。在管理这些动态元素的事件处理器时，就绪处理器就起不到多大作用了，因为这些动态元素在就绪处理器执行时还不存在。</p>
+<p>jQuery提供了live()方法，该方法允许预先为那些不存在的元素创建事件处理器。它的语法和bind()非常相似，看上去似乎比bind()更加强大，那么，用live()代替bind()不就好了吗？不是的，首先，“live”事件不是原生的“普通”事件。其次，live()方法只能应用于选择器，不能应用于衍生而来的包装集。</p>
+<p>这里不再举例，下面的Ajax会详细探讨。</p>
+<p>live()创建的选择器可以使用die()方法来解除绑定，语法和unbind()相似。</p>
+<h4 id="触发事件处理器"><a href="#触发事件处理器" class="headerlink" title="触发事件处理器"></a>触发事件处理器</h4><p>触发事件，听起来就很难懂的样子，我们换个说法：模拟用户动作。比如点击，我们可以用代码去模拟用户点击，达到的效果与真实的鼠标点击是一样的。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span>	</div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"jquery-1.10.2.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">			$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				$(<span class="string">"#voidking"</span>).bind(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">					alert(<span class="string">"hello voidking"</span>);</div><div class="line">				&#125;);					</div><div class="line">				$(<span class="string">"#voidking"</span>).click();<span class="comment">//模拟用户单击事件</span></div><div class="line">				$(<span class="string">"#voidking"</span>).trigger(<span class="string">"click"</span>);<span class="comment">//模拟用户单击事件</span></div><div class="line"></div><div class="line">				$(<span class="string">"p"</span>).bind(<span class="string">"myEvent"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event, message1, message2</span>) </span>&#123;</div><div class="line">					alert(message1 + <span class="string">' '</span> + message2);</div><div class="line">				&#125;);</div><div class="line">				$(<span class="string">"p"</span>).trigger(<span class="string">"myEvent"</span>, [<span class="string">"hello"</span>,<span class="string">"trigger"</span>]);	<span class="comment">//弹出两次		</span></div><div class="line">				$(<span class="string">'p'</span>).triggerHandler(<span class="string">"myEvent"</span>,[<span class="string">"hello"</span>,<span class="string">"triggerHandler"</span>]); <span class="comment">//弹出一次，只触发第一个p元素</span></div><div class="line">				</div><div class="line">				$(<span class="string">"input"</span>).select(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				</div><div class="line">				&#125;);</div><div class="line">				$(<span class="string">"#trigger"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">					$(<span class="string">"input"</span>).trigger(<span class="string">"select"</span>);<span class="comment">//触发select事件，执行select默认操作和select处理器内操作</span></div><div class="line">				&#125;);</div><div class="line">				$(<span class="string">"#triggerHandler"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">					$(<span class="string">"input"</span>).triggerHandler(<span class="string">"select"</span>);<span class="comment">//触发select事件，但是不会执行select默认操作</span></div><div class="line">				&#125;);</div><div class="line">			&#125;);	</div><div class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">"voidking"</span> <span class="attr">src</span>=<span class="string">"./head.jpg"</span> <span class="attr">alt</span>=<span class="string">"头像"</span>/&gt;</span>	</div><div class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span>  <span class="attr">value</span>=<span class="string">"hello voidking"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">br</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"trigger"</span>&gt;</span>激活select事件，同时选中文本<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">br</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"triggerHandler"</span>&gt;</span>激活select事件，不选中文本<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>上面这个例子，基本上涵盖了触发事件管理器的所有知识点。这里不详细解释了，自己看注释，不懂的请百度或留言。</p>
+<h4 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h4><p>toggle: 这个方法在jQuery 1.8中宣告过时，在jQuery 1.9中已经移除。<br>为了写出一个图片大中小切换效果，各种百度谷歌，最终没搞出来。开始怀疑，toggle过时了，经过查看官方文档，果然！我靠，各位大神，你们13、14年写的教程，居然使用过时的代码……还有你，w3school，该更新了大哥！</p>
+<h3 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h3><p>以上总结不可能面面俱到，差不多了，就写到这儿吧！</p>
+<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><p>李炎恢的jQuery视频教程<br>《jQuery攻略（作者B.M.Harwani）》<br>《jQuery实战（作者Bear Bibeault、Yehuda Katz）》<br>《jQuery高级编程（作者 Cesar Otero、Rob Larsen）》<br>《jQuery Javascript 与CSS开发入门经典（作者Richard York）》</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -573,7 +258,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -586,21 +271,95 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yutaiwei.github.io/2015/08/17/jQuery学习笔记——事件篇/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2015/08/17/Javascript学习笔记——实践篇/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Javascript学习笔记—3
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2015/08/15/基于JQuery实现滚动到页面底端时自动加载更多信息/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基于JQuery实现滚动到页面底端时自动加载更多信息</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/tags/JavaScript/page/2/">2</a><a class="page-number" href="/tags/JavaScript/page/3/">3</a><a class="extend next" rel="next" href="/tags/JavaScript/page/2/">Next &raquo;</a>
-    </nav>
-  
+
 
 
           </div>
@@ -624,9 +383,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
