@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yutaiwei.github.io">
-  <title>Category: 设计开发 | 我的博客</title>
+  <title>node中exports和module.exports的区别和联系 | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录生活点点滴滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的博客">
-<meta property="og:url" content="http://yutaiwei.github.io/categories/设计开发/page/2/index.html">
+  <meta name="description" content="前言
+exports只是module.exports的辅助方法。你的模块最终返回module.exports给调用者，而不是exports。exports所做的事情是收集属性，如果module.exports当前没有任何属性的话，exports会把这些属性赋予module.exports。如果module.exports已经存在一些属性的话，那么exports中所用的东西都会被忽略。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node中exports和module.exports的区别和联系">
+<meta property="og:url" content="http://yutaiwei.github.io/2016/08/09/node中exports和module.exports的区别和联系/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="记录生活点点滴滴">
+<meta property="og:description" content="前言
+exports只是module.exports的辅助方法。你的模块最终返回module.exports给调用者，而不是exports。exports所做的事情是收集属性，如果module.exports当前没有任何属性的话，exports会把这些属性赋予module.exports。如果module.exports已经存在一些属性的话，那么exports中所用的东西都会被忽略。">
+<meta property="og:updated_time" content="2017-05-01T13:58:20.284Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的博客">
-<meta name="twitter:description" content="记录生活点点滴滴">
+<meta name="twitter:title" content="node中exports和module.exports的区别和联系">
+<meta name="twitter:description" content="前言
+exports只是module.exports的辅助方法。你的模块最终返回module.exports给调用者，而不是exports。exports所做的事情是收集属性，如果module.exports当前没有任何属性的话，exports会把这些属性赋予module.exports。如果module.exports已经存在一些属性的话，那么exports中所用的东西都会被忽略。">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -162,464 +166,192 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-node中exports和module.exports的区别和联系" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      node中exports和module.exports的区别和联系
+    </h1>
+  
+
+        
+        <a href="/2016/08/09/node中exports和module.exports的区别和联系/" class="archive-article-date">
+  	<time datetime="2016-08-09T08:43:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-09</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>exports只是module.exports的辅助方法。你的模块最终返回module.exports给调用者，而不是exports。exports所做的事情是收集属性，如果module.exports当前没有任何属性的话，exports会把这些属性赋予module.exports。如果module.exports已经存在一些属性的话，那么exports中所用的东西都会被忽略。<br><a id="more"></a><br>最初时，exports是module.exports的一个引用。<br>(exports=global.exports)=(self.exports=module.exports)</p>
+</blockquote>
+<h1 id="exports正常导出"><a href="#exports正常导出" class="headerlink" title="exports正常导出"></a>exports正常导出</h1><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// caculate.js</span></div><div class="line">exports.add = <span class="function"><span class="keyword">function</span> <span class="params">(a, b)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> a+b;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// main.js</span></div><div class="line"><span class="keyword">var</span> caculate = <span class="built_in">require</span>(<span class="string">'./caculate'</span>);</div><div class="line"></div><div class="line">exports.runAdd = <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> num = caculate.add(<span class="number">5</span>,<span class="number">4</span>);</div><div class="line">    <span class="built_in">console</span>.log(num);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在main模块中，可以正常调用caculate模块中的add函数。因为exports是module.exports的一个引用，所以<code>exports.add=function(){}</code>这个操作，把add函数加到了module.exports指向的对象（函数也是对象）中。而main模块中获取到的，就是caculate的module.exports指向的对象，自然也获取到了add函数。</p>
+<h1 id="exports错误导出"><a href="#exports错误导出" class="headerlink" title="exports错误导出"></a>exports错误导出</h1><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// caculate.js</span></div><div class="line">exports = <span class="function"><span class="keyword">function</span> <span class="params">(a, b)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> a+b;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// main.js</span></div><div class="line"><span class="keyword">var</span> caculate = <span class="built_in">require</span>(<span class="string">'./caculate'</span>);</div><div class="line"></div><div class="line">exports.runAdd = <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(caculate);</div><div class="line">    <span class="comment">//var num = caculate(5, 4);</span></div><div class="line">    <span class="comment">//console.log(num);</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如上的导出方法是错误的，我们可以看到打印出的caculate是一个空对象<code>{}</code>。因为exports原本是module.exports的一个引用，后来指向了一个函数。而module.exports的指向的对象，初始值就是空对象<code>{}</code>，自始至终都没有这个空对象添加属性或函数。所以，当main模块中获取到caculate的module.exports指向的对象时，依然是一个空对象<code>{}</code>。</p>
+<h1 id="module-exports导出"><a href="#module-exports导出" class="headerlink" title="module.exports导出"></a>module.exports导出</h1><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// caculate.js</span></div><div class="line">exports.add = <span class="function"><span class="keyword">function</span> <span class="params">(a, b)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> a+b;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> caculate = &#123;</div><div class="line">    <span class="keyword">delete</span>: <span class="function"><span class="keyword">function</span><span class="params">(a, b)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> a-b;</div><div class="line">    &#125;,</div><div class="line">    multiple: <span class="function"><span class="keyword">function</span><span class="params">(a, b)</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> a*b;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">module.exports = caculate;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// main.js</span></div><div class="line"><span class="keyword">var</span> caculate = <span class="built_in">require</span>(<span class="string">'./caculate'</span>);</div><div class="line"></div><div class="line">exports.runDelete = <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">    <span class="comment">//var num = caculate.add(5, 4);</span></div><div class="line">    <span class="keyword">var</span> num = caculate.delete(<span class="number">5</span>, <span class="number">4</span>);</div><div class="line">    <span class="built_in">console</span>.log(num);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如上导出方法，在caculate的module.exports指向的对象中，不会包含add函数。虽然<code>exports.add=function(){}</code>向module.exports指向的空对象<code>{}</code>中添加了一个add函数，但是紧接着，module.exports指向的对象改变了！变成了caculate对象。</p>
+<h1 id="seajs中module-exports和return"><a href="#seajs中module-exports和return" class="headerlink" title="seajs中module.exports和return"></a>seajs中module.exports和return</h1><p>seajs中的exports和module.exports的关系，和Node中相同。</p>
+<p>在进行插件CMD模块化时，发现module.exports和return基本相同。下面写个小例子：<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// plugin.js</span></div><div class="line">define(<span class="function"><span class="keyword">function</span><span class="params">(require, exports, module)</span>&#123;</span></div><div class="line">    <span class="function"><span class="keyword">module</span>.<span class="title">exports</span> =</span> <span class="function"><span class="keyword">function</span><span class="params">(jQuery)</span>&#123;</span></div><div class="line">        <span class="comment">// require('another-plugin')(jQuery);</span></div><div class="line">        <span class="comment">// 依赖jQuery的插件代码</span></div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// plugin.js</span></div><div class="line">define(<span class="function"><span class="keyword">function</span><span class="params">(require, exports, module)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">(jQuery)</span></span>&#123;</div><div class="line">        <span class="comment">// require('another-plugin')(jQuery);</span></div><div class="line">        <span class="comment">// 依赖jQuery的插件代码</span></div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">seajs.<span class="keyword">use</span>([<span class="string">'jquery'</span>,<span class="string">'plugin'</span>],<span class="function"><span class="keyword">function</span><span class="params">($,plugin)</span></span>&#123;</div><div class="line">    plugin($);<span class="comment">//初始化</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h1 id="书签"><a href="#书签" class="headerlink" title="书签"></a>书签</h1><p>Modules Node.js v6.3.0 Manual &amp; Documentation<br><a href="https://nodejs.org/api/modules.html#modules_the_module_object" target="_blank" rel="external">https://nodejs.org/api/modules.html#modules_the_module_object</a></p>
+<p>module.exports 还是 exports？<br><a href="http://zihua.li/2012/03/use-module-exports-or-exports-in-node/" target="_blank" rel="external">http://zihua.li/2012/03/use-module-exports-or-exports-in-node/</a></p>
+<p><a href="http://www.blogjava.net/Hafeyang/archive/2012/10/27/diifference_between_exports_and_module_dot_exports_in_nodejs.html" target="_blank" rel="external">nodejs中export与module.export的区别</a></p>
+<p>SeaJS 中的 exports 和模块加载<br><a href="http://www.tuicool.com/articles/Y3qmAj" target="_blank" rel="external">http://www.tuicool.com/articles/Y3qmAj</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/02/AngularJS 表单验证/" class="archive-article-date">
-  	<time datetime="2016-06-02T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/02/AngularJS 表单验证/">AngularJS 表单验证</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">exports</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/25/AngularJS 中的服务Provider/" class="archive-article-date">
-  	<time datetime="2016-05-25T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/25/AngularJS 中的服务Provider/">AngularJS 中的服务Provider</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/14/jQuery 学习总结/" class="archive-article-date">
-  	<time datetime="2016-05-14T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/14/jQuery 学习总结/">jQuery 学习总结</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/22/AngularJS 中 Controller 之间的通信/" class="archive-article-date">
-  	<time datetime="2016-03-22T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/22/AngularJS 中 Controller 之间的通信/">AngularJS 中 Controller 之间的通信</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/13/AngularJS中的作用域/" class="archive-article-date">
-  	<time datetime="2015-12-13T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/13/AngularJS中的作用域/">AngularJS中的作用域</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yutaiwei.github.io/2016/08/09/node中exports和module.exports的区别和联系/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/11/15/jQuery书签/" class="archive-article-date">
-  	<time datetime="2015-11-15T07:54:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-15</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/11/15/jQuery书签/">jQuery书签</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jquery</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">书签</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/11/05/Angular JS 指令入门/" class="archive-article-date">
-  	<time datetime="2015-11-05T12:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/11/05/Angular JS 指令入门/">Angular JS 指令入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/11/02/AngularJS入门篇/" class="archive-article-date">
-  	<time datetime="2015-11-02T11:53:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/11/02/AngularJS入门篇/">AngularJS入门篇</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+    <a href="/2016/09/19/Mongodb的使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Mongodb的使用
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2016/08/02/AngularJS按需加载js/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">AngularJS按需加载js</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/categories/设计开发/">&laquo; Prev</a><a class="page-number" href="/categories/设计开发/">1</a><span class="page-number current">2</span><a class="page-number" href="/categories/设计开发/page/3/">3</a><a class="page-number" href="/categories/设计开发/page/4/">4</a><a class="page-number" href="/categories/设计开发/page/5/">5</a><a class="extend next" rel="next" href="/categories/设计开发/page/3/">Next &raquo;</a>
-    </nav>
-  
+
 
 
           </div>
@@ -643,10 +375,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		root: "/",
 		innerArchive: true,
