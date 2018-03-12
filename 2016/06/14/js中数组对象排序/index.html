@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yutaiwei.github.io">
-  <title>Tag: Angular | 我的博客</title>
+  <title>js中数组对象排序 | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录生活点点滴滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的博客">
-<meta property="og:url" content="http://yutaiwei.github.io/tags/Angular/index.html">
+  <meta name="description" content="普通数组排序　　js中用方法sort()为数组排序。sort()方法有一个可选参数，是用来确定元素顺序的函数。如果这个参数被省略，那么数组中的元素将按照ASCII字符顺序进行排序。如：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js中数组对象排序">
+<meta property="og:url" content="http://yutaiwei.github.io/2016/06/14/js中数组对象排序/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="记录生活点点滴滴">
+<meta property="og:description" content="普通数组排序　　js中用方法sort()为数组排序。sort()方法有一个可选参数，是用来确定元素顺序的函数。如果这个参数被省略，那么数组中的元素将按照ASCII字符顺序进行排序。如：">
+<meta property="og:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/39.jpg">
+<meta property="og:updated_time" content="2017-05-01T13:53:21.300Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的博客">
-<meta name="twitter:description" content="记录生活点点滴滴">
+<meta name="twitter:title" content="js中数组对象排序">
+<meta name="twitter:description" content="普通数组排序　　js中用方法sort()为数组排序。sort()方法有一个可选参数，是用来确定元素顺序的函数。如果这个参数被省略，那么数组中的元素将按照ASCII字符顺序进行排序。如：">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/39.jpg">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -162,350 +165,198 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-js中数组对象排序" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js中数组对象排序
+    </h1>
+  
+
+        
+        <a href="/2016/06/14/js中数组对象排序/" class="archive-article-date">
+  	<time datetime="2016-06-14T10:59:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-14</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/39.jpg" alt=""></p>
+<h2 id="普通数组排序"><a href="#普通数组排序" class="headerlink" title="普通数组排序　　"></a>普通数组排序　　</h2><p><code>js</code>中用方法<code>sort()</code>为数组排序。<code>sort()</code>方法有一个可选参数，是用来确定元素顺序的函数。如果这个参数被省略，那么数组中的元素将按照ASCII字符顺序进行排序。如：<br><a id="more"></a><br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> arr = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"A"</span>, <span class="string">"B"</span>];</div><div class="line">arr.<span class="built_in">sort</span>();</div><div class="line">console.<span class="built_in">log</span>(arr);//[<span class="string">"A"</span>, <span class="string">"B"</span>, <span class="string">"a"</span>, <span class="string">"b"</span>]</div></pre></td></tr></table></figure></p>
+<p>因为字母<code>A</code>、<code>B</code>的<code>ASCII</code>值分别为<code>65</code>、<code>66</code>，而<code>a</code>、<code>b</code>的值分别为<code>97</code>、<code>98</code>，所以上面输出的结果是<code>[&quot;A&quot;, &quot;B&quot;, &quot;a&quot;, &quot;b&quot;]</code>。</p>
+<p>如果数组元素是数字呢，结果会是怎样？</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var arr = [<span class="number">15</span>, <span class="number">8</span>, <span class="number">25</span>, <span class="number">3</span>];</div><div class="line">arr.sort();</div><div class="line">console.log(arr);<span class="comment">//[15, 25, 3, 8]</span></div></pre></td></tr></table></figure>
+<p>结果是<code>[15, 25, 3, 8]</code>。其实，<code>sort</code>方法会调用每个数组项的<code>toString()</code>方法，得到字符串，然后再对得到的字符串进行排序。虽然数值<code>15</code>比<code>3</code>大，但在进行字符串比较时”15”则排在”3”前面。显然，这种结果不是我们想要的，这时，<code>sort()</code>方法的参数就起到了作用，我们把这个参数叫做比较函数。</p>
+<p>比较函数接收两个参数，如果第一个参数应该位于第二个之前则返回一个负数，如果两个参数相等则返回0，如果第一个参数应该位于第二个之后则返回一个正数。例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">23</span>, <span class="number">9</span>, <span class="number">4</span>, <span class="number">78</span>, <span class="number">3</span>];</div><div class="line"><span class="keyword">var</span> compare = <span class="function"><span class="keyword">function</span> (<span class="params">x, y</span>) </span>&#123;<span class="comment">//比较函数</span></div><div class="line">    <span class="keyword">if</span> (x &lt; y) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (x &gt; y) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(arr.sort(compare));</div></pre></td></tr></table></figure>
+<p>结果为<code>[3, 4, 9, 23, 78]</code>，返回了我们想要的结果。如果要按降序排序，比较函数写成这样即可：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> compare = <span class="function"><span class="keyword">function</span> <span class="params">(x, y)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (x &lt; y) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (x &gt; y) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们并不能用比较函数比较一个不能转化为数字的字符串与数字的顺序：</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> arr = [<span class="string">"b"</span>, <span class="number">5</span>];</div><div class="line">console.<span class="built_in">log</span>(arr.<span class="built_in">sort</span>(<span class="built_in">compare</span>))</div></pre></td></tr></table></figure>
+<p>结果是<code>[&quot;b&quot;, 5]</code>。因为比较函数在比较时，会把先把字符串转化为数字，然后再比较，字符串<code>b</code>不能转化为数字，所以就不能比较大小。然而，当不用比较函数时，会比较<code>ASCII</code>值，所以结果是<code>[5, &quot;b&quot;]</code>。</p>
+<h2 id="数组对象排序"><a href="#数组对象排序" class="headerlink" title="数组对象排序"></a>数组对象排序</h2><p>如果数组项是对象，我们需要根据数组项的某个属性对数组进行排序，要怎么办呢？其实和前面的比较函数也差不多：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [&#123;<span class="attr">name</span>: <span class="string">"zlw"</span>, <span class="attr">age</span>: <span class="number">24</span>&#125;, &#123;<span class="attr">name</span>: <span class="string">"wlz"</span>, <span class="attr">age</span>: <span class="number">25</span>&#125;];</div><div class="line"><span class="keyword">var</span> compare = <span class="function"><span class="keyword">function</span> (<span class="params">obj1, obj2</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> val1 = obj1.name;</div><div class="line">    <span class="keyword">var</span> val2 = obj2.name;</div><div class="line">    <span class="keyword">if</span> (val1 &lt; val2) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (val1 &gt; val2) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(arr.sort(compare));</div></pre></td></tr></table></figure>
+<p>输出结果为<code>[Object { name=&quot;wlz&quot;, age=25}, Object { name=&quot;zlw&quot;, age=24}]</code>，可以看到数组已经按照<code>name</code>属性进行了排序。我们可以对上面的比较函数再改造一下：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> compare = <span class="function"><span class="keyword">function</span> <span class="params">(prop)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">(obj1, obj2)</span> </span>&#123;</div><div class="line">        <span class="keyword">var</span> val1 = obj1[prop];</div><div class="line">        <span class="keyword">var</span> val2 = obj2[prop];<span class="keyword">if</span> (val1 &lt; val2) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (val1 &gt; val2) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果想按照<code>age</code>进行排序，<code>arr.sort(compare(&quot;age&quot;))</code>即可。</p>
+<p>但是对<code>age</code>属性进行排序时需要注意了，如果<code>age</code>属性的值是数字，那么排序结果会是我们想要的。但很多时候我们从服务器传回来的数据中，属性值通常是字符串。现在我把上面的数组改为：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var arr = [&#123;<span class="string">name:</span> <span class="string">"zlw"</span>, <span class="string">age:</span> <span class="string">"24"</span>&#125;, &#123;<span class="string">name:</span> <span class="string">"wlz"</span>, <span class="string">age:</span> <span class="string">"5"</span>&#125;];</div></pre></td></tr></table></figure>
+<p>可以看到，我把<code>age</code>属性由数字改为了字符串，第二个数组项的<code>age</code>值改为了<code>&quot;5&quot;</code>。再次调用<code>arr.sort(compare(&quot;age&quot;))</code>后，结果为：</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[Object &#123; name=<span class="string">"zlw"</span>, age=<span class="string">"24"</span>&#125;, Object &#123; name=<span class="string">"wlz"</span>, age=<span class="string">"5"</span>&#125;]</div></pre></td></tr></table></figure>
+<p>我们的期望是<code>5</code>排在<code>25</code>前面，但是结果不是。这是因为当两个数字字符串比较大小时，会比较它们的<code>ASCII</code>值大小，比较规则是：从第一个字符开始，顺次向后直到出现不同的字符为止，然后以第一个不同的字符的ASCII值确定大小。所以”24”与”5”比较大小时，先比较”2“与”5”的ASCII值，显然”2“的ASCII值比”5”小，即确定排序顺序。</p>
+<p>现在，我们需要对比较函数再做一些修改：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> compare = <span class="function"><span class="keyword">function</span> (<span class="params">prop</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">obj1, obj2</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> val1 = obj1[prop];</div><div class="line">        <span class="keyword">var</span> val2 = obj2[prop];</div><div class="line">        <span class="keyword">if</span> (!<span class="built_in">isNaN</span>(<span class="built_in">Number</span>(val1)) &amp;&amp; !<span class="built_in">isNaN</span>(<span class="built_in">Number</span>(val2))) &#123;</div><div class="line">            val1 = <span class="built_in">Number</span>(val1);</div><div class="line">            val2 = <span class="built_in">Number</span>(val2);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (val1 &lt; val2) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (val1 &gt; val2) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在比较函数中，先把比较属性值转化为数字<code>Number(val1)</code>再通过<code>!isNaN(Number(val1))</code>判断转化后的值是不是数字(有可能是<code>NaN</code>)，转化后的值如果是数字，则比较转换后的值，这样就可以得到我们想要的结果了， 调用<code>arr.sort(compare(&quot;age&quot;))</code>得到：</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[Object &#123; name=<span class="string">"wlz"</span>, age=<span class="string">"5"</span>&#125;, Object &#123; name=<span class="string">"zlw"</span>, age=<span class="string">"24"</span>&#125;]</div></pre></td></tr></table></figure>
+<p>可以看到，确实是按正确的方式排序了。</p>
+<p>这篇文章所讲的都是基础的，没什么技术含量，只是最近项目中遇到了对数组对象进行排序的问题，所以在这里写出来分享一下，相信总能帮到一些朋友。</p>
+<p>　　</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/25/ngRoute 和 ui.router 的使用方法和区别/" class="archive-article-date">
-  	<time datetime="2016-07-25T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/25/ngRoute 和 ui.router 的使用方法和区别/">AngularJS 中的服务Provider</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/02/AngularJS 表单验证/" class="archive-article-date">
-  	<time datetime="2016-06-02T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/02/AngularJS 表单验证/">AngularJS 表单验证</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/25/AngularJS 中的服务Provider/" class="archive-article-date">
-  	<time datetime="2016-05-25T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/25/AngularJS 中的服务Provider/">AngularJS 中的服务Provider</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/22/AngularJS 中 Controller 之间的通信/" class="archive-article-date">
-  	<time datetime="2016-03-22T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/22/AngularJS 中 Controller 之间的通信/">AngularJS 中 Controller 之间的通信</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/13/AngularJS中的作用域/" class="archive-article-date">
-  	<time datetime="2015-12-13T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/13/AngularJS中的作用域/">AngularJS中的作用域</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
+        			<a href="/categories/工作设计/" class="article-tag-list-link color5">工作设计</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yutaiwei.github.io/2016/06/14/js中数组对象排序/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/11/05/Angular JS 指令入门/" class="archive-article-date">
-  	<time datetime="2015-11-05T12:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/11/05/Angular JS 指令入门/">Angular JS 指令入门</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+<nav id="article-nav">
+  
+    <a href="/2016/07/13/Express入门/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Express入门
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/06/10/input绑定回车事件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">input绑定回车事件</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+
+
+
   
-  
-    </div></section>
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -529,9 +380,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

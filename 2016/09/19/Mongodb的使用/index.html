@@ -6,17 +6,32 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yutaiwei.github.io">
-  <title>Tag: Angular | 我的博客</title>
+  <title>Mongodb的使用 | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录生活点点滴滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的博客">
-<meta property="og:url" content="http://yutaiwei.github.io/tags/Angular/index.html">
+  <meta name="description" content="一个基于分布式文件储存的开源数据库
+设置一个数据库的启动路径
+12345mongod --dbpath=D:\mangodata//mongod  为启动服务的可执行命令//-path   指定数据存放目录//此目录一定要提前创建好//如果显示waiting for connections on port 27017即为成功
+
+MAC用户">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mongodb的使用">
+<meta property="og:url" content="http://yutaiwei.github.io/2016/09/19/Mongodb的使用/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="记录生活点点滴滴">
+<meta property="og:description" content="一个基于分布式文件储存的开源数据库
+设置一个数据库的启动路径
+12345mongod --dbpath=D:\mangodata//mongod  为启动服务的可执行命令//-path   指定数据存放目录//此目录一定要提前创建好//如果显示waiting for connections on port 27017即为成功
+
+MAC用户">
+<meta property="og:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/34.jpg">
+<meta property="og:updated_time" content="2017-05-01T13:59:16.727Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的博客">
-<meta name="twitter:description" content="记录生活点点滴滴">
+<meta name="twitter:title" content="Mongodb的使用">
+<meta name="twitter:description" content="一个基于分布式文件储存的开源数据库
+设置一个数据库的启动路径
+12345mongod --dbpath=D:\mangodata//mongod  为启动服务的可执行命令//-path   指定数据存放目录//此目录一定要提前创建好//如果显示waiting for connections on port 27017即为成功
+
+MAC用户">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/34.jpg">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -162,350 +177,193 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Mongodb的使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Mongodb的使用
+    </h1>
+  
+
+        
+        <a href="/2016/09/19/Mongodb的使用/" class="archive-article-date">
+  	<time datetime="2016-09-19T14:03:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-19</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/34.jpg" alt=""></p>
+<h4 id="一个基于分布式文件储存的开源数据库"><a href="#一个基于分布式文件储存的开源数据库" class="headerlink" title="一个基于分布式文件储存的开源数据库"></a>一个基于分布式文件储存的开源数据库</h4><ul>
+<li><p>设置一个数据库的启动路径</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mongod --dbpath=D:\mangodata</div><div class="line"><span class="regexp">//m</span>ongod  为启动服务的可执行命令</div><div class="line"><span class="regexp">//</span>-path   指定数据存放目录</div><div class="line"><span class="regexp">//</span>此目录一定要提前创建好</div><div class="line"><span class="regexp">//</span>如果显示waiting <span class="keyword">for</span> connections on port <span class="number">27017</span>即为成功</div></pre></td></tr></table></figure>
+</li>
+<li><p>MAC用户</p>
+<a id="more"></a>
+<blockquote>
+<p><a href="http://www.zhufengpeixun.cn/doc/html/node%E5%91%A8%E6%9C%AB%E5%A4%A7%E7%BA%B2/5.mongodb.html" target="_blank" rel="external">http://www.zhufengpeixun.cn/doc/html/node%E5%91%A8%E6%9C%AB%E5%A4%A7%E7%BA%B2/5.mongodb.html</a></p>
+</blockquote>
+</li>
+<li><p>客户端命令</p>
+<ul>
+<li><p>切换数据库</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> zfpx2017</div></pre></td></tr></table></figure>
+</li>
+<li><p>查看当前数据库</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">db</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>插入文档</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">db</span><span class="selector-class">.stu</span><span class="selector-class">.insert</span>(&#123;<span class="attribute">name</span>:<span class="string">'zfpx'</span>&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>查找</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db<span class="selector-class">.stu</span><span class="selector-class">.find</span>()</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>主键</p>
+<blockquote>
+<p>一个文档中，最主要的键，是全局唯一的，永远不会变的—身份证号</p>
+</blockquote>
+</li>
+<li><p>node下使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</div><div class="line">mongoose.Promise=<span class="built_in">Promise</span>;</div><div class="line"><span class="comment">//连接数据库  mongodb://ip:端口号/数据库名字</span></div><div class="line">mongoose.connect(<span class="string">'mongodb://127.0.0.1/201612node'</span>);</div><div class="line"><span class="comment">//定义数据库的模型骨架 不能直接操作数据库</span></div><div class="line"><span class="keyword">let</span> PersonSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</div><div class="line">    <span class="attr">name</span>:<span class="built_in">String</span>,</div><div class="line">    <span class="attr">age</span>:<span class="built_in">Number</span></div><div class="line">&#125;);</div><div class="line"><span class="comment">//定义一个模型  Person-&gt;person-&gt;转复数形式 值就是集合的名称的来源</span></div><div class="line"><span class="keyword">let</span> Person = mongoose.model(<span class="string">'Person'</span>,PersonSchema);</div></pre></td></tr></table></figure>
+</li>
+<li><p>node下增加一条数据</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Person.create(&#123;<span class="keyword">name</span>:<span class="string">'zfpx'</span>,age:<span class="number">8</span>&#125;,<span class="function"><span class="keyword">function</span><span class="params">(err,result)</span></span>&#123;</div><div class="line">    console.<span class="built_in">log</span>(result);</div><div class="line">&#125;);</div><div class="line">Person.create(&#123;<span class="keyword">name</span>:<span class="string">'zfpx'</span>,age:<span class="number">8</span>&#125;).<span class="keyword">then</span>(<span class="function"><span class="keyword">function</span><span class="params">(result)</span></span>&#123;</div><div class="line">    console.<span class="built_in">log</span>(result);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>node下查找一条数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * find 查询所有符合条件的文档 [] undefined</div><div class="line"> * findOne 查询最多一条符合条件的文档  对象  undefined</div><div class="line"> */</div><div class="line">Person.findOne(&#123;<span class="attr">_id</span>: <span class="string">'5882d3272198e02a605a6e2f'</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,result</span>)</span>&#123;</div><div class="line">   <span class="built_in">console</span>.log(result);</div><div class="line">&#125;);</div><div class="line"><span class="comment">//find方法也可以添加参数，限制查询的条件</span></div><div class="line"><span class="comment">//控制返回的字段数量  name</span></div><div class="line"><span class="comment">// 1 表示包含 ，只显示此字段，其他字段都不要</span></div><div class="line"><span class="comment">// 0 表示排除  排除此字段，其他的都要</span></div><div class="line"></div><div class="line">Person.find(&#123;&#125;,&#123;<span class="attr">name</span>:<span class="number">0</span>,<span class="attr">age</span>:<span class="number">0</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,docs</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(err);</div><div class="line">    <span class="built_in">console</span>.log(docs);</div><div class="line">&#125;);</div><div class="line"><span class="comment">//也可以直接根据ID查询</span></div><div class="line"><span class="comment">//根据ID查询对象</span></div><div class="line">Person.findById(<span class="string">'5882e22c4c2d3b2d88067ed5'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,doc</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(doc);</div><div class="line">&#125;);</div><div class="line"><span class="comment">//查询分页</span></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 1.每页3条</div><div class="line"> * 2.查询第二页的数据</div><div class="line"> * 3.根据年龄倒序排列</div><div class="line"> */</div><div class="line"><span class="keyword">let</span> pageSize = <span class="number">3</span>;</div><div class="line"><span class="keyword">let</span> pageNum = <span class="number">3</span>;</div><div class="line"><span class="comment">//排序 -1 倒序  1 表示升序</span></div><div class="line"><span class="comment">//对服务器的数据请求是在exec的发出 的</span></div><div class="line">Person.find(&#123;&#125;).skip(pageSize*(pageNum<span class="number">-1</span>)).limit(pageSize).sort(&#123;<span class="attr">age</span>:<span class="number">-1</span>&#125;).exec(<span class="function"><span class="keyword">function</span>(<span class="params">err,result</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(result);<span class="comment">// 2 3 4 4 3 2</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>node下修改一条数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//&#123; ok: 1, nModified: 1, n: 1 &#125;</span></div><div class="line"><span class="comment">// n匹配的条数  nModified实际更新的条数</span></div><div class="line"><span class="comment">// 更新的时候，最多只会更新一条</span></div><div class="line"><span class="comment">// multi  匹配多少条 更新多少条 3 4  默认是false</span></div><div class="line">Person.update(&#123;<span class="attr">name</span>:<span class="regexp">/g/</span>&#125;,&#123;<span class="attr">age</span>:<span class="number">100</span>&#125;,&#123;<span class="attr">multi</span>:<span class="literal">true</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,result</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(result);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>node下删除一条数据</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">   Person.remove(&#123;&#125;,function(err,<span class="literal">result</span>)&#123;</div><div class="line">    console.<span class="built_in">log</span>(<span class="literal">result</span>.<span class="literal">result</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/25/ngRoute 和 ui.router 的使用方法和区别/" class="archive-article-date">
-  	<time datetime="2016-07-25T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/25/ngRoute 和 ui.router 的使用方法和区别/">AngularJS 中的服务Provider</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/02/AngularJS 表单验证/" class="archive-article-date">
-  	<time datetime="2016-06-02T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/02/AngularJS 表单验证/">AngularJS 表单验证</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/25/AngularJS 中的服务Provider/" class="archive-article-date">
-  	<time datetime="2016-05-25T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/25/AngularJS 中的服务Provider/">AngularJS 中的服务Provider</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/22/AngularJS 中 Controller 之间的通信/" class="archive-article-date">
-  	<time datetime="2016-03-22T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/22/AngularJS 中 Controller 之间的通信/">AngularJS 中 Controller 之间的通信</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/13/AngularJS中的作用域/" class="archive-article-date">
-  	<time datetime="2015-12-13T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/13/AngularJS中的作用域/">AngularJS中的作用域</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yutaiwei.github.io/2016/09/19/Mongodb的使用/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/11/05/Angular JS 指令入门/" class="archive-article-date">
-  	<time datetime="2015-11-05T12:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/11/05/Angular JS 指令入门/">Angular JS 指令入门</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+<nav id="article-nav">
+  
+    <a href="/2016/09/25/JavaScript书签/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JavaScript书签
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/02/AngularJS按需加载js/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">AngularJS按需加载js</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+
+
+
   
-  
-    </div></section>
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -529,9 +387,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

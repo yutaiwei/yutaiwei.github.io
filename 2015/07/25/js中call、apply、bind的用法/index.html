@@ -6,17 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yutaiwei.github.io">
-  <title>Tag: Angular | 我的博客</title>
+  <title>js中call、apply、bind的用法 | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录生活点点滴滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的博客">
-<meta property="og:url" content="http://yutaiwei.github.io/tags/Angular/index.html">
+  <meta name="description" content="今天看博客时，看到了这样的一段js代码：
+1var bind = Function.prototype.call.bind(Function.prototype.bind);
+我想突然看到这样的一段代码，即使js能力再强的人，可能也需要花点时间去理解。像我这样的菜鸟就更不用说了。其实，原文已经对这端代码做出了解释，但我还是想用我的想法去解释这段代码。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js中call、apply、bind的用法">
+<meta property="og:url" content="http://yutaiwei.github.io/2015/07/25/js中call、apply、bind的用法/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="记录生活点点滴滴">
+<meta property="og:description" content="今天看博客时，看到了这样的一段js代码：
+1var bind = Function.prototype.call.bind(Function.prototype.bind);
+我想突然看到这样的一段代码，即使js能力再强的人，可能也需要花点时间去理解。像我这样的菜鸟就更不用说了。其实，原文已经对这端代码做出了解释，但我还是想用我的想法去解释这段代码。">
+<meta property="og:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/37.jpg">
+<meta property="og:updated_time" content="2017-05-01T13:14:18.331Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的博客">
-<meta name="twitter:description" content="记录生活点点滴滴">
+<meta name="twitter:title" content="js中call、apply、bind的用法">
+<meta name="twitter:description" content="今天看博客时，看到了这样的一段js代码：
+1var bind = Function.prototype.call.bind(Function.prototype.bind);
+我想突然看到这样的一段代码，即使js能力再强的人，可能也需要花点时间去理解。像我这样的菜鸟就更不用说了。其实，原文已经对这端代码做出了解释，但我还是想用我的想法去解释这段代码。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/37.jpg">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -162,350 +171,211 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-js中call、apply、bind的用法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      js中call、apply、bind的用法
+    </h1>
+  
+
+        
+        <a href="/2015/07/25/js中call、apply、bind的用法/" class="archive-article-date">
+  	<time datetime="2015-07-25T10:45:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-25</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/37.jpg" alt=""></p>
+<p>今天看博客时，看到了这样的一段js代码：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var <span class="keyword">bind</span> = <span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>.<span class="keyword">call</span>.<span class="keyword">bind</span>(<span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>.<span class="keyword">bind</span>);</div></pre></td></tr></table></figure>
+<p>我想突然看到这样的一段代码，即使js能力再强的人，可能也需要花点时间去理解。像我这样的菜鸟就更不用说了。其实，原文已经对这端代码做出了解释，但我还是想用我的想法去解释这段代码。</p>
+<a id="more"></a>
+<p>上面那段代码涉及到了<code>call</code>、<code>bind</code>，所以我想先区别一下<code>call</code>、<code>apply</code>、<code>bind</code>的用法。这三个方法的用法非常相似，将函数绑定到上下文中，即用来改变函数中<code>this</code>的指向。举个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> zlw = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">"zlw"</span>,</div><div class="line">    <span class="attr">sayHello</span>: <span class="function"><span class="keyword">function</span> (<span class="params">age</span>) </span>&#123;</div><div class="line">         <span class="built_in">console</span>.log(<span class="string">"hello, i am "</span>, <span class="keyword">this</span>.name + <span class="string">" "</span> + age <span class="string">" years old"</span>);</div><div class="line">     &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span>  xlj = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">"xlj"</span>,</div><div class="line">&#125;;</div><div class="line"></div><div class="line">zlw.sayHello(<span class="number">24</span>);<span class="comment">// hello, i am zlw 24 years old</span></div></pre></td></tr></table></figure>
+<p>下面看看<code>call</code>、<code>apply</code>方法的用法：</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">zlw.sayHello.call<span class="comment">(xlj, 24)</span>;<span class="comment">// hello, i am xlj 24 years old</span></div><div class="line">zlw.sayHello.apply<span class="comment">(xlj, [24])</span>;<span class="comment">// hello, i am xlj 24 years old</span></div></pre></td></tr></table></figure>
+<p>结果都相同。从写法上我们就能看出二者之间的异同。相同之处在于，第一个参数都是要绑定的上下文，后面的参数是要传递给调用该方法的函数的。不同之处在于，<code>call</code>方法传递给调用函数的参数是逐个列出的，而<code>apply</code>则是要写在数组中。</p>
+<p>我们再来看看<code>bind</code>方法的用法：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">zlw</span><span class="selector-class">.sayHello</span><span class="selector-class">.bind</span>(xlj, <span class="number">24</span>)(); <span class="comment">//hello, i am xlj 24 years old</span></div><div class="line"><span class="selector-tag">zlw</span><span class="selector-class">.sayHello</span><span class="selector-class">.bind</span>(xlj, [<span class="number">24</span>])(); <span class="comment">//hello, i am xlj 24 years old</span></div></pre></td></tr></table></figure>
+<p><code>bind</code>方法传递给调用函数的参数可以逐个列出，也可以写在数组中。<code>bind</code>方法与<code>call</code>、<code>apply</code>最大的不同就是前者返回一个绑定上下文的函数，而后两者是直接执行了函数。由于这个原因，上面的代码也可以这样写:</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">zlw</span><span class="selector-class">.sayHello</span><span class="selector-class">.bind</span>(xlj)(<span class="number">24</span>); <span class="comment">//hello, i am xlj 24 years old</span></div><div class="line"><span class="selector-tag">zlw</span><span class="selector-class">.sayHello</span><span class="selector-class">.bind</span>(xlj)([<span class="number">24</span>]); <span class="comment">//hello, i am xlj 24 years old</span></div></pre></td></tr></table></figure>
+<p><code>bind</code>方法还可以这样写<code>fn.bind(obj, arg1)(arg2)</code>。</p>
+<p>用一句话总结<code>bind</code>的用法：该方法创建一个新函数，称为绑定函数，绑定函数会以创建它时传入<code>bind</code>方法的第一个参数作为<code>this</code>，传入bind方法的第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数。</p>
+<p>现在回到开始的那段代码：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var <span class="keyword">bind</span> = <span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>.<span class="keyword">call</span>.<span class="keyword">bind</span>(<span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>.<span class="keyword">bind</span>);</div></pre></td></tr></table></figure>
+<p>我们可以这样理解这段代码：</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> <span class="keyword">bind</span> = fn.<span class="keyword">bind</span>(obj)</div></pre></td></tr></table></figure>
+<p><code>fn</code>相当于<code>Function.prototype.call</code>，<code>obj</code>相当于<code>Function.prototype.bind</code>。而<code>fn.bind(obj)</code>一般可以写成这样<code>obj.fn</code>，为什么呢？因为<code>fn</code>绑定了<code>obj</code>，<code>fn</code>中的<code>this</code>就指向了<code>obj</code>。我们知道，函数中<code>this</code>的指向一般是指向调用该函数的对象。所以那段代码可以写成这样:</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var <span class="keyword">bind</span> = <span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>.<span class="keyword">bind</span>.<span class="keyword">call</span>;</div></pre></td></tr></table></figure>
+<p>大家想一想<code>Function.prototype.call.bind(Function.prototype.bind)</code>返回的是什么？</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">console.<span class="built_in">log</span>(<span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>.<span class="keyword">call</span>.<span class="keyword">bind</span>(<span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>.<span class="keyword">bind</span>)) // <span class="keyword">call</span>()</div></pre></td></tr></table></figure>
+<p>返回的是<code>call</code>函数，但这个<code>call</code>函数中的上下文的指向是<code>Function.prototype.bind</code>。这个<code>call</code>函数可以这样用</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var <span class="keyword">bind</span> = <span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>.<span class="keyword">call</span>.<span class="keyword">bind</span>(<span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>.<span class="keyword">bind</span>);</div><div class="line"></div><div class="line">var zlw = &#123;</div><div class="line">    <span class="keyword">name</span>: <span class="string">"zlw"</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span></span> hello () &#123;</div><div class="line">    console.<span class="built_in">log</span>(<span class="string">"hello, I am "</span>, this.<span class="keyword">name</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">bind</span>(hello, zlw)() // hello, I am zlw</div></pre></td></tr></table></figure>
+<p>大家可能会感到疑惑，为什么是这样写<code>bind(hello, zlw)</code>而不是这样写<code>bind(zlw, hello)</code>？既然<code>Function.prototype.call.bind(Function.prototype.bind)</code>相当于<code>Function.prototype.bind.call</code>，那么先来看下<code>Function.prototype.bind.call</code>怎么用。<code>call</code>的用法大家都知道：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>.<span class="keyword">bind</span>.<span class="keyword">call</span>(obj, arg)</div></pre></td></tr></table></figure>
+<p>其实就相当于<code>obj.bind(arg)</code>。我们需要的是<code>hello</code>函数绑定对象<code>zlw</code>，即<code>hello.bind(zlw)</code>也就是<code>Function.prototype.bind.call(hello, zlw)</code>，所以应该这样写<code>bind(hello, zlw)</code>。</p>
+<p>现在又有一个疑问，既然<code>Function.prototype.call.bind(Function.prototype.bind)</code>相当于<code>Function.prototype.bind.call</code>，我们为什么要这么写：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var <span class="keyword">bind</span> = <span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>.<span class="keyword">call</span>.<span class="keyword">bind</span>(<span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>.<span class="keyword">bind</span>);</div></pre></td></tr></table></figure>
+<p>而不直接这样写呢：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var <span class="keyword">bind</span> = <span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>.<span class="keyword">bind</span>.<span class="keyword">call</span>;</div></pre></td></tr></table></figure>
+<p>先来看一个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">"xlj"</span>;</div><div class="line"><span class="keyword">var</span> zlw = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">"zlw"</span></div><div class="line">    hello: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">zlw.hello(); <span class="comment">// zlw</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> hello = zlw.hello;</div><div class="line">hello(); <span class="comment">// xlj</span></div></pre></td></tr></table></figure>
+<p>有些人可能会意外，<code>hello()</code>的结果应该是<code>zlw</code>才对啊。其实，将<code>zlw.hello</code>赋值给变量<code>hello</code>，再调用<code>hello()</code>，<code>hello</code>函数中的<code>this</code>已经指向了<code>window</code>，与<code>zlw.hello</code>不再是同一个上下文，而全局变量<code>name</code>是<code>window</code>的一个属性，所以结果就是<code>xlj</code>。再看下面的代码：</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var hello = zlw.hello.bind(zlw)<span class="comment">;</span></div><div class="line">hello()<span class="comment">; // zlw</span></div></pre></td></tr></table></figure>
+<p>结果是<code>zlw</code>，这时<code>hello</code>函数与<code>zlw.hello</code>是同一个上下文。其实上面的疑惑已经解开了，直接这样写：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var <span class="keyword">bind</span> = <span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>.<span class="keyword">bind</span>.<span class="keyword">call</span>;</div></pre></td></tr></table></figure>
+<p><code>bind</code>函数中的上下文已经与<code>Function.prototype.bind.call</code>中的不一样了，所以使用<code>bind</code>函数会出错。而这样写</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var <span class="keyword">bind</span> = <span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>.<span class="keyword">call</span>.<span class="keyword">bind</span>(<span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span>.<span class="keyword">bind</span>);</div></pre></td></tr></table></figure>
+<p><code>bind</code>函数中的上下文与<code>Function.prototype.call.bind(Function.prototype.bind)</code>中是一样的。</p>
+<p>关于这个这段代码的解释这到这边了，感觉语言组织能力不是很好，文章写得有些啰嗦了。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/25/ngRoute 和 ui.router 的使用方法和区别/" class="archive-article-date">
-  	<time datetime="2016-07-25T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/25/ngRoute 和 ui.router 的使用方法和区别/">AngularJS 中的服务Provider</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/02/AngularJS 表单验证/" class="archive-article-date">
-  	<time datetime="2016-06-02T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/02/AngularJS 表单验证/">AngularJS 表单验证</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/25/AngularJS 中的服务Provider/" class="archive-article-date">
-  	<time datetime="2016-05-25T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/25/AngularJS 中的服务Provider/">AngularJS 中的服务Provider</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/22/AngularJS 中 Controller 之间的通信/" class="archive-article-date">
-  	<time datetime="2016-03-22T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/22/AngularJS 中 Controller 之间的通信/">AngularJS 中 Controller 之间的通信</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/13/AngularJS中的作用域/" class="archive-article-date">
-  	<time datetime="2015-12-13T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/13/AngularJS中的作用域/">AngularJS中的作用域</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
+        			<a href="/categories/JavaScript/" class="article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yutaiwei.github.io/2015/07/25/js中call、apply、bind的用法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/11/05/Angular JS 指令入门/" class="archive-article-date">
-  	<time datetime="2015-11-05T12:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/11/05/Angular JS 指令入门/">Angular JS 指令入门</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+<nav id="article-nav">
+  
+    <a href="/2015/07/25/CSS实现文本溢出显示省略号/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          CSS实现文本溢出显示省略号
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/07/25/Javascript学习笔记——基础篇/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Javascript学习笔记—2</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
+
+
+
   
-  
-    </div></section>
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -529,9 +399,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
