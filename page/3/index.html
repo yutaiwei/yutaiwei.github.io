@@ -164,30 +164,183 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-AngularJS中的作用域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-AngularJS按需加载js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/13/AngularJS中的作用域/">AngularJS中的作用域</a>
+      <a class="article-title" href="/2016/08/02/AngularJS按需加载js/">AngularJS按需加载js</a>
     </h1>
   
 
         
-        <a href="/2015/12/13/AngularJS中的作用域/" class="archive-article-date">
-  	<time datetime="2015-12-13T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-13</time>
+        <a href="/2016/08/02/AngularJS按需加载js/" class="archive-article-date">
+  	<time datetime="2016-08-02T15:57:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="问题引入"><a href="#问题引入" class="headerlink" title="问题引入"></a>问题引入</h4><p>使用 Angular 进行过一段时间的开发后，基本上都会遇到一个这样的坑：</p>
+        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/11.jpg" alt=""></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Angular是一个单页面应用，随着系统的迭代，首屏代码会越来越大，所以对《AngularJS入门》中的代码进行改造，实现AngularJS可以按需加载js和css。</p>
         
-          <a class="article-more-a" href="/2015/12/13/AngularJS中的作用域/#more">更多 >></a>
+          <a class="article-more-a" href="/2016/08/02/AngularJS按需加载js/#more">更多 >></a>
         
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">angularjs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/08/02/AngularJS按需加载js/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-ngRoute 和 ui.router 的使用方法和区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/25/ngRoute 和 ui.router 的使用方法和区别/">AngularJS 中的服务Provider</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/25/ngRoute 和 ui.router 的使用方法和区别/" class="archive-article-date">
+  	<time datetime="2016-07-25T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="ngRoute-和-ui-router-的使用方法和区别"><a href="#ngRoute-和-ui-router-的使用方法和区别" class="headerlink" title="ngRoute 和 ui.router 的使用方法和区别"></a>ngRoute 和 ui.router 的使用方法和区别</h3><p>在单页面应用中要把各个分散的视图给组织起来是通过路由机制来实现的。本文主要对 AngularJS 原生的 <code>ngRoute</code>路由模块和第三方路由模块 <code>ui.router</code> 的用法进行简单介绍，并做一个对比。</p>
+<h3 id="ngRoute"><a href="#ngRoute" class="headerlink" title="ngRoute"></a>ngRoute</h3><h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><p>1) 引入<code>angular-route lib</code></p>
+<p>无论是<code>ngRoute</code>还是<code>ui.router</code>，作为框架额外的附加功能，都必须以 <code>模块依赖</code> 的形式被引入。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"lib/angular-route.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>2) 配置路由</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = angular.module(<span class="string">'ngRouteApp'</span>, [<span class="string">'ngRoute'</span>]);</div><div class="line"></div><div class="line">app.config(<span class="function"><span class="keyword">function</span><span class="params">($routeProvider)</span></span>&#123;</div><div class="line">    $routeProvider</div><div class="line">        .when(<span class="string">'/Main'</span>, &#123;</div><div class="line">            templateUrl: <span class="string">"main.html"</span>,</div><div class="line">            controller: <span class="string">'MainCtrl'</span></div><div class="line">        &#125;)</div><div class="line">        .otherwise(&#123; redirectTo: <span class="string">'/tabs'</span> &#125;);</div></pre></td></tr></table></figure>
+<h4 id="服务与指令"><a href="#服务与指令" class="headerlink" title="服务与指令"></a>服务与指令</h4><p><code>ngRoute</code>路由模块名</p>
+<p><code>$routeProvider</code>服务提供者，用来定义一个路由表，即地址栏与视图模板的映射，对应于<code>ui.router</code> 中的 <code>urlRouterProvider</code>和 <code>stateProvider</code></p>
+<p><code>$route</code>服务，完成路由匹配，并且提供路由相关的属性访问及事件，如访问当前路由对应的 Controller，对应于下面的<code>$urlRouter</code>和<code>$state</code><br><code>$routeParams</code> 服务，保存了地址栏中的参数，对应于下面的<code>$stateParams</code></p>
+<p><code>ng-view</code>指令，用来在主视图中指定加载子视图的区域，对应于下面的 <code>ui-view</code></p>
+<h3 id="ui-router"><a href="#ui-router" class="headerlink" title="ui.router"></a>ui.router</h3><h4 id="使用方法-1"><a href="#使用方法-1" class="headerlink" title="使用方法"></a>使用方法</h4><p>1) 引入 <code>angular-ui-router lib</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"lib/angular-ui-router.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>2) 配置路由</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(<span class="string">"uiRouteApp"</span>, [<span class="string">"ui.router"</span>]);</div><div class="line"></div><div class="line">app.config(function(<span class="variable">$urlRouterProvider</span>, <span class="variable">$stateProvider</span>) &#123;</div><div class="line">	<span class="variable">$urlRouterProvider</span>.otherwise(<span class="string">"/index"</span>);</div><div class="line">	<span class="variable">$stateProvider</span></div><div class="line">		.<span class="keyword">state</span>(<span class="string">"Main"</span>, &#123;</div><div class="line">			url: <span class="string">"/main"</span>,</div><div class="line">			templateUrl: <span class="string">"main.html"</span>,</div><div class="line">            controller: 'MainCtrl'</div><div class="line">		&#125;)</div></pre></td></tr></table></figure>
+<h4 id="服务与指令-1"><a href="#服务与指令-1" class="headerlink" title="服务与指令"></a>服务与指令</h4><p><code>ui.router</code>路由模块名</p>
+<p><code>$urlRouterProvider</code> 服务提供者，用来配置路由重定向<br><code>$stateProvider</code>服务提供者，用来配置路由<br><code>$urlRouter</code> 服务<br><code>$state</code> 服务，用来显示当前路由状态信息，以及一些路由方法（如：跳转）<br><code>$stateParams</code>服务，用来存储路由匹配时的参数</p>
+<p><code>ui-view</code> 指令，路由模板渲染，对应的 dom 相关联<br><code>ui-sref</code>指令，链接到特定状态</p>
+<h3 id="路由的创建"><a href="#路由的创建" class="headerlink" title="路由的创建"></a>路由的创建</h3><h4 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h4><p>调用<code>$stateProvider.state(...)</code>方法，并可配置以下参数</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$stateProvider</span></div><div class="line">    .<span class="keyword">state</span>(<span class="string">"Main"</span>, &#123;</div><div class="line">        url: <span class="string">"/main"</span>,</div><div class="line">        templateUrl: 'main.html',</div><div class="line">        controller: 'MainCtrl',</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+<p><strong>parent</strong></p>
+<p>有两种方式可以指定父子状态关系。</p>
+<p>一种是，使用点标记法，像本文最后嵌套视图部分举得栗子那样：</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.<span class="keyword">state</span>(<span class="string">"tabs.tab1"</span>, &#123;&#125;)</div></pre></td></tr></table></figure>
+<p>另一种是，使用 <code>parent</code>属性</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.state</span>("<span class="selector-tag">tab1</span>", &#123;</div><div class="line">    <span class="attribute">parent</span>: <span class="string">'tabs'</span>  // 也可是一个状态对象， parent: tabs</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p><strong>abstract</strong></p>
+<p>使用 <code>abstract</code>可以为所有的子状态提供一个基<code>URL</code>，这样做的好处就是可以在抽象出来的这个状态所对应的<code>html</code> 页面中来定义静态资源。抽象模板不能被激活。</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$stateProvider</span></div><div class="line">    .<span class="keyword">state</span>('contacts', &#123;</div><div class="line">        abstract: true,</div><div class="line">        url: '/contacts',</div><div class="line">        templateUrl: 'contacts.html',</div><div class="line">    &#125;)</div><div class="line">    .<span class="keyword">state</span>('contacts.list', &#123;</div><div class="line">        url: '/list',</div><div class="line">        templateUrl: 'contacts.list.html'</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+<p><strong>resolve</strong></p>
+<p><code>resolve</code>在<code>state</code>配置参数中，是一个对象(<code>key-value</code>)，每一个 <code>value</code>都是一个可以依赖注入的函数，并且返回的是一个<code>promise</code>(当然也可以是值)。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">resolve: &#123;</div><div class="line">    <span class="string">'myResolve'</span>: [<span class="string">'contacts'</span>,</div><div class="line">        <span class="function"><span class="keyword">function</span><span class="params">(contacts)</span></span>&#123;</div><div class="line">            <span class="keyword">return</span> contacts.all();</div><div class="line">     &#125;]</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>这样做的目的：</p>
+<ul>
+<li>简化了 <code>controller</code>的操作，将数据的获取放在 <code>resolve</code>中进行，这在多个视图多个<code>controller</code>需要相同数据时，有一定的作用。</li>
+<li>只有当<code>reslove</code>中的<code>promise</code> 全部<code>resolved</code>(即数据获取成功)后，才会触发<code>$stateChangeSuccess</code>切换路由，进而实例化<code>controller</code>，然后更新模板。</li>
+</ul>
+<h4 id="路由控制"><a href="#路由控制" class="headerlink" title="路由控制"></a>路由控制</h4><p><code>url</code>动态部分被称为参数，有以下几种方式设置</p>
+<p>1） 使用花括号的方式可以设置一个正则表达式规则的参数：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//只会匹配 pageId 为1到8位的数字</span></div><div class="line"><span class="symbol">url:</span> <span class="string">"/pages/&#123;pageId:[0-9]&#123;1,8&#125;&#125;"</span></div></pre></td></tr></table></figure>
+<p>可以通过<code>?</code>来指定参数作为查询参数</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//比如匹配 href=<span class="string">"/page?type='new'"</span></div><div class="line"><span class="symbol">url:</span> <span class="string">"/page?type"</span></div></pre></td></tr></table></figure>
+<p>如果需要不止一个查询参数，用<code>&amp;</code>分隔：</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//比如匹配 ui-sref=<span class="string">"page(&#123;type:'all', title:'test ui-router'&#125;)"</span></div><div class="line"><span class="symbol">url:</span> <span class="string">"/page?type&amp;title"</span></div></pre></td></tr></table></figure>
+<h4 id="路由的查找匹配"><a href="#路由的查找匹配" class="headerlink" title="路由的查找匹配"></a>路由的查找匹配</h4><ul>
+<li><code>angular</code> 在刚开始的 <code>$digest</code>时，<code>$rootScope</code> 会触发<code>$locationChangeSuccess</code>事件（<code>angular</code>在每次浏览器<code>hash</code>change 的时候也会触发 <code>$locationChangeSuccess</code>事件）</li>
+<li><code>ui.router</code>监听了<code>$locationChangeSuccess</code>事件，于是开始通过遍历一系列 <code>rules</code>，进行路由查找匹配列表项</li>
+<li>当匹配到路由后，就通过<code>$state.transitionTo(state,...)</code>，跳转激活对应的 <code>state</code></li>
+<li>最后，完成数据请求和模板的渲染</li>
+</ul>
+<p>在视图中，建议使用 <code>ui-sref=&quot;xxxState&quot;</code>而不是 <code>href=&quot;#/abc&quot;</code>，这样做能减少一遍 <code>rules</code>循环的遍历，提升性能。</p>
+<h4 id="两者区别"><a href="#两者区别" class="headerlink" title="两者区别"></a>两者区别</h4><p><code>ngRoute模块</code>是 Angular 自带的路由模块，而<code>ui.router</code>模块 是基于<code>ngRoute</code>模块 开发的第三方模块。</p>
+<p><code>ui.router</code>是基于<code>state(状态)</code>的， <code>ngRoute</code> 是基于 <code>url</code>的，<code>ui.router</code>模块 具有更强大的功能，主要体现在视图的嵌套方面。</p>
+<h4 id="嵌套视图"><a href="#嵌套视图" class="headerlink" title="嵌套视图"></a>嵌套视图</h4><p>页面某个动态变化区块中，嵌套着另一个可以动态变化的区块。</p>
+<p>前面的栗子就是一个很好的业务场景。</p>
+<p>在首页中包含一个动态区块：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"ngRouteApp"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>AngularJS UI-Router Tabs<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-view</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在标签页中又包含动态区块：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/tab1"</span>&gt;</span>Page-1<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/tab2"</span>&gt;</span>Page-2<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#/tab3"</span>&gt;</span>Page-3<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-view</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>一运行，报了一个这样的错误：</p>
+<blockquote>
+<p>RangeError: Maximum call stack size exceeded</p>
+</blockquote>
+<p>发现浏览器崩溃了，因为 <code>ng-view</code>会陷入死循环，无限递归下去。</p>
+<p>使用 <code>ui.router</code> 能很容易解决这个问题，因为它定义的路由有明确的父子关系，并通过<code>ui-view</code> 指令将子路由模版插入到父路由模板的 <code>&lt;div ui-view&gt;&lt;/div&gt;</code>中去，从而实现视图嵌套。看代码：</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$stateProvider</span></div><div class="line">	.<span class="keyword">state</span>(<span class="string">"tabs"</span>, &#123;</div><div class="line">		url: <span class="string">"/tabs"</span>,</div><div class="line">		templateUrl: <span class="string">"pageTab.html"</span></div><div class="line">	&#125;)</div><div class="line">	.<span class="keyword">state</span>(<span class="string">"tabs.tab1"</span>, &#123;</div><div class="line">		url: <span class="string">"/tab1"</span>,</div><div class="line">		templateUrl: <span class="string">"tab1.html"</span></div><div class="line">	&#125;)</div></pre></td></tr></table></figure>
+<h4 id="其他区别"><a href="#其他区别" class="headerlink" title="其他区别"></a>其他区别</h4><p>ui-router（左） ： ngRoute（右）</p>
+<ul>
+<li>应用程序内的一个区域 ： 应用程序中的 url</li>
+<li>可以嵌套的层次结构 ： 只是平面层次结构</li>
+<li>名称可以自定义 ： 名称只能是 url</li>
+<li>通过名称或 url 导航 ： 只能通过 url 导航</li>
+<li>可以存在多个视图（ui-view） ： 只能单一视图（ng-view）</li>
+<li>可以填充任何视图 ： 只能填充一个视图</li>
+<li>通过状态填充某一部件 ： 通过指令将填充某一部件<h4 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h4></li>
+<li><a href="http://www.open-open.com/lib/view/open1416878937309.html" target="_blank" rel="external">AngularJS ui-router (嵌套路由)</a></li>
+<li><a href="http://www.cnblogs.com/liulangmao/p/4155015.html" target="_blank" rel="external">angular的uiRouter服务学习</a></li>
+</ul>
+
       
 
       
@@ -225,7 +378,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/12/13/AngularJS中的作用域/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/07/25/ngRoute 和 ui.router 的使用方法和区别/">展开全文 >></a>
         </p>
       
 
@@ -243,31 +396,85 @@
 
 
   
-    <article id="post-jQuery书签" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Express入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/15/jQuery书签/">jQuery书签</a>
+      <a class="article-title" href="/2016/07/13/Express入门/">Express入门</a>
     </h1>
   
 
         
-        <a href="/2015/11/15/jQuery书签/" class="archive-article-date">
-  	<time datetime="2015-11-15T07:54:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-15</time>
+        <a href="/2016/07/13/Express入门/" class="archive-article-date">
+  	<time datetime="2016-07-13T14:09:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-13</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>从零开始学习jQuery (一) 开天辟地入门篇<br><a href="http://kb.cnblogs.com/page/46450/">http://kb.cnblogs.com/page/46450/</a></p>
-<p>jQuery API<br><a href="http://jquery.cuishifeng.cn/">http://jquery.cuishifeng.cn/</a></p>
-<p>jQuery API资源专属下载页<br><a href="http://www.cuishifeng.cn/down.html">http://www.cuishifeng.cn/down.html</a></p>
+        <h3 id="Express是node的后台快速开发框架"><a href="#Express是node的后台快速开发框架" class="headerlink" title="Express是node的后台快速开发框架"></a>Express是node的后台快速开发框架</h3><p>创建http服务</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"><span class="keyword">let</span> <span class="built_in">url</span> = <span class="built_in">require</span>(<span class="string">'url'</span>);</div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">req,res</span>) </span>&#123;</div><div class="line">    <span class="built_in">var</span> urlObj =  <span class="built_in">url</span>.parse(req.url,<span class="literal">true</span>);</div><div class="line">    <span class="built_in">var</span> pathname = urlObj.pathname;</div><div class="line">    <span class="keyword">if</span> (pathname == <span class="string">'/'</span>)&#123;</div><div class="line">      res.end(<span class="string">'首页'</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(pathname == <span class="string">'/user'</span>)&#123;</div><div class="line">        res.end(<span class="string">'用户'</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="title">else</span> &#123;</div><div class="line">        res.statusCode = <span class="number">404</span>;</div><div class="line">        res.end(<span class="string">'Not Found'</span>)</div><div class="line">    &#125;</div><div class="line">&#125;).listen(<span class="number">3000</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'3000端口成功监听'</span>)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2015/11/15/jQuery书签/#more">更多 >></a>
+          <a class="article-more-a" href="/2016/07/13/Express入门/#more">更多 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/13/Express入门/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Node.js学习笔记（二）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/12/Node.js学习笔记（二）/">Node.js学习笔记（二）</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/12/Node.js学习笔记（二）/" class="archive-article-date">
+  	<time datetime="2016-07-12T11:30:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/23.jpg" alt=""></p>
+<p>整理自：<a href="http://www.imooc.com/learn/75">慕课网</a></p>
+<h1 id="伪造模板数据跑通前后端交互流程"><a href="#伪造模板数据跑通前后端交互流程" class="headerlink" title="伪造模板数据跑通前后端交互流程"></a>伪造模板数据跑通前后端交互流程</h1><p>本篇博客用到的代码，小伙伴们直接复制粘贴就可以了，你们可知道小编一行行敲得多么辛苦T_T，复制粘贴前给个赞啊！<br>
+        
+          <a class="article-more-a" href="/2016/07/12/Node.js学习笔记（二）/#more">更多 >></a>
         
       
 
@@ -281,11 +488,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jquery</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">书签</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">node.js</a>
         		</li>
       		
 		</ul>
@@ -306,7 +509,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/11/15/jQuery书签/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/07/12/Node.js学习笔记（二）/">展开全文 >></a>
         </p>
       
 
@@ -324,32 +527,31 @@
 
 
   
-    <article id="post-Angular JS 指令入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-人因梦想而伟大" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/05/Angular JS 指令入门/">Angular JS 指令入门</a>
+      <a class="article-title" href="/2016/07/05/人因梦想而伟大/">人因梦想而伟大</a>
     </h1>
   
 
         
-        <a href="/2015/11/05/Angular JS 指令入门/" class="archive-article-date">
-  	<time datetime="2015-11-05T12:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-05</time>
+        <a href="/2016/07/05/人因梦想而伟大/" class="archive-article-date">
+  	<time datetime="2016-07-05T13:10:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Angular-JS-指令入门"><a href="#Angular-JS-指令入门" class="headerlink" title="Angular JS 指令入门"></a>Angular JS 指令入门</h3><p>指令是运行在特定 dom 元素上的函数，用来扩展元素的功能。</p>
-<p>一个简版的 directive 的形式是这样的</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">app.directive(<span class="string">'myDirective'</span>, myDirective);</div><div class="line"></div><div class="line">myDirective.$inject = [];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myDirective</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        restrict: <span class="string">"AE"</span>,</div><div class="line">        template: <span class="string">''</span></div><div class="line">        scope: &#123;&#125;,</div><div class="line">        link: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>下面介绍一些常用的选项。</p>
+        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/6.jpg" alt=""></p>
+<p>作者：雷军</p>
+<p>2014年11月21日晚，雷军在北大团中央主办的“活力中国说——一刻大型公益演讲”启动仪式上发表了演讲。北大国家发展研究院BiMBA对该活动提供了学术支持。部分MBA、EMBA校友有幸与小米科技创始人雷军先生展开了一场短暂而精彩的交流。以下为演讲实录。</p>
         
-          <a class="article-more-a" href="/2015/11/05/Angular JS 指令入门/#more">更多 >></a>
+          <a class="article-more-a" href="/2016/07/05/人因梦想而伟大/#more">更多 >></a>
         
       
 
@@ -363,11 +565,94 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">读者</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">雷军</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">演讲</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/05/人因梦想而伟大/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Node.js学习笔记（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/05/Node.js学习笔记（一）/">Node.js学习笔记（一）</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/05/Node.js学习笔记（一）/" class="archive-article-date">
+  	<time datetime="2016-07-05T12:30:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>整理自：<a href="http://www.imooc.com/learn/75">慕课网</a></p>
+<h1 id="helloworld工程的搭建"><a href="#helloworld工程的搭建" class="headerlink" title="helloworld工程的搭建"></a>helloworld工程的搭建</h1><h2 id="技术及工具"><a href="#技术及工具" class="headerlink" title="技术及工具"></a>技术及工具</h2><blockquote>
+<p><strong>node.js + mongodb(工具mongoose) + express + jade + moment.js + npm + jquery + bootstrap + grunt</strong></p>
+</blockquote>
+<p>我靠，那么多！淡定，暂时，咱们这个工程只要 node.js + express + jade 。<br>
+        
+          <a class="article-more-a" href="/2016/07/05/Node.js学习笔记（一）/#more">更多 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">node.js</a>
         		</li>
       		
 		</ul>
@@ -388,7 +673,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/11/05/Angular JS 指令入门/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/07/05/Node.js学习笔记（一）/">展开全文 >></a>
         </p>
       
 
@@ -406,29 +691,31 @@
 
 
   
-    <article id="post-AngularJS入门篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-人生三乐" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/02/AngularJS入门篇/">AngularJS入门篇</a>
+      <a class="article-title" href="/2016/06/15/人生三乐/">人生三乐</a>
     </h1>
   
 
         
-        <a href="/2015/11/02/AngularJS入门篇/" class="archive-article-date">
-  	<time datetime="2015-11-02T11:53:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-02</time>
+        <a href="/2016/06/15/人生三乐/" class="archive-article-date">
+  	<time datetime="2016-06-15T13:07:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>AngularJS是一个JavaScript框架，它通过指令扩展了HTML，且通过表达式绑定数据到 HTML。<br>顺便一提，什么是框架？比如struts2、spring、hibernate、thinkphp、wordpress等等。<br>那么，什么是组件？比如jdbc、jquery、swiper、layer、arttemplate等等。<br>
+        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/40.jpg" alt=""></p>
+<p>作者：李银河</p>
+<p>恋爱、读书、写作是人生三乐。恋爱时，人沉浸在激情之中，快乐感觉无以复加；读书时，人徜徉在智慧之中，心旷神怡；写作时，人寻寻觅觅，仿佛在寻宝的过程中，一旦有所收获，心花怒放，心情愉悦无与伦比。<br>
         
-          <a class="article-more-a" href="/2015/11/02/AngularJS入门篇/#more">更多 >></a>
+          <a class="article-more-a" href="/2016/06/15/人生三乐/#more">更多 >></a>
         
       
 
@@ -442,15 +729,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">读者</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">李银河</a>
         		</li>
       		
 		</ul>
@@ -462,7 +745,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
+        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
         		</li>
       		
 		</ul>
@@ -471,7 +754,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/11/02/AngularJS入门篇/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/06/15/人生三乐/">展开全文 >></a>
         </p>
       
 
@@ -489,190 +772,30 @@
 
 
   
-    <article id="post-ES6对数组的扩展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-js中数组对象排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/23/ES6对数组的扩展/">ES6对数组的扩展</a>
+      <a class="article-title" href="/2016/06/14/js中数组对象排序/">js中数组对象排序</a>
     </h1>
   
 
         
-        <a href="/2015/10/23/ES6对数组的扩展/" class="archive-article-date">
-  	<time datetime="2015-10-23T11:57:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-10-23</time>
+        <a href="/2016/06/14/js中数组对象排序/" class="archive-article-date">
+  	<time datetime="2016-06-14T10:59:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/7.jpg" alt=""></p>
-<p><code>ECMAScript6</code>对数组进行了扩展，为数组<code>Array</code>构造函数添加了<code>from()</code>、<code>of()</code>等静态方法，也为数组实例添加了<code>find()</code>、<code>findIndex()</code>等方法。下面一起来看一下这些方法的用法。</p>
+        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/39.jpg" alt=""></p>
+<h2 id="普通数组排序"><a href="#普通数组排序" class="headerlink" title="普通数组排序　　"></a>普通数组排序　　</h2><p><code>js</code>中用方法<code>sort()</code>为数组排序。<code>sort()</code>方法有一个可选参数，是用来确定元素顺序的函数。如果这个参数被省略，那么数组中的元素将按照ASCII字符顺序进行排序。如：<br>
         
-          <a class="article-more-a" href="/2015/10/23/ES6对数组的扩展/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/ES6/" class="article-tag-list-link color4">ES6</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/10/23/ES6对数组的扩展/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript 学习之基本语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/18/JavaScript 学习之基本语法/">对 js 中 this、apply、call 和闭包的理解</a>
-    </h1>
-  
-
-        
-        <a href="/2015/09/18/JavaScript 学习之基本语法/" class="archive-article-date">
-  	<time datetime="2015-09-18T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="语法概述"><a href="#语法概述" class="headerlink" title="语法概述"></a>语法概述</h3><h4 id="基本句法和变量"><a href="#基本句法和变量" class="headerlink" title="基本句法和变量"></a>基本句法和变量</h4><p>语句以分号结尾，一个分号就表示一个语句结束。</p>
-<p>JavaScript允许省略var，直接对未声明的变量赋值。也就是说，var a = 1 与 a = 1，这两条语句的效果相同。但是由于这样的做法很容易不知不觉地创建全局变量（尤其是在函数内部），所以建议总是使用var命令声明变量。</p>
-        
-          <a class="article-more-a" href="/2015/09/18/JavaScript 学习之基本语法/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/09/18/JavaScript 学习之基本语法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-jQuery学习笔记——Ajax篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/15/jQuery学习笔记——Ajax篇/">jQuery学习笔记——Ajax篇</a>
-    </h1>
-  
-
-        
-        <a href="/2015/09/15/jQuery学习笔记——Ajax篇/" class="archive-article-date">
-  	<time datetime="2015-09-15T12:10:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/35.jpg" alt=""></p>
-<h3 id="显示欢迎信息"><a href="#显示欢迎信息" class="headerlink" title="显示欢迎信息"></a>显示欢迎信息</h3><p>Ajax的优点我们已经说过了，上个例子先！<br>
-        
-          <a class="article-more-a" href="/2015/09/15/jQuery学习笔记——Ajax篇/#more">更多 >></a>
+          <a class="article-more-a" href="/2016/06/14/js中数组对象排序/#more">更多 >></a>
         
       
 
@@ -688,10 +811,6 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -702,7 +821,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
+        			<a href="/categories/工作设计/" class="article-tag-list-link color5">工作设计</a>
         		</li>
       		
 		</ul>
@@ -711,91 +830,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/09/15/jQuery学习笔记——Ajax篇/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript正则表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/15/JavaScript正则表达式/">JavaScript正则用法</a>
-    </h1>
-  
-
-        
-        <a href="/2015/09/15/JavaScript正则表达式/" class="archive-article-date">
-  	<time datetime="2015-09-15T04:37:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/3.jpg" alt=""></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>正则表达式（Regular Expression）主要是用来描述一个句法规则的模式。其实说的通俗一点，就是利用字符和元字符的组合，对一些符合既定句法的模式进行模糊匹配。它的主要功能是文本查询和字符串操作。本文讨论一下JavaScript中的正则表达式用法。</p>
-        
-          <a class="article-more-a" href="/2015/09/15/JavaScript正则表达式/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/09/15/JavaScript正则表达式/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/06/14/js中数组对象排序/">展开全文 >></a>
         </p>
       
 
@@ -815,7 +850,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 
@@ -984,6 +1019,106 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">exports</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">win7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">读者</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">雷军</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">演讲</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">李银河</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">励志</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">白岩松</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">周云龙</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">语录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">理想</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">干货总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">子沫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笑话</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">微信Logo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">王纯</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">冯仑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">裘霜</a>
               </li>
             
             <div class="clearfix"></div>

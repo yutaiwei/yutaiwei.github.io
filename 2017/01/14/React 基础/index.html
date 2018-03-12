@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="我的博客">
 <meta property="og:description" content="React 基础JSXJSX 语法是一种可以把 HTML 嵌套在 JavaScript 中的方法，像下面这样：
 123456789...render() &amp;#123;    &amp;lt;div&amp;gt;        &amp;#123;!isFetching &amp;amp;&amp;amp;            &amp;lt;a href=&quot;#&quot; onClick=&amp;#123;this.handleClick&amp;#125;&amp;gt">
-<meta property="og:updated_time" content="2018-03-12T07:57:32.725Z">
+<meta property="og:updated_time" content="2018-03-12T08:01:26.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React 入门">
 <meta name="twitter:description" content="React 基础JSXJSX 语法是一种可以把 HTML 嵌套在 JavaScript 中的方法，像下面这样：
@@ -189,7 +189,7 @@
         <h3 id="React-基础"><a href="#React-基础" class="headerlink" title="React 基础"></a>React 基础</h3><h4 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h4><p>JSX 语法是一种可以把 HTML 嵌套在 JavaScript 中的方法，像下面这样：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">render() &#123;</div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">        &#123;!isFetching &amp;&amp;</div><div class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span>&gt;</span>Refresh<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">        &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
 <p>在遇到<code>{</code>开头的代码块时，会以 JavaScript 规则解析，在遇到<code>&lt;</code> 开头的 HTML 标签时，以 HTML 语法解析。</p>
-<p>在设置样式时需要注意，不能写成 <code>style={color: this.state.color}</code>，而要写成 <code>style={color: this.state.color}</code> 因为样式是一个对象，第一层大括号表示这是 JavaScript 语法，第二层大括号表示样式对象。</p>
+<p>在设置样式时需要注意，不能写成 <code>style={color: this.state.color}</code>，而要写成 <strong>style=&#123;&#123;color: this.state.color&#125;&#125;</strong> 因为样式是一个对象，第一层大括号表示这是 JavaScript 语法，第二层大括号表示样式对象。</p>
 <h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><p>使用 JavaScript 注释风格，但在一个组件的子元素位置使用注释要用<code>{}</code> 包起来。例如：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> (</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">Nav</span>&gt;</span></span></div><div class="line">        &#123;/* 注释 */&#125;</div><div class="line">        <span class="tag">&lt;<span class="name">Person</span>&gt;</span><span class="tag">&lt;/<span class="name">Person</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">Nav</span>&gt;</span></div><div class="line">)</div></pre></td></tr></table></figure>
 <h4 id="HTML-转义"><a href="#HTML-转义" class="headerlink" title="HTML 转义"></a>HTML 转义</h4><p>为防止 XSS 攻击，React 会将所有显示的 DOM 字符串转义，对 HTML 实体会进行二次转义，因此比如<code>&amp;copy;</code>&#40;©&#41; 这样的字符不会正确显示。有以下几种解决办法：</p>
@@ -376,9 +376,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2017/01/29/清白家风/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          清白家风
+        
+      </div>
+    </a>
   
-    <a href="/2016/10/04/Node基础开发框架/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Node基础开发框架</div>
+  
+    <a href="/2016/12/28/程序猿笑话，放松一下/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">程序猿笑话，放松一下</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -560,6 +569,106 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">exports</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">win7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">读者</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">雷军</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">演讲</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">李银河</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">励志</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">白岩松</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">周云龙</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">语录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">程序员</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">理想</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">干货总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">子沫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笑话</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">微信Logo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">王纯</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">小说</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">冯仑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">裘霜</a>
               </li>
             
             <div class="clearfix"></div>
