@@ -6,17 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yutaiwei.github.io">
-  <title>Tag: 前端 | 我的博客</title>
+  <title>AngularJS按需加载js | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录生活点点滴滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的博客">
-<meta property="og:url" content="http://yutaiwei.github.io/tags/前端/index.html">
+  <meta name="description" content="前言Angular是一个单页面应用，随着系统的迭代，首屏代码会越来越大，所以对《AngularJS入门》中的代码进行改造，实现AngularJS可以按需加载js和css。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AngularJS按需加载js">
+<meta property="og:url" content="http://yutaiwei.github.io/2016/08/02/AngularJS按需加载js/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="记录生活点点滴滴">
+<meta property="og:description" content="前言Angular是一个单页面应用，随着系统的迭代，首屏代码会越来越大，所以对《AngularJS入门》中的代码进行改造，实现AngularJS可以按需加载js和css。">
+<meta property="og:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/11.jpg">
+<meta property="og:updated_time" content="2017-03-28T11:38:07.655Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的博客">
-<meta name="twitter:description" content="记录生活点点滴滴">
+<meta name="twitter:title" content="AngularJS按需加载js">
+<meta name="twitter:description" content="前言Angular是一个单页面应用，随着系统的迭代，首屏代码会越来越大，所以对《AngularJS入门》中的代码进行改造，实现AngularJS可以按需加载js和css。">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/yutaiwei/photos/master/11.jpg">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -162,36 +165,79 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-AngularJS按需加载js" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/08/02/AngularJS按需加载js/" class="archive-article-date">
-  	<time datetime="2016-08-02T15:57:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-02</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/08/02/AngularJS按需加载js/">AngularJS按需加载js</a>
+    <h1 class="article-title" itemprop="name">
+      AngularJS按需加载js
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2016/08/02/AngularJS按需加载js/" class="archive-article-date">
+  	<time datetime="2016-08-02T15:57:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/11.jpg" alt=""></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Angular是一个单页面应用，随着系统的迭代，首屏代码会越来越大，所以对《AngularJS入门》中的代码进行改造，实现AngularJS可以按需加载js和css。</p>
+<a id="more"></a>
+<p>实现这个需求，有三个方案：<br>1、利用requirejs。<br>requirejs并不是按照angular规范开发的第三方插件，后期估计会有很多坑，放弃。</p>
+<p>2、利用ui-router和ocLazyLoad。</p>
+<ul>
+<li>每次“页面跳转”都要额外请求js并加载，浪费带宽增加页面加载时间，基本抛弃了预加载。</li>
+<li>每一个路由都需要配置resolve属性，太low。</li>
+<li>模块化程度太低，不利于以后代码移植和维护。</li>
+</ul>
+<p>3、自己写需要的组件。<br>最好的方案，然而技术要求太高，放弃。</p>
+<p>综上，第三种方案暂时无法实现，放弃；第一种方案坑太多，放弃；第二种方案也不好，但是相对容易，而且是针对angular的插件，就它了。<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">bower </span><span class="keyword">install </span>angular<span class="comment">#1.5.8</span></div><div class="line"><span class="keyword">bower </span><span class="keyword">install </span>angular-ui-router</div><div class="line"><span class="keyword">bower </span><span class="keyword">install </span>oclazyload</div><div class="line"><span class="keyword">bower </span><span class="keyword">install </span><span class="keyword">bootstrap</span></div></pre></td></tr></table></figure></p>
+<h1 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--dynamic/index.html--&gt;</span></div><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"bower_components/bootstrap/dist/css/bootstrap.min.css"</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">        <span class="selector-tag">body</span>&#123;</div><div class="line">            <span class="attribute">font-family</span>: <span class="string">"Microsoft Yahei"</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="selector-class">.navigator</span>&#123;</div><div class="line">            <span class="attribute">width</span>: <span class="number">500px</span>;<span class="attribute">margin</span>: <span class="number">0</span> auto</div><div class="line">        &#125;</div><div class="line">        <span class="selector-class">.navigator</span> <span class="selector-tag">li</span>&#123;</div><div class="line">           <span class="attribute">color</span>: <span class="number">#000</span>;<span class="attribute">font-size</span>: <span class="number">14px</span>;</div><div class="line">        &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>按需加载js<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"myApp"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"navigator nav nav-pills"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">role</span>=<span class="string">"presentation"</span> <span class="attr">class</span>=<span class="string">"active"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#home"</span> <span class="attr">ng-click</span>=<span class="string">"isActive($event)"</span>&gt;</span>主页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">role</span>=<span class="string">"presentation"</span> <span class="attr">class</span>=<span class="string">"active"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#page2"</span>&gt;</span>Page2<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">role</span>=<span class="string">"presentation"</span> <span class="attr">class</span>=<span class="string">"active"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#page3"</span> <span class="attr">ng-click</span>=<span class="string">"isActive($event)"</span>&gt;</span>Page3<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ui-view</span> <span class="attr">style</span>=<span class="string">"width: 500px;margin: 50px auto 0"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"bower_components/angular/angular.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"bower_components/angular-ui-router/release/angular-ui-router.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"bower_components/oclazyload/dist/ocLazyLoad.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"public/js/index.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> *dynamic/public/js/index.js</div><div class="line">*/</div><div class="line"><span class="keyword">var</span> myApp=angular.module(<span class="string">"myApp"</span>,[<span class="string">"ui.router"</span>,<span class="string">"oc.lazyLoad"</span>]);</div><div class="line">myApp.config(<span class="function"><span class="keyword">function</span> <span class="params">($stateProvider,$urlRouterProvider)</span> </span>&#123;</div><div class="line">    $urlRouterProvider.when(<span class="string">""</span>,<span class="string">"/home"</span>);</div><div class="line"></div><div class="line">    $stateProvider.state(<span class="string">'home'</span>,&#123;</div><div class="line">        url:<span class="string">"/home"</span>,</div><div class="line">        templateUrl: <span class="string">'views/homepage.html'</span>,</div><div class="line">        controller: <span class="string">'homeController'</span>,</div><div class="line">        resolve:&#123;</div><div class="line">            loadMyCtrl:[<span class="string">'$ocLazyLoad'</span>,<span class="function"><span class="keyword">function</span> <span class="params">($ocLazyLoad)</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> $ocLazyLoad.load(&#123;</div><div class="line">                    name:<span class="string">"homeApp"</span>,</div><div class="line">                    files:[<span class="string">"public/js/homepage.js"</span>]</div><div class="line">                &#125;)</div><div class="line">            &#125;]</div><div class="line">         &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    $stateProvider.state(<span class="string">'page2'</span>,&#123;</div><div class="line">        url:<span class="string">"/page2"</span>,</div><div class="line">        templateUrl:<span class="string">'views/page2.html'</span>,</div><div class="line">        resolve:&#123;</div><div class="line">            loadMyCtrl:<span class="function"><span class="keyword">function</span> <span class="params">($ocLazyLoad)</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> $ocLazyLoad.load(&#123;</div><div class="line">                    name:<span class="string">'page2App'</span>,</div><div class="line">                    files:[<span class="string">"public/js/page2.js"</span>]</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">    $stateProvider.state(<span class="string">'page3'</span>,&#123;</div><div class="line">        url:<span class="string">"/page3"</span>,</div><div class="line">        templateUrl:<span class="string">'views/page3.html'</span>,</div><div class="line">        resolve:&#123;</div><div class="line">            loadMyCtrl:<span class="function"><span class="keyword">function</span> <span class="params">($ocLazyLoad)</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> $ocLazyLoad.load(&#123;</div><div class="line">                    name:<span class="string">'page3App'</span>,</div><div class="line">                    files:[<span class="string">"public/js/page3.js"</span>,<span class="string">"public/js/page3-ext.js"</span>]</div><div class="line">                &#125;)</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line">    </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="comment">&lt;!--dynamic/views/homepage.html--&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"home"</span> <span class="attr">ng-controller</span>=<span class="string">"homeController"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">    <span class="template-variable">&#123;&#123;content&#125;&#125;</span><span class="xml"></span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> *dynamic/public/js/homepage.js</div><div class="line">*/</div><div class="line">angular.module(<span class="string">'myApp'</span>).controller(<span class="string">'homeController'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($scope)</span> </span>&#123; </div><div class="line">    $scope.content = <span class="string">'这是主页的内容'</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>完整代码github自取：<a href="https://github.com/voidking/angulardemo/tree/master/dynamic" target="_blank" rel="external">https://github.com/voidking/angulardemo/tree/master/dynamic</a></p>
+<h1 id="书签"><a href="#书签" class="headerlink" title="书签"></a>书签</h1><p>RequireJS官方文档<br><a href="http://requirejs.org/docs/start.html" target="_blank" rel="external">http://requirejs.org/docs/start.html</a></p>
+<p>Dynamically Loading Controllers and Views with AngularJS<br><a href="http://weblogs.asp.net/dwahlin/dynamically-loading-controllers-and-views-with-angularjs-and-requirejs" target="_blank" rel="external">http://weblogs.asp.net/dwahlin/dynamically-loading-controllers-and-views-with-angularjs-and-requirejs</a></p>
+<p>angular应用如何实现按需加载<br><a href="http://www.alloyteam.com/2015/10/angular-application-how-to-load-on-demand/" target="_blank" rel="external">http://www.alloyteam.com/2015/10/angular-application-how-to-load-on-demand/</a></p>
+<p>尝试通过AngularJS模块按需加载搭建大型应用（上）<br><a href="http://web.jobbole.com/86915/" target="_blank" rel="external">http://web.jobbole.com/86915/</a></p>
+<p>尝试通过AngularJS模块按需加载搭建大型应用（下）<br><a href="http://web.jobbole.com/87025/" target="_blank" rel="external">http://web.jobbole.com/87025/</a></p>
+<p>angularjs ocLazyLoad分步加载js文件,angularjs ocLazyLoad按需加载js<br><a href="http://m.w2bc.com/article/158713" target="_blank" rel="external">http://m.w2bc.com/article/158713</a></p>
+<p>按需加载 AngularJS 的 Controller<br><a href="http://beginor.github.io/2014/12/20/angularjs-controller-load-on-demand.html" target="_blank" rel="external">http://beginor.github.io/2014/12/20/angularjs-controller-load-on-demand.html</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -207,415 +253,99 @@
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/06/02/AngularJS 表单验证/" class="archive-article-date">
-  	<time datetime="2016-06-02T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/02/AngularJS 表单验证/">AngularJS 表单验证</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/05/25/AngularJS 中的服务Provider/" class="archive-article-date">
-  	<time datetime="2016-05-25T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-05-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/05/25/AngularJS 中的服务Provider/">AngularJS 中的服务Provider</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/22/AngularJS 中 Controller 之间的通信/" class="archive-article-date">
-  	<time datetime="2016-03-22T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/22/AngularJS 中 Controller 之间的通信/">AngularJS 中 Controller 之间的通信</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/13/AngularJS中的作用域/" class="archive-article-date">
-  	<time datetime="2015-12-13T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/13/AngularJS中的作用域/">AngularJS中的作用域</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yutaiwei.github.io/2016/08/02/AngularJS按需加载js/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/11/05/Angular JS 指令入门/" class="archive-article-date">
-  	<time datetime="2015-11-05T12:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/11/05/Angular JS 指令入门/">Angular JS 指令入门</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/11/02/AngularJS入门篇/" class="archive-article-date">
-  	<time datetime="2015-11-02T11:53:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/11/02/AngularJS入门篇/">AngularJS入门篇</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/08/03/Cookie、localStorage和sessionStorage/" class="archive-article-date">
-  	<time datetime="2015-08-03T03:18:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/08/03/Cookie、localStorage和sessionStorage/">Cookie、localStorage和sessionStorage</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2016/06/02/AngularJS 表单验证/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">AngularJS 表单验证</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -639,9 +369,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
