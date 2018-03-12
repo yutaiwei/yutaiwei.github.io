@@ -164,87 +164,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-关于 AngularJS 的一些问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/25/关于 AngularJS 的一些问题/">关于 AngularJS 的一些问题</a>
-    </h1>
-  
-
-        
-        <a href="/2016/08/25/关于 AngularJS 的一些问题/" class="archive-article-date">
-  	<time datetime="2016-08-25T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="关于-AngularJS-的一些问题"><a href="#关于-AngularJS-的一些问题" class="headerlink" title="关于 AngularJS 的一些问题"></a>关于 AngularJS 的一些问题</h2><h4 id="ng-if-跟-ng-show-hide-的区别有哪些？"><a href="#ng-if-跟-ng-show-hide-的区别有哪些？" class="headerlink" title="ng-if 跟 ng-show/hide 的区别有哪些？"></a>ng-if 跟 ng-show/hide 的区别有哪些？</h4><p>第一点区别是，<code>ng-if</code>在后面表达式为 true 的时候才创建这个 dom 节点，<code>ng-show</code>是初始时就创建了，用 <code>display:block</code>和 <code>display:none</code>来控制显示和不显示。</p>
-<p>第二点区别是，<code>ng-if</code> 会（隐式地）产生新作用域，<code>ng-switch</code> 、<code>ng-include</code>等会动态创建一块界面的也是如此。</p>
-<p>这样会导致，在 <code>ng-if</code>中用基本变量绑定 <code>ng-model</code>，并在外层 div 中把此`model 绑定给另一个显示区域，内层改变时，外层不会同步改变，因为此时已经是两个变量了。<br>
-        
-          <a class="article-more-a" href="/2016/08/25/关于 AngularJS 的一些问题/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/25/关于 AngularJS 的一些问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-你总会信仰些什么" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -855,9 +774,88 @@
 
 
   
+    <article id="post-Node.js学习笔记（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/05/Node.js学习笔记（一）/">Node.js学习笔记（一）</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/05/Node.js学习笔记（一）/" class="archive-article-date">
+  	<time datetime="2016-07-05T12:30:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>整理自：<a href="http://www.imooc.com/learn/75">慕课网</a></p>
+<h1 id="helloworld工程的搭建"><a href="#helloworld工程的搭建" class="headerlink" title="helloworld工程的搭建"></a>helloworld工程的搭建</h1><h2 id="技术及工具"><a href="#技术及工具" class="headerlink" title="技术及工具"></a>技术及工具</h2><blockquote>
+<p><strong>node.js + mongodb(工具mongoose) + express + jade + moment.js + npm + jquery + bootstrap + grunt</strong></p>
+</blockquote>
+<p>我靠，那么多！淡定，暂时，咱们这个工程只要 node.js + express + jade 。<br>
+        
+          <a class="article-more-a" href="/2016/07/05/Node.js学习笔记（一）/#more">更多 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">node.js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/05/Node.js学习笔记（一）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 

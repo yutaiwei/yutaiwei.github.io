@@ -481,87 +481,6 @@
 
 
   
-    <article id="post-金钱能买来幸福吗" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/20/金钱能买来幸福吗/">金钱能买来幸福吗</a>
-    </h1>
-  
-
-        
-        <a href="/2016/10/20/金钱能买来幸福吗/" class="archive-article-date">
-  	<time datetime="2016-10-20T14:38:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/26.jpg" alt=""></p>
-<p>译者：裘霜</p>
-<p>金钱能买来幸福吗？这是一个古老的问题。<br>　　<br>　　在过去几年中，新的研究让我们对获得和感受之间的关系有了更深入的了解。在许多国家，经济学家一直在审视收入和幸福的关系；心理学家对人类个体的研究发现了在涉及现金时，是什么真正令我们怦然心动。<br>
-        
-          <a class="article-more-a" href="/2016/10/20/金钱能买来幸福吗/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">读者</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">裘霜</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/读者集萃/" class="article-tag-list-link color5">读者集萃</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/10/20/金钱能买来幸福吗/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-Node基础开发框架" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -857,9 +776,90 @@
 
 
   
+    <article id="post-关于 AngularJS 的一些问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/25/关于 AngularJS 的一些问题/">关于 AngularJS 的一些问题</a>
+    </h1>
+  
+
+        
+        <a href="/2016/08/25/关于 AngularJS 的一些问题/" class="archive-article-date">
+  	<time datetime="2016-08-25T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="关于-AngularJS-的一些问题"><a href="#关于-AngularJS-的一些问题" class="headerlink" title="关于 AngularJS 的一些问题"></a>关于 AngularJS 的一些问题</h2><h4 id="ng-if-跟-ng-show-hide-的区别有哪些？"><a href="#ng-if-跟-ng-show-hide-的区别有哪些？" class="headerlink" title="ng-if 跟 ng-show/hide 的区别有哪些？"></a>ng-if 跟 ng-show/hide 的区别有哪些？</h4><p>第一点区别是，<code>ng-if</code>在后面表达式为 true 的时候才创建这个 dom 节点，<code>ng-show</code>是初始时就创建了，用 <code>display:block</code>和 <code>display:none</code>来控制显示和不显示。</p>
+<p>第二点区别是，<code>ng-if</code> 会（隐式地）产生新作用域，<code>ng-switch</code> 、<code>ng-include</code>等会动态创建一块界面的也是如此。</p>
+<p>这样会导致，在 <code>ng-if</code>中用基本变量绑定 <code>ng-model</code>，并在外层 div 中把此`model 绑定给另一个显示区域，内层改变时，外层不会同步改变，因为此时已经是两个变量了。<br>
+        
+          <a class="article-more-a" href="/2016/08/25/关于 AngularJS 的一些问题/#more">更多 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/08/25/关于 AngularJS 的一些问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
