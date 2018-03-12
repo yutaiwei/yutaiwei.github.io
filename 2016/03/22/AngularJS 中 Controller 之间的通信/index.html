@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yutaiwei.github.io">
-  <title>Archives: 2018/3 | 我的博客</title>
+  <title>AngularJS 中 Controller 之间的通信 | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录生活点点滴滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的博客">
-<meta property="og:url" content="http://yutaiwei.github.io/archives/2018/03/index.html">
+  <meta name="description" content="用 Angular 进行开发，基本上都会遇到 Controller 之间通信的问题，本文对此进行一个总结。
+在 Angular 中，Controller 之间通信的方式主要有三种：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AngularJS 中 Controller 之间的通信">
+<meta property="og:url" content="http://yutaiwei.github.io/2016/03/22/AngularJS 中 Controller 之间的通信/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="记录生活点点滴滴">
+<meta property="og:description" content="用 Angular 进行开发，基本上都会遇到 Controller 之间通信的问题，本文对此进行一个总结。
+在 Angular 中，Controller 之间通信的方式主要有三种：">
+<meta property="og:updated_time" content="2018-03-12T07:25:49.877Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的博客">
-<meta name="twitter:description" content="记录生活点点滴滴">
+<meta name="twitter:title" content="AngularJS 中 Controller 之间的通信">
+<meta name="twitter:description" content="用 Angular 进行开发，基本上都会遇到 Controller 之间通信的问题，本文对此进行一个总结。
+在 Angular 中，Controller 之间通信的方式主要有三种：">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -162,49 +166,225 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-AngularJS 中 Controller 之间的通信" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/12/我的生活/" class="archive-article-date">
-  	<time datetime="2018-03-12T06:53:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-12</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/12/我的生活/">我的生活</a>
+    <h1 class="article-title" itemprop="name">
+      AngularJS 中 Controller 之间的通信
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2016/03/22/AngularJS 中 Controller 之间的通信/" class="archive-article-date">
+  	<time datetime="2016-03-22T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用 Angular 进行开发，基本上都会遇到 Controller 之间通信的问题，本文对此进行一个总结。</p>
+<p>在 Angular 中，Controller 之间通信的方式主要有三种：</p>
+<a id="more"></a>
+<ol>
+<li><p>作用域继承。利用子 Controller 控制父 Controller 上的数据。（父 Controller 中的数据要为引用类型，不能是基本类型）</p>
+</li>
+<li><p>注入服务。把需要共享的数据注册为一个<code>service</code>，在需要的 Controller 中注入。</p>
+</li>
+<li><p>基于事件。利用 Angular 的事件机制，使用 <code>$on</code>、<code>$emit</code>和 <code>$boardcast</code></p>
+</li>
+</ol>
+<p>其中，作用域继承仅限于上下级之间的通信，注入服务和基于事件的机制可以实现任意级别的 Controller 通信。</p>
+<h4 id="作用域继承"><a href="#作用域继承" class="headerlink" title="作用域继承"></a>作用域继承</h4><p>这里直接上栗子。</p>
+<p>页面：</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"parentCtrl"</span>&gt;</span></span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>data in parent controller : <span class="template-variable">&#123;&#123;data.name&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"childCtrl"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"data.name"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>控制器：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'demo'</span>, [])</div><div class="line"></div><div class="line">.controller(<span class="string">'parentCtrl'</span>, [<span class="string">'$scope'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope)</span></span>&#123;</div><div class="line">    $scope.data = &#123;</div><div class="line">        name: <span class="string">'htf'</span></div><div class="line">    &#125;</div><div class="line">&#125;])</div><div class="line"></div><div class="line">.controller(<span class="string">'childCtrl'</span>, [<span class="string">'$scope'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope)</span></span>&#123;</div><div class="line">    </div><div class="line">&#125;])</div></pre></td></tr></table></figure>
+<p>以上是父 Controller 中的数据是引用类型的情况。如果父 Controller 中的数据是基本类型，可通过<code>$scope.$parent.data</code> 访问。</p>
+<p>很显然，这种方式仅适用于父子级间 Controller 的通信。</p>
+<h3 id="注入服务"><a href="#注入服务" class="headerlink" title="注入服务"></a>注入服务</h3><p>在 Angular 中，服务是一个单例，所以在服务中生成一个对象，该对象就可以利用依赖注入的方式在所有的控制器中共享。</p>
+<p>看个栗子，先定义一个<code>service</code>:</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'demo'</span>)</div><div class="line">    .factory(<span class="string">'Data'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">    	<span class="keyword">return</span> &#123;</div><div class="line">    	    name: <span class="string">'htf'</span></div><div class="line">    	&#125;;</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
+<p>页面：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-controller=<span class="string">"childCtrl1"</span>&gt;</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>data in child controller 1 : &#123;&#123;data.name&#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></div><div class="line">  &lt;input <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> type=<span class="string">"text"</span> ng-model=<span class="string">"data.name"</span>&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">&lt;div ng-controller=<span class="string">"childCtrl2"</span>&gt;</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>data in child controller 2 : &#123;&#123;data.name&#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></div><div class="line">  &lt;input <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> type=<span class="string">"text"</span> ng-model=<span class="string">"data.name"</span>&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<p>控制器：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.controller(<span class="string">'childCtrl1'</span>, [<span class="string">'$scope'</span>, <span class="string">'Data'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope, Data)</span></span>&#123;</div><div class="line">    $scope.data = Data;</div><div class="line">&#125;])</div><div class="line"></div><div class="line">.controller(<span class="string">'childCtrl2'</span>, [<span class="string">'$scope'</span>, <span class="string">'Data'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope, Data)</span></span>&#123;</div><div class="line">    $scope.data = Data;</div><div class="line">&#125;])</div></pre></td></tr></table></figure>
+<p>这种方式适用于任何需要通信的 Controller 之间。</p>
+<h4 id="基于事件"><a href="#基于事件" class="headerlink" title="基于事件"></a>基于事件</h4><p>Angular 为<code>$scope</code> 提供了冒泡和隧道机制，<code>$broadcast</code>会把事件广播给所有子 Controller，而<code>$emit</code>则会将事件冒泡传递给父 Controller，<code>$on</code>则是 Angular 的事件监听函数，利用这三者，可以实现上下级和同级（需要构造一个共同的父级 Controller）之间的通信。</p>
+<h3 id="上下级之间"><a href="#上下级之间" class="headerlink" title="上下级之间"></a>上下级之间</h3><p>这种情况下比较简单。</p>
+<p>如果是子 Controller 往父 Controller 上发送事件（从作用域往上发送事件），使用<code>scope.$emit</code></p>
+<blockquote>
+<p>$scope.$emit&#40;”someEvent”, {}&#41;;</p>
+</blockquote>
+<p>如果是父 Controller 往子 Controller 上发送事件（从作用域往下发送事件），使用 <code>scope.$broadcast</code></p>
+<blockquote>
+<p>$scope.$broadcast(“someEvent”, {});</p>
+</blockquote>
+<p>无论是 <code>$emit</code>还是 <code>$broadcast</code>发送的事件，都用 <code>$scope.$on</code>接收：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$scope.$on(<span class="string">"someEvent"</span>, <span class="function"><span class="keyword">function</span><span class="params">(event, data)</span> </span>&#123;</div><div class="line">    <span class="comment">// 这里取到发送过来的数据 data</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h4 id="同级之间"><a href="#同级之间" class="headerlink" title="同级之间"></a>同级之间</h4><p>同级之间利用事件通信有两种方法。一种是利用上下级之间事件传播的变形，另一种是借助 <code>$rootScope</code> 。</p>
+<p><strong>借助父 controller</strong></p>
+<p>先看第一种，在子 Controller 中向父 Controller 触发一个事件，然后在父 Controller 中监听事件，再广播给子 Controller ，这样通过事件携带的参数，实现了数据经过父 Controller，在同级 Controller 之间传播。</p>
+<p>但是要注意，通过父 Controller 作为中介进行传递的话，子 Controller 触发的事件名和父 Controller 广播用的事件名不能一样，否则会进入死循环。</p>
+<p>看代码：<br><figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"outerCtrl"</span>&gt;</span></span></div><div class="line">  <span class="tag">&lt;<span class="name">h3</span>&gt;</span>data in outer controller: <span class="template-variable">&#123;&#123;name&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"innerCtrl1"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"name"</span> <span class="attr">ng-change</span>=<span class="string">"change()"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-controller</span>=<span class="string">"innerCtrl2"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"name"</span> <span class="attr">ng-change</span>=<span class="string">"change()"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>关键部分在控制器：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">.controller(<span class="string">'outerCtrl'</span>, [<span class="string">'$scope'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope)</span></span>&#123;</div><div class="line">    $scope.name = <span class="string">'htf'</span>;</div><div class="line">    $scope.$on(<span class="string">'dataChanged'</span>, <span class="function"><span class="keyword">function</span><span class="params">(event, data)</span></span>&#123;</div><div class="line">        $scope.name = data;</div><div class="line">        <span class="comment">// 2. 父 Ctrl 监听到 dataChanged 时间后，触发 changeData 事件</span></div><div class="line">        $scope.$broadcast(<span class="string">'changeData'</span>, data);</div><div class="line">    &#125;)</div><div class="line">&#125;])</div><div class="line"></div><div class="line">.controller(<span class="string">'innerCtrl1'</span>, [<span class="string">'$scope'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope)</span></span>&#123;</div><div class="line">    $scope.change = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="comment">// 1. 子 Ctrl1 中数据改变之后触发 dataChanged 事件</span></div><div class="line">        $scope.$emit(<span class="string">'dataChanged'</span>, $scope.name);</div><div class="line">    &#125;</div><div class="line">    $scope.$on(<span class="string">'changeData'</span>, <span class="function"><span class="keyword">function</span><span class="params">(event, data)</span></span>&#123;</div><div class="line">        $scope.name = data;</div><div class="line">    &#125;)</div><div class="line">&#125;])</div><div class="line"></div><div class="line">.controller(<span class="string">'innerCtrl2'</span>, [<span class="string">'$scope'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope)</span></span>&#123;</div><div class="line">    $scope.change = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">        $scope.$emit(<span class="string">'dataChanged'</span>, $scope.name);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 3. 监听到 changeData 事件后，改变子 Ctrl2 中 数据</span></div><div class="line">    $scope.$on(<span class="string">'changeData'</span>, <span class="function"><span class="keyword">function</span><span class="params">(event, data)</span></span>&#123;</div><div class="line">        $scope.name = data;</div><div class="line">    &#125;)</div><div class="line">&#125;])</div></pre></td></tr></table></figure>
+<p><strong>借助 $rootScope</strong></p>
+<p>每个 Angular 应用默认有一个根作用域<code>$rootScope</code>， 根作用域位于最顶层，从它往下挂着各级作用域。</p>
+<p>所以，如果子控制器直接使用 <code>$rootScope</code>广播和接收事件，那么就可实现同级之间的通信。</p>
+<p>看栗子：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-controller=<span class="string">"innerCtrlA"</span>&gt;</div><div class="line">    &lt;input <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> <span class="class"><span class="keyword">type</span></span>=<span class="string">"text"</span> ng-model=<span class="string">"name"</span> ng-change=<span class="string">"change()"</span>&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div ng-controller=<span class="string">"innerCtrlB"</span>&gt;</div><div class="line">    &lt;input <span class="class"><span class="keyword">class</span></span>=<span class="string">"form-control"</span> <span class="class"><span class="keyword">type</span></span>=<span class="string">"text"</span> ng-model=<span class="string">"name"</span> ng-change=<span class="string">"change()"</span>&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>控制器：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">.controller(<span class="string">'innerCtrlA'</span>, [<span class="string">'$scope'</span>, <span class="string">'$rootScope'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope, $rootScope)</span></span>&#123;</div><div class="line">    $scope.change = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="comment">// 广播事件</span></div><div class="line">        $rootScope.$broadcast(<span class="string">'nameChanged'</span>, $scope.name);</div><div class="line">    &#125;</div><div class="line">    $rootScope.$on(<span class="string">'nameChanged'</span>, <span class="function"><span class="keyword">function</span><span class="params">(event, data)</span></span>&#123;</div><div class="line">        $scope.name = data;</div><div class="line">    &#125;)</div><div class="line">&#125;])</div><div class="line"></div><div class="line">.controller(<span class="string">'innerCtrlB'</span>, [<span class="string">'$scope'</span>, <span class="string">'$rootScope'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope, $rootScope)</span></span>&#123;</div><div class="line">    $scope.change = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">        $rootScope.$broadcast(<span class="string">'nameChanged'</span>, $scope.name);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 监听事件</span></div><div class="line">    $rootScope.$on(<span class="string">'nameChanged'</span>, <span class="function"><span class="keyword">function</span><span class="params">(event, data)</span></span>&#123;</div><div class="line">        $scope.name = data;</div><div class="line">    &#125;)</div><div class="line">&#125;])</div></pre></td></tr></table></figure>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li><a href="https://github.com/xufei/blog/issues/18" target="_blank" rel="external">作用域与事件</a></li>
+<li><a href="http://www.cnblogs.com/whitewolf/archive/2013/04/16/3024843.html" target="_blank" rel="external">Angularjs Controller 间通信机制</a></li>
+<li><a href="https://segmentfault.com/a/1190000000639592" target="_blank" rel="external">AngularJS控制器controller如何通信？</a></li>
+<li><a href="http://www.angularjs.cn/A07b" target="_blank" rel="external">controller 间共享数据</a></li>
+</ol>
 
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yutaiwei.github.io/2016/03/22/AngularJS 中 Controller 之间的通信/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/03/12/我的生活/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          我的生活
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -228,8 +408,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
