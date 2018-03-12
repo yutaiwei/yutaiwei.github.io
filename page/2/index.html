@@ -164,6 +164,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Angular JS 指令入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/05/Angular JS 指令入门/">Angular JS 指令入门</a>
+    </h1>
+  
+
+        
+        <a href="/2015/11/05/Angular JS 指令入门/" class="archive-article-date">
+  	<time datetime="2015-11-05T12:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Angular-JS-指令入门"><a href="#Angular-JS-指令入门" class="headerlink" title="Angular JS 指令入门"></a>Angular JS 指令入门</h3><p>指令是运行在特定 dom 元素上的函数，用来扩展元素的功能。</p>
+<p>一个简版的 directive 的形式是这样的</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">app.directive(<span class="string">'myDirective'</span>, myDirective);</div><div class="line"></div><div class="line">myDirective.$inject = [];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">myDirective</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        restrict: <span class="string">"AE"</span>,</div><div class="line">        template: <span class="string">''</span></div><div class="line">        scope: &#123;&#125;,</div><div class="line">        link: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>下面介绍一些常用的选项。</p>
+        
+          <a class="article-more-a" href="/2015/11/05/Angular JS 指令入门/#more">更多 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/11/05/Angular JS 指令入门/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-AngularJS入门篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -327,6 +409,170 @@
 
 
   
+    <article id="post-JavaScript 学习之基本语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/18/JavaScript 学习之基本语法/">对 js 中 this、apply、call 和闭包的理解</a>
+    </h1>
+  
+
+        
+        <a href="/2015/09/18/JavaScript 学习之基本语法/" class="archive-article-date">
+  	<time datetime="2015-09-18T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="语法概述"><a href="#语法概述" class="headerlink" title="语法概述"></a>语法概述</h3><h4 id="基本句法和变量"><a href="#基本句法和变量" class="headerlink" title="基本句法和变量"></a>基本句法和变量</h4><p>语句以分号结尾，一个分号就表示一个语句结束。</p>
+<p>JavaScript允许省略var，直接对未声明的变量赋值。也就是说，var a = 1 与 a = 1，这两条语句的效果相同。但是由于这样的做法很容易不知不觉地创建全局变量（尤其是在函数内部），所以建议总是使用var命令声明变量。</p>
+        
+          <a class="article-more-a" href="/2015/09/18/JavaScript 学习之基本语法/#more">更多 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/09/18/JavaScript 学习之基本语法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-JavaScript正则表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/15/JavaScript正则表达式/">JavaScript正则用法</a>
+    </h1>
+  
+
+        
+        <a href="/2015/09/15/JavaScript正则表达式/" class="archive-article-date">
+  	<time datetime="2015-09-15T04:37:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/3.jpg" alt=""></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>正则表达式（Regular Expression）主要是用来描述一个句法规则的模式。其实说的通俗一点，就是利用字符和元字符的组合，对一些符合既定句法的模式进行模糊匹配。它的主要功能是文本查询和字符串操作。本文讨论一下JavaScript中的正则表达式用法。</p>
+        
+          <a class="article-more-a" href="/2015/09/15/JavaScript正则表达式/#more">更多 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/09/15/JavaScript正则表达式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-ES6的新写法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -379,6 +625,83 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2015/08/29/ES6的新写法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Javascript学习笔记——实践篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/17/Javascript学习笔记——实践篇/">Javascript学习笔记—3</a>
+    </h1>
+  
+
+        
+        <a href="/2015/08/17/Javascript学习笔记——实践篇/" class="archive-article-date">
+  	<time datetime="2015-08-17T11:27:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/24.jpg" alt=""></p>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>本文中的文件名，写在了代码注释中。既然用到了三种文件，就把这三种文件的注释方法先说明一下。</p>
+<h4 id="HTML注释"><a href="#HTML注释" class="headerlink" title="HTML注释"></a>HTML注释</h4><p>语法<code>&lt;!--注释的内容--&gt;</code>,示例如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--欢迎来到VoidKing的主页--&gt;</span></div></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2015/08/17/Javascript学习笔记——实践篇/#more">更多 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2015/08/17/Javascript学习笔记——实践篇/">展开全文 >></a>
         </p>
       
 
@@ -476,330 +799,9 @@
 
 
   
-    <article id="post-flex布局详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/26/flex布局详解/">flex布局详解</a>
-    </h1>
-  
-
-        
-        <a href="/2015/07/26/flex布局详解/" class="archive-article-date">
-  	<time datetime="2015-07-26T14:01:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/16.jpg" alt=""></p>
-<h3 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h3><p>flex可以指定对齐方式，可以解决所有盒子的对齐方式。并利用上页面中的剩余空间。<br>
-        
-          <a class="article-more-a" href="/2015/07/26/flex布局详解/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/07/26/flex布局详解/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-css雪碧图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/26/css雪碧图/">css雪碧图</a>
-    </h1>
-  
-
-        
-        <a href="/2015/07/26/css雪碧图/" class="archive-article-date">
-  	<time datetime="2015-07-26T04:58:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/13.jpg" alt=""></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>CSS雪碧 即CSS Sprite，也有人叫它CSS精灵，是一种CSS图像合并技术，该方法是将小图标合并到一张图片上，然后利用css的背景定位来显示需要显示的图片部分。<br>
-        
-          <a class="article-more-a" href="/2015/07/26/css雪碧图/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/07/26/css雪碧图/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-CSS实现文本溢出显示省略号" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/25/CSS实现文本溢出显示省略号/">CSS实现文本溢出显示省略号</a>
-    </h1>
-  
-
-        
-        <a href="/2015/07/25/CSS实现文本溢出显示省略号/" class="archive-article-date">
-  	<time datetime="2015-07-25T13:43:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/43.jpg" alt=""></p>
-<h1 id="单行文本溢出显示省略号"><a href="#单行文本溢出显示省略号" class="headerlink" title="单行文本溢出显示省略号"></a>单行文本溢出显示省略号</h1><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">width</span>: <span class="number">300px</span>; </div><div class="line"><span class="attribute">overflow</span>: hidden; </div><div class="line"><span class="attribute">text-overflow</span>: ellipsis; </div><div class="line"><span class="attribute">white-space</span>: nowrap;</div></pre></td></tr></table></figure>
-<p>如果字符串长度超过300px，那么超出部分就变成<code>...</code>。</p>
-        
-          <a class="article-more-a" href="/2015/07/25/CSS实现文本溢出显示省略号/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/07/25/CSS实现文本溢出显示省略号/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-css阴影效果" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/25/css阴影效果/">css阴影效果</a>
-    </h1>
-  
-
-        
-        <a href="/2015/07/25/css阴影效果/" class="archive-article-date">
-  	<time datetime="2015-07-25T02:50:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-07-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://raw.githubusercontent.com/yutaiwei/photos/master/41.jpg" alt=""></p>
-<p>有阴影的图，看上去高大上些？不管怎样，UI设计了阴影，咱就照做好了。<br>
-        
-          <a class="article-more-a" href="/2015/07/25/css阴影效果/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/07/25/css阴影效果/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -936,6 +938,18 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">书签</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
             
             <div class="clearfix"></div>

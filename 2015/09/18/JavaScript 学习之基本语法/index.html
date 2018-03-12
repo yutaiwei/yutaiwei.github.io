@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://yutaiwei.github.io">
+  <title>对 js 中 this、apply、call 和闭包的理解 | 我的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="语法概述基本句法和变量语句以分号结尾，一个分号就表示一个语句结束。
+JavaScript允许省略var，直接对未声明的变量赋值。也就是说，var a = 1 与 a = 1，这两条语句的效果相同。但是由于这样的做法很容易不知不觉地创建全局变量（尤其是在函数内部），所以建议总是使用var命令声明变量。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对 js 中 this、apply、call 和闭包的理解">
+<meta property="og:url" content="http://yutaiwei.github.io/2015/09/18/JavaScript 学习之基本语法/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:description" content="语法概述基本句法和变量语句以分号结尾，一个分号就表示一个语句结束。
+JavaScript允许省略var，直接对未声明的变量赋值。也就是说，var a = 1 与 a = 1，这两条语句的效果相同。但是由于这样的做法很容易不知不觉地创建全局变量（尤其是在函数内部），所以建议总是使用var命令声明变量。">
+<meta property="og:updated_time" content="2017-05-01T13:35:55.866Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="对 js 中 this、apply、call 和闭包的理解">
+<meta name="twitter:description" content="语法概述基本句法和变量语句以分号结尾，一个分号就表示一个语句结束。
+JavaScript允许省略var，直接对未声明的变量赋值。也就是说，var a = 1 与 a = 1，这两条语句的效果相同。但是由于这样的做法很容易不知不觉地创建全局变量（尤其是在函数内部），所以建议总是使用var命令声明变量。">
+  
+    <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/assets/img/favicon.ico">
+  
+  <link rel="stylesheet" type="text/css" href="/./main.234bc0.css">
+  <style type="text/css">
+  
+    #container.show {
+      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+    }
+  </style>
+  
+
+  
+
+</head>
+
+<body>
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+    <div class="left-col" q-class="show:isShow">
+      
+<div class="overlay" style="background: #24ADFF"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="/assets/img/me.jpg" class="js-avatar">
+		</a>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">love_yu</a></h1>
+		</hgroup>
+		
+		<p class="header-subtitle">一天进步一点</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/archives">归档</a></li>
+	        
+				<li><a href="/about">关于我</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+    		
+    			
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			
+            
+    			
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">科比</a>
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/yutaiwei" title="github"><i class="icon-github"></i></a>
+		        
+					<a class="weibo" target="_blank" href="http://weibo.com/" title="weibo"><i class="icon-weibo"></i></a>
+		        
+					<a class="rss" target="_blank" href="view-source:http://www.yutaiwei.top/archives/" title="rss"><i class="icon-rss"></i></a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/" title="zhihu"><i class="icon-zhihu"></i></a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
+      
+<nav id="mobile-nav">
+  	<div class="overlay js-overlay" style="background: #24ADFF"></div>
+	<div class="btnctn js-mobile-btnctn">
+  		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
+	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/assets/img/me.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author js-header-author">love_yu</h1>
+			</hgroup>
+			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>一天进步一点<i class="icon icon-quo-right"></i></p>
+			
+			
+			
+				
+			
+				
+			
+				
+			
+			
+			
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/yutaiwei" title="github"><i class="icon-github"></i></a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/" title="weibo"><i class="icon-weibo"></i></a>
+			        
+						<a class="rss" target="_blank" href="view-source:http://www.yutaiwei.top/archives/" title="rss"><i class="icon-rss"></i></a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/" title="zhihu"><i class="icon-zhihu"></i></a>
+			        
+				</div>
+			</nav>
+
+			<nav class="header-menu js-header-menu">
+				<ul style="width: 70%">
+				
+				
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/archives">归档</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/about">关于我</a></li>
+		        
+				</ul>
+			</nav>
+		</header>				
+	</div>
+	<div class="mobile-mask" style="display:none" q-show="isShow"></div>
+</nav>
+
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            <article id="post-JavaScript 学习之基本语法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      对 js 中 this、apply、call 和闭包的理解
+    </h1>
+  
+
+        
+        <a href="/2015/09/18/JavaScript 学习之基本语法/" class="archive-article-date">
+  	<time datetime="2015-09-18T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-09-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="语法概述"><a href="#语法概述" class="headerlink" title="语法概述"></a>语法概述</h3><h4 id="基本句法和变量"><a href="#基本句法和变量" class="headerlink" title="基本句法和变量"></a>基本句法和变量</h4><p>语句以分号结尾，一个分号就表示一个语句结束。</p>
+<p>JavaScript允许省略var，直接对未声明的变量赋值。也就是说，var a = 1 与 a = 1，这两条语句的效果相同。但是由于这样的做法很容易不知不觉地创建全局变量（尤其是在函数内部），所以建议总是使用var命令声明变量。</p>
+<a id="more"></a>
+<p>JavaScript引擎的工作方式是，先解析代码，获取所有被声明的变量，然后再一行一行地运行。这造成的结果，就是所有的变量的声明语句（var 命令声明的变量），都会被提升到代码的头部，这就叫做变量提升（hoisting）。</p>
+<p>JavaScript语言的标识符对大小写敏感。</p>
+<p>JavaScript使用大括号将语句组成区块，但与大多数编程语言不一样，JavaScript的区块不构成单独的作用域（scope）。</p>
+<p>else代码块总是跟随离自己最近的那个if语句。</p>
+<p>switch结构，每个case代码块内部的break语句不能少，否则会接下去执行下一个case代码块，而不是跳出switch结构。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> (fruit) &#123;</div><div class="line">    <span class="keyword">case</span> <span class="string">"banana"</span>:</div><div class="line">        <span class="comment">// ...</span></div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">"apple"</span>:</div><div class="line">        <span class="comment">// ...</span></div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span>:</div><div class="line">        <span class="comment">// ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>switch语句后面的表达式与case语句后面的表示式，在比较运行结果时，采用的是严格相等运算符（===），这意味着比较时不会发生类型转换。</p>
+<p>switch结构不利于代码重用，往往可以用对象形式重写。<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var o = &#123;</div><div class="line">    banana: <span class="keyword">function</span> <span class="title"></span>()&#123; <span class="keyword">return</span> <span class="type">&#125;,</span></div><div class="line">    apple: <span class="keyword">function</span> <span class="title"></span>()&#123; <span class="keyword">return</span> <span class="type">&#125;,</span></div><div class="line">    default: <span class="keyword">function</span> <span class="title"></span>()&#123; <span class="keyword">return</span> <span class="type">&#125;</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (o[fruit])&#123;</div><div class="line">    o[fruit]();</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    o[<span class="symbol">'default</span>']();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>break语句用于跳出代码块或循环。continue语句用于立即终止本次循环，返回循环结构的头部，开始下一次循环。</p>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><p>JavaScript的数据类型，共有六个类别和两个特殊值。六个类别的数据类型又可以分成两组：原始类型（primitive type）和合成类型（complex type）。原始类型包括三种数据类型：数值（number）、字符串（string）和布尔值（boolean），合成类型也包括三种数据类型：对象（object）、数组（array）和函数（function）。两个特殊值null和undefined。</p>
+<p>JavaScript有三种方法，可以确定一个值到底是什么类型：</p>
+<ol>
+<li>typeof运算符</li>
+<li>instanceof运算符</li>
+<li>Object.prototype.toString方法</li>
+</ol>
+<p>typeof运算符可以返回一个值的数据类型，数值、字符串、布尔值分别返回number、string、boolean，函数返回function，undefined返回undefined，除此以外，都返回object（包括数组、对象、null、window）。要想区分数组（Array）和对象（Object），可以用 instanceof运算符（if ( arr instanceof Array ) ）。</p>
+<p>利用 typeof undefined 返回undefined这一点，typeof可以用来检查一个没有声明的变量，而不报错。</p>
+<blockquote>
+<p>if (typeof v !== “undefined”){<br>    // …<br>}</p>
+</blockquote>
+<p>null表示”没有对象”，即该处不应该有值（转为数值时为0）。典型用法是：</p>
+<ul>
+<li>作为函数的参数，表示该函数的参数不是对象。</li>
+<li>作为对象原型链的终点。</li>
+</ul>
+<p>undefined表示”缺少值”，就是此处应该有一个值，但是还未定义（转为数值时为NaN）。典型用法是：</p>
+<ul>
+<li>变量被声明了，但没有赋值时，就等于undefined。</li>
+<li>调用函数时，应该提供的参数没有提供，该参数等于undefined。</li>
+<li>对象没有赋值的属性，该属性的值为undefined。</li>
+<li>函数没有返回值时，默认返回undefined。</li>
+</ul>
+<p>JavaScript会将预期为布尔值的位置出现的值自动转为布尔值，下面六个值被转为false，其他值都视为true。需要注意的是，空数组（[]）和空对象（{}）对应的布尔值，都是true。</p>
+<ul>
+<li>undefined</li>
+<li>null</li>
+<li>false</li>
+<li>0</li>
+<li>NaN</li>
+<li>“”（空字符串）</li>
+</ul>
+<h4 id="结尾的分号"><a href="#结尾的分号" class="headerlink" title="结尾的分号"></a>结尾的分号</h4><p>分号表示一条语句的结尾。但是，有一些语法结构不需要在语句的结尾添加分号，主要是以下三种情况：</p>
+<ul>
+<li>for和while循环</li>
+<li>分支语句：if， switch， try</li>
+<li>函数的声明语句（但是函数表达式仍然要使用分号）</li>
+</ul>
+<p>一般来说，在没有分号结尾的情况下，如果下一行起首的是(、 [ 、+、-、/这五个字符中的一个，分号不会被自动添加。只有下一行的开始与本行的结尾，无法放在一起解释，JavaScript引擎才会自动添加分号。另外，如果一行的起首是“自增”（++）或“自减”（–）运算符，则它们的前面会自动添加分号。如果continue、break、return和throw这四个语句后面，直接跟换行符，会自动添加分号。</p>
+<h3 id="数值"><a href="#数值" class="headerlink" title="数值"></a>数值</h3><h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>JavaScript内部，所有数字都是以64位浮点数形式储存，即使整数也是如此。由于浮点数不是精确的值，所以涉及小数的比较和运算要特别小心。</p>
+<p>64位浮点数格式的64个二进制位中，第0位到第51位储存有效数字部分，第52到第62位储存指数部分，第63位是符号位，0表示正数，1表示负数。</p>
+<h4 id="特殊数值"><a href="#特殊数值" class="headerlink" title="特殊数值"></a>特殊数值</h4><p>NaN是JavaScript的特殊值，表示“非数字”（Not a Number），主要出现在将字符串解析成数字出错的场合。NaN不是一种独立的数据类型，而是一种特殊数值，它的数据类型依然属于Number。NaN不等于任何值，包括它本身。</p>
+<p>使用isNaN之前，最好判断一下数据类型：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function">function <span class="title">myIsNaN</span>(<span class="params"><span class="keyword">value</span></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> <span class="keyword">value</span> === <span class="string">'number'</span> &amp;&amp; isNaN(<span class="keyword">value</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>判断NaN更可靠的方法是，利用NaN是JavaScript之中唯一不等于自身的值这个特点，进行判断：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> <span class="title">myIsNaN</span>(value) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="type">value</span> !== value;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Infinity表示“无穷”。除了0除以0得到NaN，其他任意数除以0，得到Infinity。isFinite函数返回一个布尔值，检查某个值是否为正常值，而不是Infinity。</p>
+<blockquote>
+<p>isFinite(Infinity) // false<br>isFinite(-1) // true<br>isFinite(true) // true<br>isFinite(NaN) // false</p>
+</blockquote>
+<h4 id="与数值有关的全局方法"><a href="#与数值有关的全局方法" class="headerlink" title="与数值有关的全局方法"></a>与数值有关的全局方法</h4><p><strong>parseInt方法：</strong></p>
+<ul>
+<li>parseInt方法可以将字符串或小数转化为整数。如果字符串头部有空格，空格会被自动去除。</li>
+<li>如果字符串包含不能转化为数字的字符，则不再进行转化，返回已经转好的部分。</li>
+<li>如果字符串的第一个字符不能转化为数字（正负号除外），返回NaN。</li>
+<li>parseInt方法还可以接受第二个参数（2到36之间），表示被解析的值的进制（可以用parseInt方法进行进制的转换）。</li>
+</ul>
+<p>parseFloat方法：parseFloat方法用于将一个字符串转为浮点数，其他规则同parseInt。</p>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>要在单引号字符串的内部使用单引号，可以在内部的单引号（或者双引号）前面加上反斜杠，用来转义。</p>
+<p>如果长字符串必须分成多行，可以在每一行的尾部使用反斜杠。</p>
+<p>字符串可以被视为字符数组，因此可以使用数组的方括号运算符，用来返回某个位置的字符（从0开始）。</p>
+<p>字符串是不可变的，一旦被创建，永远无法改变。两个包含着完全相同的字符且字符顺序也相同的字符串被认为是相同的字符串。</p>
+<blockquote>
+<p>‘c’ + ‘a’ + ‘t’ === ‘cat’<br>// true</p>
+</blockquote>
+<p>JavaScript使用Unicode字符集，每个字符在JavaScript内部都是以16位（即2个字节）的UTF-16格式储存。也就是说，JavaScript的单位字符长度固定为2个字节。</p>
+<blockquote>
+<p>var s = ‘\u00A9’;<br>s // “©”</p>
+</blockquote>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><h4 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h4><p>对象的生成方法，通常有三种方法：</p>
+<blockquote>
+<p>var o1 = {};<br>var o2 = new Object();<br>var o3 = Object.create(null);</p>
+</blockquote>
+<p>读取属性有使用点运算符和方括号运算符两种方法。如果使用方括号运算符，键名必须放在引号里面，否则会被当作变量处理。数字键可以不加引号。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var o = &#123;</div><div class="line">    p: <span class="string">"Hello"</span>，</div><div class="line">    <span class="number">0.7</span>: <span class="string">"World"</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">o.p <span class="regexp">//</span> <span class="string">"Hello"</span></div><div class="line">o[<span class="string">"p"</span>] <span class="regexp">//</span> <span class="string">"Hello"</span></div><div class="line">o[<span class="number">0.7</span>] <span class="regexp">//</span> <span class="string">"World"</span></div></pre></td></tr></table></figure>
+<p>检查变量是否声明时，不要使用 <code>if(window.a) {...}</code>写法，因为如果a属性是一个空字符串（或其他对应的布尔值为false的情况），则无法起到检查变量是否声明的作用。正确的写法如下：</p>
+<blockquote>
+<p>if(‘a’ in window) {<br>    …<br>}</p>
+</blockquote>
+<p>查看一个对象本身的所有属性，可以使用 Object.keys 方法，如：<code>Object.keys(o)</code> 。</p>
+<p>删除一个属性，需要使用<code>delete</code> ，一旦使用delete命令删除某个属性，再读取该属性就会返回undefined，而且该属性不再包含在Object.keys的返回中。</p>
+<p>如果不同的变量名指向同一个对象，那么它们都是这个对象的引用，也就是说指向同一个内存地址。修改其中一个变量，会影响到其他所有变量。</p>
+<p><code>for...in</code>循环用来遍历一个对象的全部属性。如果只想遍历对象本身的属性，可以使用 <code>hasOwnProperty()</code> 方法，在循环内部做一个判断。</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="built_in">var</span> <span class="built_in">key</span> <span class="keyword">in</span> person) &#123;</div><div class="line">    <span class="keyword">if</span> (person.hasOwnProperty(<span class="built_in">key</span>)) &#123;</div><div class="line">        console.<span class="built_in">log</span>(<span class="built_in">key</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="类似数组的对象"><a href="#类似数组的对象" class="headerlink" title="类似数组的对象"></a>类似数组的对象</h4><p>一个对象，只要有 数字键 和 length属性 ，就是一个类似数组的对象（array-like object）。但无法使用数组特有的一些方法，比如pop和push方法。而且，length属性不会随着成员的变化而变化。</p>
+<figure class="highlight rsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var a = &#123;</div><div class="line">    <span class="number">0</span>:<span class="string">'a'</span>,</div><div class="line">    <span class="number">1</span>:<span class="string">'b'</span></div><div class="line">    <span class="built_in">length</span>:<span class="number">2</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">a[<span class="number">1</span>] <span class="comment">// 'b'</span></div><div class="line">a.<span class="built_in">length</span> <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+<p>典型的类似数组的对象是函数的arguments对象，以及大多数DOM元素集（比如 <code>document.getElementsByTagName</code> 的返回值），还有字符串。</p>
+<p>通过函数的call方法，可以用slice方法将类似数组的对象，变成真正的数组。</p>
+<blockquote>
+<p>var arr = Array.prototype.slice.call(a);</p>
+</blockquote>
+<p>遍历类似数组的对象，可以采用for循环，也可以采用数组的forEach方法。</p>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>本质上，数组也属于对象，是字典结构（dictionary）的一个变种。所以typeof运算符返回数组的类型是object。</p>
+<p>数组的length属性是可写的。如果人为设置一个小于当前成员个数的值，该数组的成员会自动减少到length设置的值。如果设置length大于当前元素个数，则数组的成员数量会增加到这个值，新增的位置填入空元素（undefined）。将数组清空的一个有效方法，就是将length属性设为0。</p>
+<p>使用delete命令删除一个值，会形成空位，不影响length属性。因为这个键还在，只是值变为了undefined。</p>
+<p>遍历数组的两种方法，一是使用for-in循环，二是用for循环或者while循环结合length属性。</p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>JavaScript的函数与其他数据类型处于同等地位，可以使用其他数据类型的地方就能使用函数。可以把函数赋值给变量和对象的属性，也可以当作参数传入其他函数，或者作为函数的结果返回。</p>
+<p>JavaScript引擎将函数名视同变量名，所以采用function命令声明函数时，整个函数会被提升到代码头部，即条件无效。要达到在条件语句中定义函数的目的，只有使用函数表达式。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="literal">false</span>)&#123;</div><div class="line">    <span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="params">()</span></span>&#123;&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>函数的name属性返回紧跟在function关键字之后的那个函数名。函数的toString方法返回函数的源码。</p>
+<p>JavaScript只有两种作用域：一种是全局作用域，变量在整个程序中一直存在；另一种是函数作用域，变量只在函数内部存在。</p>
+<p>JavaScript的函数参数传递方式是传值传递（passes by value），这意味着，在函数体内修改参数值，不会影响到函数外部。但是对于复合类型的变量来说，属性值是传址传递（pass by reference），也就是说，属性值是通过地址读取的。所以在函数体内修改复合类型变量的属性值，会影响到函数外部。</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 修改原始类型的参数值</span></div><div class="line"><span class="keyword">var</span> p = <span class="number">1</span>; </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">(p)</span><span class="comment">&#123;</span></span></div><div class="line">    p = 2;</div><div class="line">&#125;</div><div class="line"><span class="title">f</span><span class="params">(p)</span>;</div><div class="line">p <span class="comment">// 1</span></div><div class="line"></div><div class="line"><span class="comment">// 修改对象的属性值</span></div><div class="line"><span class="keyword">var</span> o = <span class="comment">&#123; p:1 &#125;</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">(obj)</span><span class="comment">&#123;</span></span></div><div class="line">    obj.p = 2;</div><div class="line">&#125;</div><div class="line"><span class="title">f</span><span class="params">(o)</span>;</div><div class="line">o.p <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+<p>arguments对象包含了函数运行时的所有参数，这个对象只有在函数体内部才可以使用。</p>
+<p>闭包（closure）就是定义在函数体内部的函数。其特点在于，在函数外部可以读取函数的内部变量。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> v = <span class="number">1</span>;</div><div class="line">    <span class="keyword">var</span> c = <span class="function"><span class="keyword">function</span> <span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> v;</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">return</span> c;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> o = f();</div><div class="line">o(); <span class="comment">// 1</span></div></pre></td></tr></table></figure>
+<p>有时，需要在定义函数之后，立即调用该函数。然而不能在函数的定义之后加上圆括号，因为Javascript引擎看到function关键字之后，认为后面跟的是函数定义语句，不应该以圆括号结尾。解决方法就是让引擎知道，圆括号前面的部分不是函数定义语句，而是一个表达式，可以对此进行运算。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 写法1</span></div><div class="line">(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123; <span class="comment">/* code */</span> &#125;()); </div><div class="line"></div><div class="line"><span class="comment">// 写法2</span></div><div class="line">(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123; <span class="comment">/* code */</span> &#125;)();</div></pre></td></tr></table></figure>
+<p>通常情况下，只对匿名函数使用这种“立即执行的函数表达式”。它的目的有两个：一是不必为函数命名，避免了污染全局变量；二是IIFE内部形成了一个单独的作用域，可以封装一些外部无法读取的私有变量。</p>
+<p>###运算符</p>
+<p>加法运算符（+）需要注意的地方是，它除了用于数值的相加，还能用于字符串的连接（在运算子之中有字符串的情况下）。这种由于参数不同，而改变自身行为的现象，叫做“重载”（overload）。</p>
+<p>加法运算符以外的其他算术运算符，都不会发生重载。它们的规则是：所有运算子一律转为数值，再进行相应的数学运算。</p>
+<p>余数运算符（%）返回前一个运算子被后一个运算子除，所得的余数。运算结果的正负号由第一个运算子的正负号决定。为了得到正确的负数的余数值，需要先使用绝对值函数。</p>
+<p>严格相等运算符（===）会比较值的类型和引用是否相同，相等运算符（==）在比较不同类型的数据时，会先将数据进行类型转换。</p>
+<p>取反运算符（！）有转换数据类型的作用，对于非布尔值的数据，取反运算符会自动将其转为布尔值。如果对一个值连续做两次取反运算，等于将其转为对应的布尔值，与Boolean函数的作用相同。这是一种常用的类型转换的写法。</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">//</span> 当x非null，非undefined，非<span class="string">""</span>时，执行条件语句中代码</div><div class="line"><span class="keyword">if</span>(!!x)&#123;</div><div class="line">    <span class="regexp">//</span><span class="keyword">do</span> something!</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>且运算符的运算规则是：如果第一个运算子的布尔值为true，则返回第二个运算子的值（注意是值，不是布尔值）；如果第一个运算子的布尔值为false，则直接返回第一个运算子的值，且不再对第二个运算子求值。这种机制即“短路”。</p>
+<p>尝试从undefined的成员属性中取值将会产生TypeError异常，这时可通过 &amp;&amp; 运算符来避免错误。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">a</span><span class="selector-class">.b</span>  <span class="comment">// undefined</span></div><div class="line"><span class="selector-tag">a</span><span class="selector-class">.b</span><span class="selector-class">.c</span>  <span class="comment">// throw "TypeError"</span></div><div class="line"><span class="comment">// 可改为</span></div><div class="line"><span class="selector-tag">a</span><span class="selector-class">.b</span> &amp;&amp; <span class="selector-tag">a</span><span class="selector-class">.b</span><span class="selector-class">.c</span></div></pre></td></tr></table></figure>
+<p>或运算符的运算规则是：如果第一个运算子的布尔值为true，则返回第一个运算子的值，且不再对第二个运算子求值；如果第一个运算子的布尔值为false，则返回第二个运算子的值。或运算符常用于为一个变量设置默认值。</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 函数调用时，没有提供参数，则该参数默认设置为空字符串。</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">saveText</span><span class="params">(text)</span> &#123;</span></div><div class="line">    <span class="built_in">text</span> = <span class="built_in">text</span> || '';</div><div class="line">    <span class="comment">// ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>三元条件运算符用问号（？）和冒号（：），分隔三个表达式。如果第一个表达式的布尔值为true，则返回第二个表达式的值，否则返回第三个表达式的值。通常来说，三元条件表达式与<code>if...else</code>语句具有同样表达效果，区别是后者没有返回值。</p>
+<p>“异或运算”在两个二进制位不同时返回1，相同时返回0。连续对两个数a和b进行三次异或运算，aˆ=b, bˆ=a, aˆ=b，可以互换它们的值而不引入临时变量（详见 维基百科）。</p>
+<p>左移运算符表示将一个数的二进制形式向前移动，尾部补0。左移运算符用于二进制数值非常方便。</p>
+<p>右移运算符表示将一个数的二进制形式向右移动，头部补上最左位的值，即整数补0，负数补1。右移运算可以模拟2的整除运算。</p>
+<p>在JavaScript中，圆括号是一种运算符，它有两种用法：如果把表达式放在圆括号之中，作用是求值；如果跟在函数的后面，作用是调用函数。</p>
+<p>void运算符的作用是执行一个表达式，然后返回undefined。这个运算符主要是用于书签工具（bookmarklet）或者用于在超级链接中插入代码，目的是返回undefined可以防止网页跳转。</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 写法1</span></div><div class="line">javascript:<span class="keyword">void</span> window.<span class="built_in">open</span>(<span class="string">"http://example.com/"</span>)</div><div class="line"><span class="comment">// 写法2</span></div><div class="line">&lt;a href=<span class="string">"javascript:void(0)"</span> onclick=<span class="string">"f();"</span>&gt;文字&lt;/a&gt;</div></pre></td></tr></table></figure>
+<h3 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h3><p>Number函数将字符串转为数值，要比parseInt函数严格很多。基本上，只要有一个字符无法转成数值，整个字符串就会被转为NaN。</p>
+<p>JavaScript自动转换有很大的不确定性，而且不易除错，建议在预期为布尔值、数值、字符串的地方，全部使用Boolean、Number和String方法进行显式转换。</p>
+<p>四个特殊表达式（具体可参考<a href="http://javascript.ruanyifeng.com/grammar/conversion.html" target="_blank" rel="external">此文</a> ）：</p>
+<ul>
+<li>空数组 + 空数组</li>
+</ul>
+<blockquote>
+<p>[] + []<br>// “”</p>
+</blockquote>
+<ul>
+<li>空数组 + 空对象</li>
+</ul>
+<blockquote>
+<p>[] + {}<br>// “[object Object]”</p>
+</blockquote>
+<ul>
+<li>空对象 + 空数组</li>
+</ul>
+<blockquote>
+<p>{} + []<br>// 0</p>
+</blockquote>
+<ul>
+<li>空对象 + 空对象</li>
+</ul>
+<blockquote>
+<p>{} + {}<br>// NaN</p>
+</blockquote>
+<h3 id="错误处理机制"><a href="#错误处理机制" class="headerlink" title="错误处理机制"></a>错误处理机制</h3><h4 id="Error对象"><a href="#Error对象" class="headerlink" title="Error对象"></a>Error对象</h4><p>Error对象的实例有三个最基本的属性：</p>
+<ul>
+<li>name：错误名称</li>
+<li>message：错误提示信息</li>
+<li>stack：错误的堆栈（非标准属性，但是大多数平台支持）</li>
+</ul>
+<h4 id="JavaScript的原生错误类型"><a href="#JavaScript的原生错误类型" class="headerlink" title="JavaScript的原生错误类型"></a>JavaScript的原生错误类型</h4><p>Error对象是最一般的错误类型，在它的基础上，JavaScript还定义了其他6种错误，也就是说，存在Error的6个派生对象。</p>
+<ul>
+<li>SyntaxError是解析代码时发生的语法错误。</li>
+<li>ReferenceError是引用一个不存在的变量时发生的错误。</li>
+<li>RangeError是当一个值超出有效范围时发生的错误。主要有几种情况，一是数组长度为负数，二是Number对象的方法参数超出范围，以及函数堆栈超过最大值。</li>
+<li>TypeError是变量或参数不是预期类型时发生的错误。</li>
+<li>URIError是URI相关函数的参数不正确时抛出的错误。</li>
+<li>eval函数没有被正确执行时，会抛出EvalError错误。</li>
+</ul>
+<h4 id="自定义错误"><a href="#自定义错误" class="headerlink" title="自定义错误"></a>自定义错误</h4><p>通过继承Error对象，可以自定义一个错误对象</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">UserError</span></span>(message) &#123;</div><div class="line">   <span class="built_in">this</span>.message = message || <span class="string">"默认信息"</span>;</div><div class="line">   <span class="built_in">this</span>.name = <span class="string">"UserError"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">UserError.prototype = <span class="keyword">new</span> <span class="type">Error</span>();</div><div class="line">UserError.prototype.constructor = UserError;</div><div class="line"></div><div class="line"><span class="keyword">new</span> <span class="type">UserError</span>(<span class="string">"这是自定义的错误！"</span>);</div></pre></td></tr></table></figure>
+<h4 id="try…catch…finally"><a href="#try…catch…finally" class="headerlink" title="try…catch…finally"></a>try…catch…finally</h4><p>throw语句的作用是中断程序执行，抛出一个意外或错误。它接受一个表达式作为参数。</p>
+<p>为了对错误进行处理，需要使用try…catch结构。为了捕捉不同类型的错误，catch代码块之中可以加入判断语句。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (e <span class="keyword">instanceof</span> <span class="built_in">RangeError</span>) &#123;</div><div class="line">    <span class="comment">// code</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>try…catch结构允许在最后添加一个finally代码块，表示不管是否出现错误，都必需在最后运行的语句。而且即使有return语句在前，finally代码块依然会得到执行，且在其执行完毕后，才会显示return语句的值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">idle</span>(<span class="params">x</span>) </span>&#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        <span class="built_in">console</span>.log(x);</div><div class="line">        <span class="keyword">return</span> <span class="string">'result'</span>;</div><div class="line">    &#125; <span class="keyword">finally</span> &#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"FINALLY"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">idle(<span class="string">'hello'</span>)</div><div class="line"><span class="comment">// hello</span></div><div class="line"><span class="comment">// FINALLY</span></div><div class="line"><span class="comment">// "result"</span></div></pre></td></tr></table></figure>
+<h3 id="编程风格"><a href="#编程风格" class="headerlink" title="编程风格"></a>编程风格</h3><h4 id="语法标记的风格"><a href="#语法标记的风格" class="headerlink" title="语法标记的风格"></a>语法标记的风格</h4><p>表示区块起首的大括号，不要另起一行。</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">block </span>&#123;</div><div class="line">　　...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>圆括号在JavaScript中有两种作用，一种表示函数的调用，另一种表示表达式的组合。可以用空格，区分这两种不同的括号。表示函数调用和函数定义时，函数名与左括号之间没有空格。其他情况时，前面位置的语法元素与左括号之间，都有一个空格。</p>
+<p>虽然在循环和判断的代码体只有一行时，JavaScript允许该区块（block）省略大括号。但最好总是使用大括号表示区块。</p>
+<h4 id="语法命令的风格"><a href="#语法命令的风格" class="headerlink" title="语法命令的风格"></a>语法命令的风格</h4><p>避免使用全局变量；如果不得不使用，用大写字母表示变量名，比如UPPER_CASE。</p>
+<p>JavaScript使用new命令，从构造函数生成一个新对象。这种做法的问题是，一旦你忘了加上new，myObject()内部的this关键字就会指向全局对象。因此，尽量使用Object.create()命令，替代new命令。如果不得不使用new，构造函数的函数名，采用首字母大写。</p>
+<p>所有变量声明都放在函数的头部，所有函数都在使用之前定义。</p>
+<p>不要使用”相等”（==）运算符，只使用”严格相等”（===）运算符。</p>
+<p>不要将不同目的的语句，合并成一行。</p>
+<p>不要使用自增（++）和自减（–）运算符，用+=和-=代替。</p>
+<p>避免使用switch…case结构，用对象结构代替。</p>
+<p>eval函数的作用是将一段字符串当作语句执行。问题是eval不提供单独的作用域，而是直接在当前作用域运行。因此，避免使用eval函数。</p>
+<h3 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h3><p><a href="http://javascript.ruanyifeng.com/grammar/basic.html" target="_blank" rel="external">JavaScript 标准参考教程：基本语法</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yutaiwei.github.io/2015/09/18/JavaScript 学习之基本语法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2015/10/23/ES6对数组的扩展/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          ES6对数组的扩展
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/15/JavaScript正则表达式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript正则用法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
+  
+
+
+
+
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 love_yu
+    	</div>
+      	<div class="footer-right">
+      		Hexo by <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a>
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <script>
+	var yiliaConfig = {
+		mathjax: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true,
+		showTags: false
+	}
+</script>
+
+<script>!function(t){function n(r){if(e[r])return e[r].exports;var o=e[r]={exports:{},id:r,loaded:!1};return t[r].call(o.exports,o,o.exports,n),o.loaded=!0,o.exports}var e={};return n.m=t,n.c=e,n.p="./",n(0)}([function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}function o(t,n){var e=/\/|index.html/g;return t.replace(e,"")===n.replace(e,"")}function i(){for(var t=document.querySelectorAll(".js-header-menu li a"),n=window.location.pathname,e=0,r=t.length;e<r;e++){var i=t[e];o(n,i.getAttribute("href"))&&(0,d.default)(i,"active")}}function u(t){for(var n=t.offsetLeft,e=t.offsetParent;null!==e;)n+=e.offsetLeft,e=e.offsetParent;return n}function f(t){for(var n=t.offsetTop,e=t.offsetParent;null!==e;)n+=e.offsetTop,e=e.offsetParent;return n}function c(t,n,e,r,o){var i=u(t),c=f(t)-n;if(c-e<=o){var a=t.$newDom;a||(a=t.cloneNode(!0),(0,h.default)(t,a),t.$newDom=a,a.style.position="fixed",a.style.top=(e||c)+"px",a.style.left=i+"px",a.style.zIndex=r||2,a.style.width="100%",a.style.color="#fff"),a.style.visibility="visible",t.style.visibility="hidden"}else{t.style.visibility="visible";var s=t.$newDom;s&&(s.style.visibility="hidden")}}function a(){var t=document.querySelector(".js-overlay"),n=document.querySelector(".js-header-menu");c(t,document.body.scrollTop,-63,2,0),c(n,document.body.scrollTop,1,3,0)}function s(){document.querySelector("#container").addEventListener("scroll",function(t){a()}),window.addEventListener("scroll",function(t){a()}),a()}function l(){x.default.versions.mobile&&window.screen.width<800&&(i(),s())}var p=e(71),d=r(p),v=e(72),y=(r(v),e(84)),h=r(y),b=e(69),x=r(b),m=e(75),g=r(m),w=e(70);l(),(0,w.addLoadEvent)(function(){g.default.init()}),t.exports={}},function(t,n){var e=t.exports="undefined"!=typeof window&&window.Math==Math?window:"undefined"!=typeof self&&self.Math==Math?self:Function("return this")();"number"==typeof __g&&(__g=e)},function(t,n){var e={}.hasOwnProperty;t.exports=function(t,n){return e.call(t,n)}},function(t,n,e){var r=e(49),o=e(15);t.exports=function(t){return r(o(t))}},function(t,n,e){t.exports=!e(8)(function(){return 7!=Object.defineProperty({},"a",{get:function(){return 7}}).a})},function(t,n,e){var r=e(6),o=e(12);t.exports=e(4)?function(t,n,e){return r.f(t,n,o(1,e))}:function(t,n,e){return t[n]=e,t}},function(t,n,e){var r=e(10),o=e(30),i=e(24),u=Object.defineProperty;n.f=e(4)?Object.defineProperty:function(t,n,e){if(r(t),n=i(n,!0),r(e),o)try{return u(t,n,e)}catch(t){}if("get"in e||"set"in e)throw TypeError("Accessors not supported!");return"value"in e&&(t[n]=e.value),t}},function(t,n,e){var r=e(22)("wks"),o=e(13),i=e(1).Symbol,u="function"==typeof i,f=t.exports=function(t){return r[t]||(r[t]=u&&i[t]||(u?i:o)("Symbol."+t))};f.store=r},function(t,n){t.exports=function(t){try{return!!t()}catch(t){return!0}}},function(t,n,e){var r=e(35),o=e(16);t.exports=Object.keys||function(t){return r(t,o)}},function(t,n,e){var r=e(11);t.exports=function(t){if(!r(t))throw TypeError(t+" is not an object!");return t}},function(t,n){t.exports=function(t){return"object"==typeof t?null!==t:"function"==typeof t}},function(t,n){t.exports=function(t,n){return{enumerable:!(1&t),configurable:!(2&t),writable:!(4&t),value:n}}},function(t,n){var e=0,r=Math.random();t.exports=function(t){return"Symbol(".concat(void 0===t?"":t,")_",(++e+r).toString(36))}},function(t,n){var e=t.exports={version:"2.4.0"};"number"==typeof __e&&(__e=e)},function(t,n){t.exports=function(t){if(void 0==t)throw TypeError("Can't call method on  "+t);return t}},function(t,n){t.exports="constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf".split(",")},function(t,n){t.exports={}},function(t,n){t.exports=!0},function(t,n){n.f={}.propertyIsEnumerable},function(t,n,e){var r=e(6).f,o=e(2),i=e(7)("toStringTag");t.exports=function(t,n,e){t&&!o(t=e?t:t.prototype,i)&&r(t,i,{configurable:!0,value:n})}},function(t,n,e){var r=e(22)("keys"),o=e(13);t.exports=function(t){return r[t]||(r[t]=o(t))}},function(t,n,e){var r=e(1),o="__core-js_shared__",i=r[o]||(r[o]={});t.exports=function(t){return i[t]||(i[t]={})}},function(t,n){var e=Math.ceil,r=Math.floor;t.exports=function(t){return isNaN(t=+t)?0:(t>0?r:e)(t)}},function(t,n,e){var r=e(11);t.exports=function(t,n){if(!r(t))return t;var e,o;if(n&&"function"==typeof(e=t.toString)&&!r(o=e.call(t)))return o;if("function"==typeof(e=t.valueOf)&&!r(o=e.call(t)))return o;if(!n&&"function"==typeof(e=t.toString)&&!r(o=e.call(t)))return o;throw TypeError("Can't convert object to primitive value")}},function(t,n,e){var r=e(1),o=e(14),i=e(18),u=e(26),f=e(6).f;t.exports=function(t){var n=o.Symbol||(o.Symbol=i?{}:r.Symbol||{});"_"==t.charAt(0)||t in n||f(n,t,{value:u.f(t)})}},function(t,n,e){n.f=e(7)},function(t,n,e){var r=e(1),o=e(14),i=e(46),u=e(5),f="prototype",c=function(t,n,e){var a,s,l,p=t&c.F,d=t&c.G,v=t&c.S,y=t&c.P,h=t&c.B,b=t&c.W,x=d?o:o[n]||(o[n]={}),m=x[f],g=d?r:v?r[n]:(r[n]||{})[f];d&&(e=n);for(a in e)s=!p&&g&&void 0!==g[a],s&&a in x||(l=s?g[a]:e[a],x[a]=d&&"function"!=typeof g[a]?e[a]:h&&s?i(l,r):b&&g[a]==l?function(t){var n=function(n,e,r){if(this instanceof t){switch(arguments.length){case 0:return new t;case 1:return new t(n);case 2:return new t(n,e)}return new t(n,e,r)}return t.apply(this,arguments)};return n[f]=t[f],n}(l):y&&"function"==typeof l?i(Function.call,l):l,y&&((x.virtual||(x.virtual={}))[a]=l,t&c.R&&m&&!m[a]&&u(m,a,l)))};c.F=1,c.G=2,c.S=4,c.P=8,c.B=16,c.W=32,c.U=64,c.R=128,t.exports=c},function(t,n){var e={}.toString;t.exports=function(t){return e.call(t).slice(8,-1)}},function(t,n,e){var r=e(11),o=e(1).document,i=r(o)&&r(o.createElement);t.exports=function(t){return i?o.createElement(t):{}}},function(t,n,e){t.exports=!e(4)&&!e(8)(function(){return 7!=Object.defineProperty(e(29)("div"),"a",{get:function(){return 7}}).a})},function(t,n,e){"use strict";var r=e(18),o=e(27),i=e(36),u=e(5),f=e(2),c=e(17),a=e(51),s=e(20),l=e(58),p=e(7)("iterator"),d=!([].keys&&"next"in[].keys()),v="@@iterator",y="keys",h="values",b=function(){return this};t.exports=function(t,n,e,x,m,g,w){a(e,n,x);var O,S,_,j=function(t){if(!d&&t in A)return A[t];switch(t){case y:return function(){return new e(this,t)};case h:return function(){return new e(this,t)}}return function(){return new e(this,t)}},P=n+" Iterator",E=m==h,M=!1,A=t.prototype,T=A[p]||A[v]||m&&A[m],L=T||j(m),N=m?E?j("entries"):L:void 0,C="Array"==n?A.entries||T:T;if(C&&(_=l(C.call(new t)),_!==Object.prototype&&(s(_,P,!0),r||f(_,p)||u(_,p,b))),E&&T&&T.name!==h&&(M=!0,L=function(){return T.call(this)}),r&&!w||!d&&!M&&A[p]||u(A,p,L),c[n]=L,c[P]=b,m)if(O={values:E?L:j(h),keys:g?L:j(y),entries:N},w)for(S in O)S in A||i(A,S,O[S]);else o(o.P+o.F*(d||M),n,O);return O}},function(t,n,e){var r=e(10),o=e(55),i=e(16),u=e(21)("IE_PROTO"),f=function(){},c="prototype",a=function(){var t,n=e(29)("iframe"),r=i.length,o="<",u=">";for(n.style.display="none",e(48).appendChild(n),n.src="javascript:",t=n.contentWindow.document,t.open(),t.write(o+"script"+u+"document.F=Object"+o+"/script"+u),t.close(),a=t.F;r--;)delete a[c][i[r]];return a()};t.exports=Object.create||function(t,n){var e;return null!==t?(f[c]=r(t),e=new f,f[c]=null,e[u]=t):e=a(),void 0===n?e:o(e,n)}},function(t,n,e){var r=e(35),o=e(16).concat("length","prototype");n.f=Object.getOwnPropertyNames||function(t){return r(t,o)}},function(t,n){n.f=Object.getOwnPropertySymbols},function(t,n,e){var r=e(2),o=e(3),i=e(45)(!1),u=e(21)("IE_PROTO");t.exports=function(t,n){var e,f=o(t),c=0,a=[];for(e in f)e!=u&&r(f,e)&&a.push(e);for(;n.length>c;)r(f,e=n[c++])&&(~i(a,e)||a.push(e));return a}},function(t,n,e){t.exports=e(5)},function(t,n,e){var r=e(15);t.exports=function(t){return Object(r(t))}},function(t,n,e){t.exports={default:e(41),__esModule:!0}},function(t,n,e){t.exports={default:e(42),__esModule:!0}},function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}n.__esModule=!0;var o=e(39),i=r(o),u=e(38),f=r(u),c="function"==typeof f.default&&"symbol"==typeof i.default?function(t){return typeof t}:function(t){return t&&"function"==typeof f.default&&t.constructor===f.default&&t!==f.default.prototype?"symbol":typeof t};n.default="function"==typeof f.default&&"symbol"===c(i.default)?function(t){return"undefined"==typeof t?"undefined":c(t)}:function(t){return t&&"function"==typeof f.default&&t.constructor===f.default&&t!==f.default.prototype?"symbol":"undefined"==typeof t?"undefined":c(t)}},function(t,n,e){e(65),e(63),e(66),e(67),t.exports=e(14).Symbol},function(t,n,e){e(64),e(68),t.exports=e(26).f("iterator")},function(t,n){t.exports=function(t){if("function"!=typeof t)throw TypeError(t+" is not a function!");return t}},function(t,n){t.exports=function(){}},function(t,n,e){var r=e(3),o=e(61),i=e(60);t.exports=function(t){return function(n,e,u){var f,c=r(n),a=o(c.length),s=i(u,a);if(t&&e!=e){for(;a>s;)if(f=c[s++],f!=f)return!0}else for(;a>s;s++)if((t||s in c)&&c[s]===e)return t||s||0;return!t&&-1}}},function(t,n,e){var r=e(43);t.exports=function(t,n,e){if(r(t),void 0===n)return t;switch(e){case 1:return function(e){return t.call(n,e)};case 2:return function(e,r){return t.call(n,e,r)};case 3:return function(e,r,o){return t.call(n,e,r,o)}}return function(){return t.apply(n,arguments)}}},function(t,n,e){var r=e(9),o=e(34),i=e(19);t.exports=function(t){var n=r(t),e=o.f;if(e)for(var u,f=e(t),c=i.f,a=0;f.length>a;)c.call(t,u=f[a++])&&n.push(u);return n}},function(t,n,e){t.exports=e(1).document&&document.documentElement},function(t,n,e){var r=e(28);t.exports=Object("z").propertyIsEnumerable(0)?Object:function(t){return"String"==r(t)?t.split(""):Object(t)}},function(t,n,e){var r=e(28);t.exports=Array.isArray||function(t){return"Array"==r(t)}},function(t,n,e){"use strict";var r=e(32),o=e(12),i=e(20),u={};e(5)(u,e(7)("iterator"),function(){return this}),t.exports=function(t,n,e){t.prototype=r(u,{next:o(1,e)}),i(t,n+" Iterator")}},function(t,n){t.exports=function(t,n){return{value:n,done:!!t}}},function(t,n,e){var r=e(9),o=e(3);t.exports=function(t,n){for(var e,i=o(t),u=r(i),f=u.length,c=0;f>c;)if(i[e=u[c++]]===n)return e}},function(t,n,e){var r=e(13)("meta"),o=e(11),i=e(2),u=e(6).f,f=0,c=Object.isExtensible||function(){return!0},a=!e(8)(function(){return c(Object.preventExtensions({}))}),s=function(t){u(t,r,{value:{i:"O"+ ++f,w:{}}})},l=function(t,n){if(!o(t))return"symbol"==typeof t?t:("string"==typeof t?"S":"P")+t;if(!i(t,r)){if(!c(t))return"F";if(!n)return"E";s(t)}return t[r].i},p=function(t,n){if(!i(t,r)){if(!c(t))return!0;if(!n)return!1;s(t)}return t[r].w},d=function(t){return a&&v.NEED&&c(t)&&!i(t,r)&&s(t),t},v=t.exports={KEY:r,NEED:!1,fastKey:l,getWeak:p,onFreeze:d}},function(t,n,e){var r=e(6),o=e(10),i=e(9);t.exports=e(4)?Object.defineProperties:function(t,n){o(t);for(var e,u=i(n),f=u.length,c=0;f>c;)r.f(t,e=u[c++],n[e]);return t}},function(t,n,e){var r=e(19),o=e(12),i=e(3),u=e(24),f=e(2),c=e(30),a=Object.getOwnPropertyDescriptor;n.f=e(4)?a:function(t,n){if(t=i(t),n=u(n,!0),c)try{return a(t,n)}catch(t){}if(f(t,n))return o(!r.f.call(t,n),t[n])}},function(t,n,e){var r=e(3),o=e(33).f,i={}.toString,u="object"==typeof window&&window&&Object.getOwnPropertyNames?Object.getOwnPropertyNames(window):[],f=function(t){try{return o(t)}catch(t){return u.slice()}};t.exports.f=function(t){return u&&"[object Window]"==i.call(t)?f(t):o(r(t))}},function(t,n,e){var r=e(2),o=e(37),i=e(21)("IE_PROTO"),u=Object.prototype;t.exports=Object.getPrototypeOf||function(t){return t=o(t),r(t,i)?t[i]:"function"==typeof t.constructor&&t instanceof t.constructor?t.constructor.prototype:t instanceof Object?u:null}},function(t,n,e){var r=e(23),o=e(15);t.exports=function(t){return function(n,e){var i,u,f=String(o(n)),c=r(e),a=f.length;return c<0||c>=a?t?"":void 0:(i=f.charCodeAt(c),i<55296||i>56319||c+1===a||(u=f.charCodeAt(c+1))<56320||u>57343?t?f.charAt(c):i:t?f.slice(c,c+2):(i-55296<<10)+(u-56320)+65536)}}},function(t,n,e){var r=e(23),o=Math.max,i=Math.min;t.exports=function(t,n){return t=r(t),t<0?o(t+n,0):i(t,n)}},function(t,n,e){var r=e(23),o=Math.min;t.exports=function(t){return t>0?o(r(t),9007199254740991):0}},function(t,n,e){"use strict";var r=e(44),o=e(52),i=e(17),u=e(3);t.exports=e(31)(Array,"Array",function(t,n){this._t=u(t),this._i=0,this._k=n},function(){var t=this._t,n=this._k,e=this._i++;return!t||e>=t.length?(this._t=void 0,o(1)):"keys"==n?o(0,e):"values"==n?o(0,t[e]):o(0,[e,t[e]])},"values"),i.Arguments=i.Array,r("keys"),r("values"),r("entries")},function(t,n){},function(t,n,e){"use strict";var r=e(59)(!0);e(31)(String,"String",function(t){this._t=String(t),this._i=0},function(){var t,n=this._t,e=this._i;return e>=n.length?{value:void 0,done:!0}:(t=r(n,e),this._i+=t.length,{value:t,done:!1})})},function(t,n,e){"use strict";var r=e(1),o=e(2),i=e(4),u=e(27),f=e(36),c=e(54).KEY,a=e(8),s=e(22),l=e(20),p=e(13),d=e(7),v=e(26),y=e(25),h=e(53),b=e(47),x=e(50),m=e(10),g=e(3),w=e(24),O=e(12),S=e(32),_=e(57),j=e(56),P=e(6),E=e(9),M=j.f,A=P.f,T=_.f,L=r.Symbol,N=r.JSON,C=N&&N.stringify,k="prototype",F=d("_hidden"),q=d("toPrimitive"),I={}.propertyIsEnumerable,B=s("symbol-registry"),D=s("symbols"),W=s("op-symbols"),H=Object[k],K="function"==typeof L,R=r.QObject,J=!R||!R[k]||!R[k].findChild,U=i&&a(function(){return 7!=S(A({},"a",{get:function(){return A(this,"a",{value:7}).a}})).a})?function(t,n,e){var r=M(H,n);r&&delete H[n],A(t,n,e),r&&t!==H&&A(H,n,r)}:A,G=function(t){var n=D[t]=S(L[k]);return n._k=t,n},$=K&&"symbol"==typeof L.iterator?function(t){return"symbol"==typeof t}:function(t){return t instanceof L},z=function(t,n,e){return t===H&&z(W,n,e),m(t),n=w(n,!0),m(e),o(D,n)?(e.enumerable?(o(t,F)&&t[F][n]&&(t[F][n]=!1),e=S(e,{enumerable:O(0,!1)})):(o(t,F)||A(t,F,O(1,{})),t[F][n]=!0),U(t,n,e)):A(t,n,e)},Y=function(t,n){m(t);for(var e,r=b(n=g(n)),o=0,i=r.length;i>o;)z(t,e=r[o++],n[e]);return t},Q=function(t,n){return void 0===n?S(t):Y(S(t),n)},X=function(t){var n=I.call(this,t=w(t,!0));return!(this===H&&o(D,t)&&!o(W,t))&&(!(n||!o(this,t)||!o(D,t)||o(this,F)&&this[F][t])||n)},V=function(t,n){if(t=g(t),n=w(n,!0),t!==H||!o(D,n)||o(W,n)){var e=M(t,n);return!e||!o(D,n)||o(t,F)&&t[F][n]||(e.enumerable=!0),e}},Z=function(t){for(var n,e=T(g(t)),r=[],i=0;e.length>i;)o(D,n=e[i++])||n==F||n==c||r.push(n);return r},tt=function(t){for(var n,e=t===H,r=T(e?W:g(t)),i=[],u=0;r.length>u;)!o(D,n=r[u++])||e&&!o(H,n)||i.push(D[n]);return i};K||(L=function(){if(this instanceof L)throw TypeError("Symbol is not a constructor!");var t=p(arguments.length>0?arguments[0]:void 0),n=function(e){this===H&&n.call(W,e),o(this,F)&&o(this[F],t)&&(this[F][t]=!1),U(this,t,O(1,e))};return i&&J&&U(H,t,{configurable:!0,set:n}),G(t)},f(L[k],"toString",function(){return this._k}),j.f=V,P.f=z,e(33).f=_.f=Z,e(19).f=X,e(34).f=tt,i&&!e(18)&&f(H,"propertyIsEnumerable",X,!0),v.f=function(t){return G(d(t))}),u(u.G+u.W+u.F*!K,{Symbol:L});for(var nt="hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables".split(","),et=0;nt.length>et;)d(nt[et++]);for(var nt=E(d.store),et=0;nt.length>et;)y(nt[et++]);u(u.S+u.F*!K,"Symbol",{for:function(t){return o(B,t+="")?B[t]:B[t]=L(t)},keyFor:function(t){if($(t))return h(B,t);throw TypeError(t+" is not a symbol!")},useSetter:function(){J=!0},useSimple:function(){J=!1}}),u(u.S+u.F*!K,"Object",{create:Q,defineProperty:z,defineProperties:Y,getOwnPropertyDescriptor:V,getOwnPropertyNames:Z,getOwnPropertySymbols:tt}),N&&u(u.S+u.F*(!K||a(function(){var t=L();return"[null]"!=C([t])||"{}"!=C({a:t})||"{}"!=C(Object(t))})),"JSON",{stringify:function(t){if(void 0!==t&&!$(t)){for(var n,e,r=[t],o=1;arguments.length>o;)r.push(arguments[o++]);return n=r[1],"function"==typeof n&&(e=n),!e&&x(n)||(n=function(t,n){if(e&&(n=e.call(this,t,n)),!$(n))return n}),r[1]=n,C.apply(N,r)}}}),L[k][q]||e(5)(L[k],q,L[k].valueOf),l(L,"Symbol"),l(Math,"Math",!0),l(r.JSON,"JSON",!0)},function(t,n,e){e(25)("asyncIterator")},function(t,n,e){e(25)("observable")},function(t,n,e){e(62);for(var r=e(1),o=e(5),i=e(17),u=e(7)("toStringTag"),f=["NodeList","DOMTokenList","MediaList","StyleSheetList","CSSRuleList"],c=0;c<5;c++){var a=f[c],s=r[a],l=s&&s.prototype;l&&!l[u]&&o(l,u,a),i[a]=i.Array}},function(t,n){"use strict";var e={versions:function(){var t=window.navigator.userAgent;return{trident:t.indexOf("Trident")>-1,presto:t.indexOf("Presto")>-1,webKit:t.indexOf("AppleWebKit")>-1,gecko:t.indexOf("Gecko")>-1&&t.indexOf("KHTML")==-1,mobile:!!t.match(/AppleWebKit.*Mobile.*/),ios:!!t.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),android:t.indexOf("Android")>-1||t.indexOf("Linux")>-1,iPhone:t.indexOf("iPhone")>-1||t.indexOf("Mac")>-1,iPad:t.indexOf("iPad")>-1,webApp:t.indexOf("Safari")==-1,weixin:t.indexOf("MicroMessenger")==-1}}()};t.exports=e},function(t,n,e){"use strict";function r(t){return t&&t.__esModule?t:{default:t}}var o=e(40),i=r(o),u=function(){function t(t,n,e){return n||e?String.fromCharCode(n||e):o[t]||t}function n(t){return l[t]}var e=/&quot;|&lt;|&gt;|&amp;|&nbsp;|&apos;|&#(\d+);|&#(\d+)/g,r=/['<> "&]/g,o={"&quot;":'"',"&lt;":"<","&gt;":">","&amp;":"&","&nbsp;":" "},f=/\u00a0/g,c=/<br\s*\/?>/gi,a=/\r?\n/g,s=/\s/g,l={};for(var p in o)l[o[p]]=p;return o["&apos;"]="'",l["'"]="&#39;",{encode:function(t){return t?(""+t).replace(r,n).replace(a,"<br/>").replace(s,"&nbsp;"):""},decode:function(n){return n?(""+n).replace(c,"\n").replace(e,t).replace(f," "):""},encodeBase16:function(t){if(!t)return t;t+="";for(var n=[],e=0,r=t.length;r>e;e++)n.push(t.charCodeAt(e).toString(16).toUpperCase());return n.join("")},encodeBase16forJSON:function(t){if(!t)return t;t=t.replace(/[\u4E00-\u9FBF]/gi,function(t){return escape(t).replace("%u","\\u")});for(var n=[],e=0,r=t.length;r>e;e++)n.push(t.charCodeAt(e).toString(16).toUpperCase());return n.join("")},decodeBase16:function(t){if(!t)return t;t+="";for(var n=[],e=0,r=t.length;r>e;e+=2)n.push(String.fromCharCode("0x"+t.slice(e,e+2)));return n.join("")},encodeObject:function(t){if(t instanceof Array)for(var n=0,e=t.length;e>n;n++)t[n]=u.encodeObject(t[n]);else if("object"==("undefined"==typeof t?"undefined":(0,i.default)(t)))for(var r in t)t[r]=u.encodeObject(t[r]);else if("string"==typeof t)return u.encode(t);return t},loadScript:function(t){var n=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(n),n.setAttribute("src",t)},addLoadEvent:function(t){var n=window.onload;"function"!=typeof window.onload?window.onload=t:window.onload=function(){n(),t()}}}}();t.exports=u},function(t,n){function e(t,n){t.classList?t.classList.add(n):t.className+=" "+n}t.exports=e},function(t,n){function e(t,n){if(t.classList)t.classList.remove(n);else{var e=new RegExp("(^|\\b)"+n.split(" ").join("|")+"(\\b|$)","gi");t.className=t.className.replace(e," ")}}t.exports=e},,,function(t,n){"use strict";function e(){var t=document.querySelector("#page-nav");if(t&&!document.querySelector("#page-nav .extend.prev")&&(t.innerHTML='<a class="extend prev disabled" rel="prev">&laquo; Prev</a>'+t.innerHTML),t&&!document.querySelector("#page-nav .extend.next")&&(t.innerHTML=t.innerHTML+'<a class="extend next disabled" rel="next">Next &raquo;</a>'),yiliaConfig&&yiliaConfig.open_in_new){var n=document.querySelectorAll(".article-entry a:not(.article-more-a)");n.forEach(function(t){t.setAttribute("target","_blank")})}var e=document.querySelector("#js-aboutme");e&&0!==e.length&&(e.innerHTML=e.innerText)}t.exports={init:e}},,,,,,,,,function(t,n){function e(t,n){if("string"==typeof n)return t.insertAdjacentHTML("afterend",n);var e=t.nextSibling;return e?t.parentNode.insertBefore(n,e):t.parentNode.appendChild(n)}t.exports=e}])</script><script src="/./main.234bc0.js"></script><script>!function(){var e=function(e){var t=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(t),t.setAttribute("src",e)};e("/slider.885efe.js")}()</script>
+
+
+    
+<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
+  <div class="tools-nav header-menu">
+    
+    
+      
+      
+      
+    
+      
+      
+      
+    
+      
+      
+      
+    
+    
+
+    <ul style="width: 70%">
+    
+    
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      
+        
+      
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">科比</a></li>
+      
+        
+    </ul>
+  </div>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all" q-show="innerArchive">
+        <div class="search-wrap">
+          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
+          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
+          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">tag:</p>
+          <label class="search-switch">
+            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+          </label>
+          <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Angular</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">angular</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">angularjs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">实例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">书签</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            2、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: true
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
+          <li class="search-li" q-repeat="items" q-show="isShow">
+            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <p class="search-time">
+              <i class="icon-calendar icon"></i>
+              <span q-text="date|dateformat"></span>
+            </p>
+            <p class="search-tag">
+              <i class="icon-price-tags icon"></i>
+              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+          </li>
+        </ul>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="https://www.baidu.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>百度一下</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="http://www.runoob.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>菜鸟教程</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://segmentfault.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>segmentfault</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">程序猿问科比：“你为什么这么成功？”&lt;br&gt;  科比：“你知道洛杉矶凌晨四点是什么样子吗？ ”&lt;br&gt;  程序猿：“知道，一般那个时候我还在写代码，怎么了？”&lt;br&gt;  科比:“...”</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
