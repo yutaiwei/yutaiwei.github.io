@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yutaiwei.github.io">
-  <title>Category: 设计开发 | 我的博客</title>
+  <title>React 入门 | 我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录生活点点滴滴">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的博客">
-<meta property="og:url" content="http://yutaiwei.github.io/categories/设计开发/index.html">
+  <meta name="description" content="React 基础JSXJSX 语法是一种可以把 HTML 嵌套在 JavaScript 中的方法，像下面这样：
+123456789...render() &amp;#123;    &amp;lt;div&amp;gt;        &amp;#123;!isFetching &amp;amp;&amp;amp;            &amp;lt;a href=&quot;#&quot; onClick=&amp;#123;this.handleClick&amp;#125;&amp;gt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React 入门">
+<meta property="og:url" content="http://yutaiwei.github.io/2017/01/14/React 基础/index.html">
 <meta property="og:site_name" content="我的博客">
-<meta property="og:description" content="记录生活点点滴滴">
+<meta property="og:description" content="React 基础JSXJSX 语法是一种可以把 HTML 嵌套在 JavaScript 中的方法，像下面这样：
+123456789...render() &amp;#123;    &amp;lt;div&amp;gt;        &amp;#123;!isFetching &amp;amp;&amp;amp;            &amp;lt;a href=&quot;#&quot; onClick=&amp;#123;this.handleClick&amp;#125;&amp;gt">
+<meta property="og:updated_time" content="2018-03-12T07:57:32.725Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的博客">
-<meta name="twitter:description" content="记录生活点点滴滴">
+<meta name="twitter:title" content="React 入门">
+<meta name="twitter:description" content="React 基础JSXJSX 语法是一种可以把 HTML 嵌套在 JavaScript 中的方法，像下面这样：
+123456789...render() &amp;#123;    &amp;lt;div&amp;gt;        &amp;#123;!isFetching &amp;amp;&amp;amp;            &amp;lt;a href=&quot;#&quot; onClick=&amp;#123;this.handleClick&amp;#125;&amp;gt">
   
     <link rel="alternative" href="/atom.xml" title="我的博客" type="application/atom+xml">
   
@@ -162,36 +166,126 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-React 基础" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/14/React 基础/" class="archive-article-date">
-  	<time datetime="2017-01-14T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-14</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/14/React 基础/">React 入门</a>
+    <h1 class="article-title" itemprop="name">
+      React 入门
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/01/14/React 基础/" class="archive-article-date">
+  	<time datetime="2017-01-14T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="React-基础"><a href="#React-基础" class="headerlink" title="React 基础"></a>React 基础</h3><h4 id="JSX"><a href="#JSX" class="headerlink" title="JSX"></a>JSX</h4><p>JSX 语法是一种可以把 HTML 嵌套在 JavaScript 中的方法，像下面这样：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">render() &#123;</div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">        &#123;!isFetching &amp;&amp;</div><div class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleClick&#125;</span>&gt;</span>Refresh<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">        &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>在遇到<code>{</code>开头的代码块时，会以 JavaScript 规则解析，在遇到<code>&lt;</code> 开头的 HTML 标签时，以 HTML 语法解析。</p>
+<p>在设置样式时需要注意，不能写成 <code>style={color: this.state.color}</code>，而要写成 <code>style={color: this.state.color}</code> 因为样式是一个对象，第一层大括号表示这是 JavaScript 语法，第二层大括号表示样式对象。</p>
+<h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><p>使用 JavaScript 注释风格，但在一个组件的子元素位置使用注释要用<code>{}</code> 包起来。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> (</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">Nav</span>&gt;</span></span></div><div class="line">        &#123;/* 注释 */&#125;</div><div class="line">        <span class="tag">&lt;<span class="name">Person</span>&gt;</span><span class="tag">&lt;/<span class="name">Person</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">Nav</span>&gt;</span></div><div class="line">)</div></pre></td></tr></table></figure>
+<h4 id="HTML-转义"><a href="#HTML-转义" class="headerlink" title="HTML 转义"></a>HTML 转义</h4><p>为防止 XSS 攻击，React 会将所有显示的 DOM 字符串转义，对 HTML 实体会进行二次转义，因此比如<code>&amp;copy;</code>&#40;©&#41; 这样的字符不会正确显示。有以下几种解决办法：</p>
+<p>直接使用 UTF-8 字符 ©<br>使用实体的 Unicode 编号<br>在数组里混合使用 <code>&lt;div&gt;{[&#39;cc &#39;, &lt;span&gt;&amp;copy;&lt;/span&gt;, &#39; 2015&#39;]}&lt;/div&gt;</code><br>使用原始 HTML </p>
+<h4 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h4><p>一个 React 应用就是构建在 React 组件之上的。使用 ES6 创建一个组件的方式是：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="type">React</span>, &#123; <span class="type">Component</span> &#125; from <span class="symbol">'reac</span>t'</div><div class="line"></div><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">return</span>(</div><div class="line">            &lt;div&gt;</div><div class="line">                ...</div><div class="line">            &lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>注意几点：</strong></p>
+<ul>
+<li>组件类的第一个字母要大写，以区分本地 html 标签</li>
+<li>组件类只能包含一个顶层标签</li>
+<li>组件类必须有自己的<code>render()</code>方法，用来输出一棵 React 组件树，最终渲染成 HTML</li>
+<li>添加组件属性时，class 要写成 <code>className</code>，for 要写成 <code>htmlFor</code>，避免跟 JavaScript 关键字冲突</li>
+</ul>
+<h4 id="state-和-props"><a href="#state-和-props" class="headerlink" title="state 和 props"></a>state 和 props</h4><p>state 和 props 是组件的两个核心概念。</p>
+<p>props 是组件的属性，通过<code>this.props</code> 获取，一旦设置不要更改。它是一种父组件向子组件传递数据的方式，用来构建静态版本（展示内容）。</p>
+<p>state 是组件的状态，通过 <code>this.state</code> 获取，通过 <code>this.setState</code>更改，一旦更改组件会自动调用 <code>render</code>重新渲染 UI。用于实现交互功能。</p>
+<h4 id="组合组件"><a href="#组合组件" class="headerlink" title="组合组件"></a>组合组件</h4><p>React 中接口定义良好的组件可以组合成更复杂的组件，引用一个组件和引用一个普通 DOM 元素一样简单。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line">render() &#123;</div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">CommentList</span> <span class="attr">data</span>=<span class="string">&#123;this.state.data&#125;</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">CommentForm</span> <span class="attr">handleCommentSubmit</span>=<span class="string">&#123;this.handleCommentSubmit&#125;</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
+<p><strong>this.props.children</strong></p>
+<p>在组合组件时，子组件的数据可以通过 <code>this.props</code>通过父组件获得，<code>this.props</code>和子组件的属性是一一对应的。但有一个特例<code>this.props.children</code>，它获取的是父组件的子元素。<code>this.props.children</code>对子组件是不透明的。</p>
+<h4 id="动态子组件"><a href="#动态子组件" class="headerlink" title="动态子组件"></a>动态子组件</h4><p>每次调用 <code>render()</code>方法后，在 React 更新 DOM 时，子组件会根据被渲染的顺序做校正。为了确保动态产生的子组件被正确渲染并保证 diff 效率，需要给每个子组件设定一个唯一的<code>key</code>。</p>
+<p>务必把<code>key</code>添加到添加到子级数组里组件本身上，而不是每个子级内部最外层 HTML 上：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> (</div><div class="line">    &lt;ul&gt;</div><div class="line">        &#123;<span class="keyword">this</span>.props.<span class="keyword">data</span>.map((comment) =&gt; &#123;</div><div class="line">            <span class="keyword">return</span> &lt;Comment key=&#123;comment.id&#125; <span class="keyword">data</span>=&#123;comment&#125;/&gt;</div><div class="line">        &#125;)&#125;</div><div class="line">    &lt;/ul&gt;</div><div class="line">);</div></pre></td></tr></table></figure>
+<h4 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h4><p>组件的生命周期有三个状态，分别为挂载（Mount）、更新（Update）和卸载（Unmount），每个状态对应两种处理函数，分别为进入状态前（Will）和进入状态后（Did）。三种状态共五种函数：</p>
+<ul>
+<li>componentWillMount&#40;&#41;</li>
+<li>componentDidMount&#40;&#41;</li>
+<li>componentWillUpdate&#40;&#41;</li>
+<li>componentDidUpdate&#40;&#41;</li>
+<li>componentWillUnmount&#40;&#41;</li>
+</ul>
+<p>AJAX 请求通常写在<code>componentDidMount()</code> 方法里：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">componentDidMount()&#123;</div><div class="line">    fetch(url).<span class="keyword">then</span>(<span class="function"><span class="keyword">function</span><span class="params">(res)</span></span>&#123;</div><div class="line">        ...</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>另外，在更新状态时，还有两个特殊的状态处理函数。</p>
+<p><strong>componentWillReceiveProps</strong></p>
+<p>在组件接收到新的 props 时调用，初始化时不调用。老的 <code>props</code>可以通过<code>this.props</code> 获取，新的 props 通过参数传入，比如：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">componentWillReceiveProps</span><span class="params">(nextProps)</span></span> &#123;</div><div class="line">    <span class="keyword">if</span>(nextProps<span class="selector-class">.xxx</span> != this<span class="selector-class">.props</span><span class="selector-class">.xxx</span>)&#123;	</div><div class="line">        ...</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">`</div></pre></td></tr></table></figure>
+<p>如果要在 state 改变时做一些操作，需要使用 <code>componentWillUpdate()</code></p>
+<p><strong>shouldComponentUpdate</strong></p>
+<p>在组件接收到新的 props 或 state，<code>render()</code>之前调用，初始化时不调用。</p>
+<p>默认情况下，<code>shouldComponentUpdate()</code>总是返回 true，但如果可以确定新的 props 和 state 不会导致组件更新，可以覆盖 <code>shouldComponentUpdate()</code>，让其返回 false，以提高性能。</p>
+<h4 id="PropTypes"><a href="#PropTypes" class="headerlink" title="PropTypes"></a>PropTypes</h4><p>组件类的 PropTypes 属性，可以用来验证组件实例的属性是否符合要求，如果不符合，控制台会抛出警告。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">export <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">    render()&#123;</div><div class="line">        <span class="keyword">return</span>(</div><div class="line">            &lt;div&gt;</div><div class="line">                hello, &#123;<span class="keyword">this</span>.props.username&#125;</div><div class="line">            &lt;/div&gt;</div><div class="line">        )</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="type">Hello</span>.<span class="type">PropTypes</span> = &#123;</div><div class="line">    username: <span class="type">PropTypes</span>.string.isRequired</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="DOM-操作"><a href="#DOM-操作" class="headerlink" title="DOM 操作"></a>DOM 操作</h4><p>React 组件不是真实的 DOM 节点，而是存在于内存之中的一种数据结构（虚拟 DOM）。大多数情况下不需要直接操作 DOM，而只需要设置组件的状态。</p>
+<p>如果需要从组件中获取真实的 DOM 节点（比如从文本框获取用户的输入，依赖真实的 DOM），可以使用<code>ref</code> 属性：</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span>(</div><div class="line">    &lt;<span class="keyword">div</span>&gt;</div><div class="line">        &lt;input <span class="keyword">type</span>=<span class="string">"text"</span> placeholder=<span class="string">"input name"</span> <span class="keyword">ref</span>=<span class="string">"author"</span> /&gt;</div><div class="line">    &lt;/<span class="keyword">div</span>&gt;</div><div class="line">)</div></pre></td></tr></table></figure>
+<p>再通过<code>this.refs.[refName]</code>就可以获取到相应的真实 DOM 了。</p>
+<p>对于组件，可以在组件加载完成后（componetDidMount），通过 <code>findDOMNode()</code> 拿到对应的 DOM 元素。</p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">componentDidMound() &#123;</div><div class="line">    <span class="keyword">let</span> el = findDOMNode(<span class="keyword">this</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><p><strong>super（） 和 super（props） 的区别</strong></p>
+<p>如果需要在 constructor 中使用 <code>this.props</code>，那么需要传递参数<code>props</code> 给<code>super()</code>。其他情况下没这个必要，因为 React 在调用 constructor 后，会立即在组件的实例上设置<code>.props</code>。</p>
+<h4 id="bind（this）-的使用"><a href="#bind（this）-的使用" class="headerlink" title="bind（this） 的使用"></a>bind（this） 的使用</h4><p>在使用<code>React.createClass</code>的时候，会自动将组件中的方法绑定到组件实例。但是，在使用 ES6 的 <code>class</code> 时，我们必须自己手动绑定，不然<code>this</code>一不小心就指向别的地方了。React 官方推荐在 constructor 中进行绑定。</p>
+<h4 id="props-VS-state"><a href="#props-VS-state" class="headerlink" title="props VS state"></a>props VS state</h4><p><strong>什么时候用 state</strong></p>
+<p><code>state</code>应该包含那些可能被事件处理器改变并触发用户界面更新的数据（比如用户输入，服务器请求）。应尽可能地使组件无状态化，让这些组件从<code>props</code>取数据并渲染出来。</p>
+<p>常用的模式是，创建多个只负责渲染数据的无状态（stateless）组件，在它们的上层创建一个有状态（stateful）组件并把它的状态通过 props 传递给子级。这个有状态的组件封装了所有的用户交互逻辑，而那些无状态组件则负责声明地渲染数据。</p>
+<p><strong>哪个组件应该拥有 state</strong></p>
+<p>对于每个 state 数据：</p>
+<ul>
+<li>找出基于它渲染界面的组件</li>
+<li>找出共同的祖先组件</li>
+<li>如果找不出拥有这个 state 的合适组件，创建一个新组件拥有这个 state，层级位于共同祖先的上面</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li>[React 入门实例教程]&#40;<a href="http://www.ruanyifeng.com/blog/2015/03/react.html&amp;#41" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/03/react.html&amp;#41</a>;</li>
+<li>[React Router 使用教程]&#40;<a href="http://www.ruanyifeng.com/blog/2016/05/react_router.html&amp;#41" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2016/05/react_router.html&amp;#41</a>;</li>
+<li>[前端学习-React 笔记]&#40;<a href="http://www.jscss.cc/static/html/classify/list.html?type=react&amp;#41" target="_blank" rel="external">http://www.jscss.cc/static/html/classify/list.html?type=react&amp;#41</a>;</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -207,403 +301,99 @@
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/10/04/Node基础开发框架/" class="archive-article-date">
-  	<time datetime="2016-10-04T06:15:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/10/04/Node基础开发框架/">Node基础开发框架</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yutaiwei.github.io/2017/01/14/React 基础/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/09/25/JavaScript书签/" class="archive-article-date">
-  	<time datetime="2016-09-25T13:16:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/09/25/JavaScript书签/">JavaScript书签</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">书签</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/08/09/node中exports和module.exports的区别和联系/" class="archive-article-date">
-  	<time datetime="2016-08-09T08:43:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/08/09/node中exports和module.exports的区别和联系/">node中exports和module.exports的区别和联系</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">exports</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/08/02/AngularJS按需加载js/" class="archive-article-date">
-  	<time datetime="2016-08-02T15:57:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/08/02/AngularJS按需加载js/">AngularJS按需加载js</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">angularjs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/25/ngRoute 和 ui.router 的使用方法和区别/" class="archive-article-date">
-  	<time datetime="2016-07-25T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/25/ngRoute 和 ui.router 的使用方法和区别/">AngularJS 中的服务Provider</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/12/Node.js学习笔记（二）/" class="archive-article-date">
-  	<time datetime="2016-07-12T11:30:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/12/Node.js学习笔记（二）/">Node.js学习笔记（二）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">node.js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/07/05/Node.js学习笔记（一）/" class="archive-article-date">
-  	<time datetime="2016-07-05T12:30:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/07/05/Node.js学习笔记（一）/">Node.js学习笔记（一）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">node.js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2016/10/04/Node基础开发框架/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Node基础开发框架</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/categories/设计开发/page/2/">2</a><a class="page-number" href="/categories/设计开发/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/categories/设计开发/page/5/">5</a><a class="extend next" rel="next" href="/categories/设计开发/page/2/">Next &raquo;</a>
-    </nav>
-  
+
 
 
           </div>
@@ -627,10 +417,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		root: "/",
 		innerArchive: true,
