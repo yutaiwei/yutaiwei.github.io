@@ -164,6 +164,174 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-lei" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>二蕾</title>
+    <style>
+        @keyframes rotate-frame {
+            0% {
+                -webkit-transform: rotateX(0deg) rotateY(0deg);
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            100% {
+                -webkit-transform: rotateX(360deg) rotateY(360deg);
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+        @-webkit-keyframes rotate-frame {
+            0% {
+                -webkit-transform: rotateX(0deg) rotateY(0deg);
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            100% {
+                -webkit-transform: rotateX(360deg) rotateY(360deg);
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+        .rect-wrap {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            perspective: 800px;
+        }
+
+        .container {
+            width: 240px;
+            height: 240px;
+            margin: 100px auto;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            -webkit-transform-origin: 50% 50% -120px;
+            transform-origin: 50% 50% -120px;
+            -webkit-animation: rotate-frame 6s infinite linear both;
+            animation: rotate-frame 6s infinite linear both;
+        }
+
+        .slide {
+            width: 240px;
+            height: 240px;
+            position: absolute;
+            text-align: center;
+            line-height: 240px;
+            background: pink;
+        }
+
+        .top {
+            -webkit-transform: rotateX(-90deg);
+            transform: rotateX(-90deg);
+            -webkit-transform-origin: top;
+            transform-origin: top;
+            background: url(https://raw.githubusercontent.com/yutaiwei/yutaiwei.github.io/master/assets/img/l6.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .bottom {
+            -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+            -webkit-transform-origin: bottom;
+            transform-origin: bottom;
+            background: url(https://raw.githubusercontent.com/yutaiwei/yutaiwei.github.io/master/assets/img/l6.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .left {
+           /* -webkit-filter: hue-rotate(30deg);*/
+            -webkit-transform: rotateY(90deg);
+            transform: rotateY(90deg);
+            -webkit-transform-origin: left;
+            transform-origin: left;
+            background: url(https://raw.githubusercontent.com/yutaiwei/yutaiwei.github.io/master/assets/img/l6.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .right {
+           /* -webkit-filter: hue-rotate(30deg);*/
+            -webkit-transform: rotateY(-90deg);
+            transform: rotateY(-90deg);
+            -webkit-transform-origin: right;
+            transform-origin: right;
+            background: url(https://raw.githubusercontent.com/yutaiwei/yutaiwei.github.io/master/assets/img/l6.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .front {
+           /* -webkit-filter: hue-rotate(30deg);*/
+            background: url(https://raw.githubusercontent.com/yutaiwei/yutaiwei.github.io/master/assets/img/l6.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .back {
+            -webkit-transform: translateZ(-240px);
+            transform: translateZ(-240px);
+            background: url(https://raw.githubusercontent.com/yutaiwei/yutaiwei.github.io/master/assets/img/l6.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+<body class="body">
+<h2 style="text-align: center;margin-top: 15px; text-shadow:1px 1px 1px #DD0CFF;">你若安好，便是晴天 ^_^</h2>
+<div class="rect-wrap">
+    <div class="container">
+        <div class="top slide"></div>
+        <div class="bottom slide"></div>
+        <div class="left slide"></div>
+        <div class="right slide"></div>
+        <div class="front slide"></div>
+        <div class="back slide"></div>
+    </div>
+</div>
+
+<script>
+    var item = document.getElementsByClassName('container')[0];
+    var lis = item.getElementsByClassName('slide');
+    setInterval(fn, 200);
+
+    function fn() {
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].style.boxShadow = '0 0 30px 6px rgb(' + Math.round(Math.random() * 250) + ',' + Math.round(Math.random() * 250) + ',' + Math.round(Math.random() * 250) + ') inset';
+        }
+    }
+</script>
+</body>
+</html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/14/lei/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-windows快捷键" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -776,90 +944,9 @@
 
 
   
-    <article id="post-关于 AngularJS 的一些问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/25/关于 AngularJS 的一些问题/">关于 AngularJS 的一些问题</a>
-    </h1>
-  
-
-        
-        <a href="/2016/08/25/关于 AngularJS 的一些问题/" class="archive-article-date">
-  	<time datetime="2016-08-25T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="关于-AngularJS-的一些问题"><a href="#关于-AngularJS-的一些问题" class="headerlink" title="关于 AngularJS 的一些问题"></a>关于 AngularJS 的一些问题</h2><h4 id="ng-if-跟-ng-show-hide-的区别有哪些？"><a href="#ng-if-跟-ng-show-hide-的区别有哪些？" class="headerlink" title="ng-if 跟 ng-show/hide 的区别有哪些？"></a>ng-if 跟 ng-show/hide 的区别有哪些？</h4><p>第一点区别是，<code>ng-if</code>在后面表达式为 true 的时候才创建这个 dom 节点，<code>ng-show</code>是初始时就创建了，用 <code>display:block</code>和 <code>display:none</code>来控制显示和不显示。</p>
-<p>第二点区别是，<code>ng-if</code> 会（隐式地）产生新作用域，<code>ng-switch</code> 、<code>ng-include</code>等会动态创建一块界面的也是如此。</p>
-<p>这样会导致，在 <code>ng-if</code>中用基本变量绑定 <code>ng-model</code>，并在外层 div 中把此`model 绑定给另一个显示区域，内层改变时，外层不会同步改变，因为此时已经是两个变量了。<br>
-        
-          <a class="article-more-a" href="/2016/08/25/关于 AngularJS 的一些问题/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/25/关于 AngularJS 的一些问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 

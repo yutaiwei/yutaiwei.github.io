@@ -164,6 +164,187 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-面试之js篇——基础题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/20/面试之js篇——基础题/">面试之js篇——基础题</a>
+    </h1>
+  
+
+        
+        <a href="/2016/04/20/面试之js篇——基础题/" class="archive-article-date">
+  	<time datetime="2016-04-20T14:35:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="自己总结的20道js面试必会题，看看自己记住了多少。"><a href="#自己总结的20道js面试必会题，看看自己记住了多少。" class="headerlink" title="自己总结的20道js面试必会题，看看自己记住了多少。"></a>自己总结的20道js面试必会题，看看自己记住了多少。</h2><ol>
+<li><p>介绍js的基本数据类型？ 介绍js有哪些内置对象？</p>
+</li>
+<li><p>说几条写js的基本规范？</p>
+</li>
+<li><p>js原型、原型链？有什么特点？</p>
+</li>
+<li><p>js如何实现继承？</p>
+</li>
+<li><p>js继承的几种实现方式？</p>
+</li>
+<li><p>js创建对象的几种方式？</p>
+</li>
+<li><p>new操作符具体做了什么？</p>
+</li>
+<li><p>谈谈对this对象的理解 ？</p>
+</li>
+<li><p>document.load和$(document).ready() 的区别？</p>
+</li>
+<li><p>什么是闭包，为什么要用它？谈到闭包，就会涉及到作用域及作用域链？<br> 详见张洋——<a href="http://www.cnblogs.com/leoo2sk/archive/2010/12/19/ecmascript-scope.html" target="_blank" rel="external">http://www.cnblogs.com/leoo2sk/archive/2010/12/19/ecmascript-scope.html</a></p>
+</li>
+<li><p>Ajax是什么？如何创建一个Ajax？</p>
+</li>
+<li><p>Ajax过程？ajax和jsonp的区别？</p>
+</li>
+<li><p>json的作用、用途及设计结构？</p>
+</li>
+<li><p>get和post的区别？何时使用post？</p>
+</li>
+<li><p>js函数调用的方式？</p>
+</li>
+<li><p>call()和apply() 的区别和作用？</p>
+</li>
+<li><p>null和undefined的区别？</p>
+</li>
+<li><p>数组方法pop() push() unshift() shift()?</p>
+</li>
+<li><p>split() join()的区别？</p>
+</li>
+<li><p>编写数组去重的方法？</p>
+</li>
+</ol>
+<h2 id="答案："><a href="#答案：" class="headerlink" title="答案："></a>答案：</h2><ol>
+<li>s基本数据类型：Number、String、Boolean、null、Undefind。<pre><code>Object是js中所有对象的父对象，数据封装类对象：Object、Array、Boolean、Number和String ， 其他对象：function、Argument、Math、Date、Error、RegExp。
+</code></pre></li>
+<li>基本规范：<ul>
+<li>不要在同一行声明多个变量</li>
+</ul>
+<ol>
+<li>不要使用！==和===来比较ture/false或数值</li>
+<li>不要使用全局函数</li>
+<li>函数不应该有时候有返回值，有时候没有</li>
+<li>if语句、for循环必须使用大括号</li>
+<li>for-in循环的变量，应该使用var关键字明确限定作用域，避免作用域污染</li>
+</ol>
+</li>
+</ol>
+<ol>
+<li><p>每一个js对象都有一个原型对象，这个对象在不同的解释器下的实现不同，比如在firefox下，每个对象都有一个隐藏的<em>proto</em>属性，这个属性就是“原型对象”的引用。</p>
+<p>原型链：当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去prototype里找，这个prototype有会有自己的prototype，于是一直找下去，这就是原型链。</p>
+<p>特点：js对象是通过引用来传递的，我们创建的每个新对象实体中并没有一份属于自己的原型副本，当我们修改原型时，与之相关的对象也会继承这一变化。</p>
+</li>
+<li><p>构造继承、原型继承、实例继承、拷贝继承。原型prototype机制或apply和call方法去实现较简单，构造函数与原型结合。</p>
+</li>
+<li>构造函数的继承，非构造函数的继承。</li>
+<li>Js创建对象简单的来说，无非就是使用内置对象或各种自定义对象，还有json。<ul>
+<li>对象字面量的方式</li>
+<li>用function来模拟无参的构造函数</li>
+<li>用function来模拟有参构造函数来实现（用this关键字定义构造的上下文属性）</li>
+<li>用工厂方式来创建（内置对象）</li>
+<li>用原型方式来创建</li>
+<li>用混合方式来创建</li>
+</ul>
+</li>
+<li>1）创建一个空对象，并且this变量引用该对象，同时还继承该函数的原型。<br>2）属性和方法被加入到this引用的对象中。<br>3）新创建的对象由this所引用，并且最后隐式的返回this。</li>
+<li>1）.this总是指向函数的直接调用者（而非间接调用者）。<br>2）.如果有new关键字，this指向new出来的那个对象。<br>3）.在事件中，this指向触发这个事件的对象，特殊的是，IE的attachEvent的this是指向全局对象window。</li>
+<li>1）document.onload在结构和样式加载完才执行js 。 $(document).ready()在Dom结构绘制完毕后执行，不必等加载完毕。<br>2）document.onload不能同时编写多个，如果有 document.onload方法，只会执行一个。$(document).ready()可以同时编写多个，并且都可以得到执行</li>
+<li>详见张洋——<a href="http://www.cnblogs.com/leoo2sk/archive/2010/12/19/ecmascript-scope.html" target="_blank" rel="external">http://www.cnblogs.com/leoo2sk/archive/2010/12/19/ecmascript-scope.html</a></li>
+<li><p>ajax即异步传输+js+html。所谓异步，在这里简单地说，向服务器发送请求的时候，我们不必等待结果，而是可以同时做其它的事情，等有结果自己会根据设定进行后续操作，与此同时，页面是不会发生整页刷新，提高用户体验。<br>12.</p>
+<ul>
+<li>1）创建XMLHttpRequest对象，也就是创建一个异步调用对象。</li>
+<li>2）创建一个新的HTTP请求的方法、url及验证信息。</li>
+<li>3）设置响应HTTP请求状态变化的函数</li>
+<li>4）发送HTTP请求</li>
+<li>5）获取异步地调用返回的数据</li>
+<li><p>6）使用js和Dom实现局部刷新</p>
+</li>
+<li><p>aiax和jsonp区别：相同点：都是请求同一个url。不同点：ajax的核心是通过XMLHttpRequest获取内容，jsonp则动态添加<code>&lt;script&gt;</code>调用服务器js脚本。</p>
+</li>
+</ul>
+</li>
+<li><p>json是一种轻量级的数据交换格式，它是基于js的一个子集，且数据格式简单，易于读写，占用带宽小。格式：采用键/值对,例如：{“age”:”12,”name”:”wq”}</p>
+</li>
+<li><p>Get：一般用于信息获取，使用url传递参数，对所发送信息的数量也有限制，2000个字符。</p>
+<p>Post：一般用于修改服务器上的资源，对所发送的信息没有限制。</p>
+<p>Get方式需要使用Request.QueryString来取得变量的值，</p>
+<p>Post方式通过Request.Form来获取变量的值，也就是说Get通过地址栏来传值，而Post方式通过提交表单来传值。</p>
+<p>而在一下情况下，请使用Post请求：</p>
+<ul>
+<li>1）无法使用缓存文件（更新服务器上的文件或数据库）</li>
+<li>2）向服务器发送大量数据（Post没有数据量限制）</li>
+<li>3）发送包含未知字符的用户输入时，Post比Get更稳定也更可靠。</li>
+</ul>
+</li>
+<li>一：方法调用模式 二：函数调用方式 三：构造器调用模式</li>
+<li>apply()函数有两个参数：第一个参数是上下文，第二个参数是参数组成的数组。如果上下文是null，则使用全局对象代替<pre><code>call()的第一个参数是上下文，后续是实例传入的参数序列。
+</code></pre></li>
+<li>null是一个表示“无”的对象，转为数值时为0；undefined表示“无”的原始值，转为数值为NaN。</li>
+<li>push()尾部添加  pop()尾部删除 unshift()头部添加 shift()头部删除</li>
+<li>前者是切割数组的形式，后者是将数组转换为字符串。</li>
+<li>思路：<ul>
+<li>1.创建一个新的数组存放结果</li>
+<li>2.创建一个空对象</li>
+<li>3.for循环时，每次取出一个元素与对象进行对比，如果这个元素不重复，则把它放到结果数组里，<pre><code>同时把这个元素的内容作为对象的属性，并赋值为1，存入到第二步建立的对象中
+说明：至于如何对比，就是每次从原数组中取出一个元素，然后到对象中访问这个属性，如果能访问到，则说明重复
+</code></pre><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Array</span>.prototype.unique= <span class="function"><span class="keyword">function</span> </span>() &#123;</div><div class="line">    <span class="keyword">var</span> result =&#123;&#125;;</div><div class="line">    <span class="keyword">var</span> <span class="keyword">new</span><span class="type">Arr</span>=[];</div><div class="line">    <span class="keyword">for</span>( i = <span class="number">0</span> ;i &lt;<span class="built_in">this</span>.length ;i++)&#123;</div><div class="line">        <span class="keyword">if</span>(!result[arr])&#123;</div><div class="line">            <span class="keyword">new</span><span class="type">Arr</span>.push(arr);</div><div class="line">            result[arr] = <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> result</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> arr=[<span class="number">112</span>,<span class="number">112</span>,<span class="number">34</span>,<span class="string">'你好'</span>,<span class="number">112</span>,<span class="number">112</span>,<span class="number">34</span>,<span class="string">'你好'</span>,<span class="string">'str'</span>,<span class="string">'str1'</span>];</div><div class="line">alert(arr.unique());</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/04/20/面试之js篇——基础题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-总结ES6常用的新特性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -331,86 +512,6 @@
 
 
   
-    <article id="post-关于 AngularJS 的数据绑定" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/22/关于 AngularJS 的数据绑定/">关于 AngularJS 的数据绑定用域</a>
-    </h1>
-  
-
-        
-        <a href="/2016/03/22/关于 AngularJS 的数据绑定/" class="archive-article-date">
-  	<time datetime="2016-03-22T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="单向绑定（ng-bind）-和-双向绑定（ng-model）-的区别"><a href="#单向绑定（ng-bind）-和-双向绑定（ng-model）-的区别" class="headerlink" title="单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别"></a>单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别</h4><p><code>ng-bind</code> 单向数据绑定（<code>$scope -&gt; view</code>），用于数据显示，简写形式是 <code>{</code>&#123;  &#125;<code>}</code>。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">ng-bind</span>=<span class="string">"val"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2016/03/22/关于 AngularJS 的数据绑定/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/03/22/关于 AngularJS 的数据绑定/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-AngularJS 中 Controller 之间的通信" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -474,6 +575,86 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/03/22/AngularJS 中 Controller 之间的通信/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-关于 AngularJS 的数据绑定" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/22/关于 AngularJS 的数据绑定/">关于 AngularJS 的数据绑定用域</a>
+    </h1>
+  
+
+        
+        <a href="/2016/03/22/关于 AngularJS 的数据绑定/" class="archive-article-date">
+  	<time datetime="2016-03-22T14:01:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="单向绑定（ng-bind）-和-双向绑定（ng-model）-的区别"><a href="#单向绑定（ng-bind）-和-双向绑定（ng-model）-的区别" class="headerlink" title="单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别"></a>单向绑定（ng-bind） 和 双向绑定（ng-model） 的区别</h4><p><code>ng-bind</code> 单向数据绑定（<code>$scope -&gt; view</code>），用于数据显示，简写形式是 <code>{</code>&#123;  &#125;<code>}</code>。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">ng-bind</span>=<span class="string">"val"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2016/03/22/关于 AngularJS 的数据绑定/#more">更多 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/03/22/关于 AngularJS 的数据绑定/">展开全文 >></a>
         </p>
       
 
@@ -733,92 +914,9 @@
 
 
   
-    <article id="post-AngularJS入门篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/02/AngularJS入门篇/">AngularJS入门篇</a>
-    </h1>
-  
-
-        
-        <a href="/2015/11/02/AngularJS入门篇/" class="archive-article-date">
-  	<time datetime="2015-11-02T11:53:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-11-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>AngularJS是一个JavaScript框架，它通过指令扩展了HTML，且通过表达式绑定数据到 HTML。<br>顺便一提，什么是框架？比如struts2、spring、hibernate、thinkphp、wordpress等等。<br>那么，什么是组件？比如jdbc、jquery、swiper、layer、arttemplate等等。<br>
-        
-          <a class="article-more-a" href="/2015/11/02/AngularJS入门篇/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">angular</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/设计开发/" class="article-tag-list-link color5">设计开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/11/02/AngularJS入门篇/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 
