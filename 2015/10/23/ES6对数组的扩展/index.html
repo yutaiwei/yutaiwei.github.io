@@ -191,7 +191,7 @@
 <h2 id="Array-from"><a href="#Array-from" class="headerlink" title="Array.from()"></a>Array.from()</h2><p><code>Array.from()</code>将类数组(array-like)对象与可遍历的对象转化为数组并返回。例如将dom节点集合转化为数组，以前我们可能都会这样写：</p>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var divs = document.querySelectAll(<span class="string">"div"</span>);</div><div class="line">[].slice.call(divs).forEach(function (<span class="keyword">node</span><span class="title">) &#123;</span></div><div class="line">   console.log(<span class="keyword">node</span><span class="title">);</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>现在我们可以这样写：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> divs = <span class="built_in">document</span>.querySelectAll(<span class="string">"div"</span>);</div><div class="line"><span class="built_in">Array</span>.from(divs).forEach(<span class="function"><span class="keyword">function</span> (<span class="params">node</span>) </span>&#123;</div><div class="line">   <span class="built_in">console</span>.log(node);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var divs = document.querySelectAll(<span class="string">"div"</span>);</div><div class="line">Array.from(divs).forEach(function (<span class="keyword">node</span><span class="title">) &#123;</span></div><div class="line">   console.log(<span class="keyword">node</span><span class="title">);</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>上面两种写法基本上是相同的。</p>
 <p><code>Array.from()</code>也可以将ES6中新增的<code>Set</code>、<code>Map</code>等结构转化为数组：</p>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 将Set结构转化为数组</span></div><div class="line">Array.from(new Set([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>])); <span class="comment">// [1, 2, 3, 4]</span></div></pre></td></tr></table></figure>
@@ -199,7 +199,7 @@
 <p>字符串既是类数组又是可遍历的，所以<code>Array.from()</code>也可将字符串转化为数组：</p>
 <figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Array</span>.from(<span class="string">"zlw"</span>); // [<span class="string">"z"</span>, <span class="string">"l"</span>, <span class="string">"w"</span>]</div></pre></td></tr></table></figure>
 <p><code>Array.from()</code>还有两个可选参数，完整语法如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.from(obj, mapFn, thisArg)</div></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Array</span>.from(obj, mapFn, thisArg)</div></pre></td></tr></table></figure>
 <p><code>mapFn</code>其实就是数组的<code>map</code>方法，对数组的每个元素处理。<code>thisArg</code>是执行环境的上下文。<code>Array.from(obj, mapFn, thisArg)</code>等同于<code>Array.from(obj).map(mapFn, thisArg)</code>。</p>
 <h2 id="Array-of"><a href="#Array-of" class="headerlink" title="Array.of()"></a>Array.of()</h2><p><code>Array.of()</code>将其参数转化为数组。如：</p>
 <figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Array.of(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// [1, 2, 3]</span></div></pre></td></tr></table></figure>
@@ -222,7 +222,7 @@
 <figure class="highlight q"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span> entries = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].entries();</div><div class="line">console.log(entries.<span class="built_in">next</span>().<span class="built_in">value</span>); <span class="comment">// [0, 1]</span></div><div class="line">console.log(entries.<span class="built_in">next</span>().<span class="built_in">value</span>); <span class="comment">// [1, 2]</span></div><div class="line">console.log(entries.<span class="built_in">next</span>().<span class="built_in">value</span>); <span class="comment">// [2, 3]</span></div><div class="line"></div><div class="line"><span class="built_in">var</span> <span class="built_in">keys</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].<span class="built_in">keys</span>();</div><div class="line">console.log(<span class="built_in">keys</span>.<span class="built_in">next</span>().<span class="built_in">value</span>); <span class="comment">// 0</span></div><div class="line">console.log(<span class="built_in">keys</span>.<span class="built_in">next</span>().<span class="built_in">value</span>); <span class="comment">// 1</span></div><div class="line">console.log(<span class="built_in">keys</span>.<span class="built_in">next</span>().<span class="built_in">value</span>); <span class="comment">// 2</span></div><div class="line"></div><div class="line"><span class="built_in">var</span> valuess = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].values();</div><div class="line">console.log(values.<span class="built_in">next</span>().<span class="built_in">value</span>); <span class="comment">// 1</span></div><div class="line">console.log(values.<span class="built_in">next</span>().<span class="built_in">value</span>); <span class="comment">// 2</span></div><div class="line">console.log(values.<span class="built_in">next</span>().<span class="built_in">value</span>); <span class="comment">// 3</span></div></pre></td></tr></table></figure>
 <p>迭代器的<code>next()</code>方法返回的是一个包含<code>value</code>属性与<code>done</code>属性的对象，而<code>value</code>属性是当前遍历位置的值，<code>done</code>属性是一个布尔值，表示遍历是否结束。</p>
 <p>我们也可以用<code>for...of</code>来遍历迭代器：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> entries) &#123;</div><div class="line">  <span class="built_in">console</span>.log(i)</div><div class="line">&#125; <span class="comment">// [0, 1]、[1, 2]、[2, 3]</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [index, value] <span class="keyword">of</span> entries) &#123;</div><div class="line">  <span class="built_in">console</span>.log(index, value)</div><div class="line">&#125; <span class="comment">// 0 1、1 2、2 3</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> keys) &#123;</div><div class="line">  <span class="built_in">console</span>.log(key)</div><div class="line">&#125; <span class="comment">// 0, 1, 2</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> values) &#123;</div><div class="line">  <span class="built_in">console</span>.log(value)</div><div class="line">&#125; <span class="comment">// 1, 2, 3</span></div></pre></td></tr></table></figure>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i <span class="keyword">of</span> entries) &#123;</div><div class="line">  console.log(i)</div><div class="line">&#125; <span class="comment">// [0, 1]、[1, 2]、[2, 3]</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [index, <span class="keyword">value</span>] <span class="keyword">of</span> entries) &#123;</div><div class="line">  console.log(index, <span class="keyword">value</span>)</div><div class="line">&#125; <span class="comment">// 0 1、1 2、2 3</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> keys) &#123;</div><div class="line">  console.log(key)</div><div class="line">&#125; <span class="comment">// 0, 1, 2</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> <span class="keyword">value</span> <span class="keyword">of</span> values) &#123;</div><div class="line">  console.log(<span class="keyword">value</span>)</div><div class="line">&#125; <span class="comment">// 1, 2, 3</span></div></pre></td></tr></table></figure>
 <h2 id="Array-prototype-copyWithin"><a href="#Array-prototype-copyWithin" class="headerlink" title="Array.prototype.copyWithin()"></a>Array.prototype.copyWithin()</h2><p><code>copyWithin()</code>方法语法如下：</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr.copyWithin(target, start, <span class="keyword">end</span> = this.<span class="built_in">length</span>)</div></pre></td></tr></table></figure>
 <p>最后一个参数为可选参数，省略则为数组长度。该方法在数组内复制从<code>start</code>(包含<code>start</code>)位置到<code>end</code>(不包含<code>end</code>)位置的一组元素覆盖到以<code>target</code>为开始位置的地方。例：</p>
@@ -274,11 +274,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
         		</li>
       		
 		</ul>
@@ -495,7 +495,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,19 +515,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -531,15 +527,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">React</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,19 +535,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">React</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">exports</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">win7</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,7 +567,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">李银河</a>
+                <a href="javascript:void(0)" class="js-tag color3">exports</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,7 +583,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">周云龙</a>
+                <a href="javascript:void(0)" class="js-tag color5">win7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">快捷键</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">干货总结</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,23 +611,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">理想</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">干货总结</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">子沫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笑话</a>
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -635,23 +619,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">王纯</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">小说</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">冯仑</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">裘霜</a>
+                <a href="javascript:void(0)" class="js-tag color3">笑话</a>
               </li>
             
             <div class="clearfix"></div>
