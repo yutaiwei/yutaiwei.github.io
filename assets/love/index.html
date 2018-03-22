@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>平平</title>
+    <script>var desW = 750;var winW = document.documentElement.clientWidth;document.documentElement.style.fontSize = winW / desW*100 + "px";</script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        .wrap {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .wrap > img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .wrap ul {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            list-style: none;
+            text-align: center;
+            position: absolute;
+            bottom: 5%;
+            z-index: 100;
+        }
+        .wrap ul li {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            border: 10px solid rgba(255, 255, 255, .5);
+            margin: 0 5px;
+            overflow: hidden;
+
+        }
+        .wrap ul li img {
+            width: 100%;
+            height: 100%;
+        }
+        :target{
+            z-index: 10;
+        }
+        #bg1:target{
+            animation: move1 1s 1 both;
+        }
+        @-webkit-keyframes move1 {
+            0%{
+                transform: translate(-500px);
+            }
+            100%{
+                transform: translate(0px);
+            }
+        }
+        #bg2:target{
+            animation: move2 1s 1 both;
+        }
+        @-webkit-keyframes move2{
+            0%{
+                transform: translate(0px,-500px);
+            }
+            100%{
+                transform: translate(0px,0px);
+            }
+        }
+        #bg3:target{
+            animation: move3 1s 1 both;
+        }
+        @-webkit-keyframes move3{
+            0%{
+                transform: scale(0);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+        #bg4:target{
+            animation: move4 1s 1 both;
+        }
+        @-webkit-keyframes move4{
+            0%{
+                transform: scale(2);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+        #bg5:target{
+            animation: move5 1s 1 both;
+        }
+        @-webkit-keyframes move5{
+            0%{
+                transform: rotate(0deg) scale(0);
+            }
+            100%{
+                transform: rotate(360deg) scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <img src="http://www.yutaiwei.top/assets/img/p1.jpg" id="bg1">
+    <img src="http://www.yutaiwei.top/assets/img/p2.jpg" id="bg2">
+    <img src="http://www.yutaiwei.top/assets/img/p3.jpg" id="bg3">
+    <img src="http://www.yutaiwei.top/assets/img/p4.jpg" id="bg4">
+    <img src="http://www.yutaiwei.top/assets/img/p5.jpg" id="bg5">
+    <ul>
+        <li><a href="#bg1"><img src="http://www.yutaiwei.top/assets/img/p1.jpg"></a></li>
+        <li><a href="#bg2"><img src="http://www.yutaiwei.top/assets/img/p2.jpg"></a></li>
+        <li><a href="#bg3"><img src="http://www.yutaiwei.top/assets/img/p3.jpg"></a></li>
+        <li><a href="#bg4"><img src="http://www.yutaiwei.top/assets/img/p4.jpg"></a></li>
+        <li><a href="#bg5"><img src="http://www.yutaiwei.top/assets/img/p5.jpg"></a></li>
+    </ul>
+</div>
+</body>
+</html>
